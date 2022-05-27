@@ -9,7 +9,7 @@ export default function Navbar() {
     const { logged, user: { name, profilePic } } = useSelector(state => state.auth)
 
     return (
-        <nav className=' bg-blue-600 text-white font-semibold flex px-14 p-3'>
+        <nav className=' bg-sky-900 text-white flex px-14 p-4'>
             <h2 className=' text-lg'>Logo</h2>
             {!logged ?
                 <ul className=' flex items-center ml-auto gap-5'>

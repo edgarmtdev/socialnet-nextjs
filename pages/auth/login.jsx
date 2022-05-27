@@ -1,19 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import {
-    signInWithEmailAndPassword,
-    GoogleAuthProvider,
-    FacebookAuthProvider,
-    signInWithPopup,
-    GithubAuthProvider
-} from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../../config/firebase';
-
-const googleProvider = new GoogleAuthProvider()
-const fbProvider = new FacebookAuthProvider()
-const ghProvider = new GithubAuthProvider()
+import SectionProvider from '../../components/form/provider/SectionProvider';
 
 export default function Login() {
 
@@ -29,24 +20,6 @@ export default function Login() {
                     credentials: "Las credenciales son incorrectas"
                 })
             })
-    }
-
-    const logInGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-    }
-
-    const logInFacebook = () => {
-        signInWithPopup(auth, fbProvider)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-    }
-
-    const logInGithub = () => {
-        signInWithPopup(auth, ghProvider)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -66,36 +39,28 @@ export default function Login() {
             >
                 {({ errors, isSubmitting }) => {
                     return <>
-                        <Form className=' flex flex-col w-2/3 md:w-1/2 mx-auto bg-slate-200 p-10 md:p-20 mt-20 gap-5 rounded-2xl shadow-xl'>
-                            <h1 className=' text-xl '>Login</h1>
-                            <Field placeholder='Email' type='email' name='email' className=' p-2 rounded-xl outline-none ' />
-                            <Field placeholder='Password' type='password' name='password' className=' p-2 rounded-xl outline-none ' />
+                        <Form className=' flex flex-col mx-3 md:w-1/3 md:mx-auto bg-slate-200 p-7 md:p-14 mt-10 gap-8 shadow-xl'>
+                            <h1 className=' text-4xl font-light'>Login</h1>
+
+                            <div className=' h-[1px] bg-gray-400'></div>
+
+                            {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
+
+                            <Field placeholder='Email' type='email' name='email' className=' p-2 outline-none' />
+                            <Field placeholder='Password' type='password' name='password' className=' p-2  outline-none ' />
                             <button
                                 type='submit'
-                                className={`bg-blue-600 p-2 rounded-xl shadow-md text-white font-medium`}
+                                className={`bg-blue-600 p-2 shadow-md text-white text-xl mb-5 hover:bg-blue-500`}
                             >
                                 Sign In
                             </button>
-                            <button
-                                onClick={logInGoogle}
-                                className={`bg-white p-2 rounded-xl shadow-md font-medium`}
-                            >
-                                Sign In with Google
-                            </button>
-                            <button
-                                onClick={logInFacebook}
-                                className={`bg-white p-2 rounded-xl shadow-md font-medium`}
-                            >
-                                Sign In with Facebook
-                            </button>
-                            <button
-                                onClick={logInGithub}
-                                className={`bg-white p-2 rounded-xl shadow-md font-medium`}
-                            >
-                                Sign In with Github
-                            </button>
+
+                            <div className=' h-[1px] bg-gray-400'></div>
+
+                            <h1 className=' text-center text-lg'>SignIn with</h1>
+
+                            <SectionProvider />
                         </Form>
-                        {errors && <p>{errors.credentials}</p>}
                     </>
                 }}
             </Formik>
