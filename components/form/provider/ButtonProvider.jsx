@@ -1,3 +1,4 @@
+import { signInWithPopup } from 'firebase/auth'
 import { auth } from '../../../config/firebase'
 
 export default function ButtonProvider({ icon, provider }) {
@@ -12,7 +13,7 @@ export default function ButtonProvider({ icon, provider }) {
         <button
             type='button'
             onClick={() => loginProvider(provider)}
-            className={`bg-white p-2 rounded-xl shadow-md font-medium`}
+            className={`p-2 font-medium`}
         >
             {icon}
         </button>

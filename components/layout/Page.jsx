@@ -26,7 +26,7 @@ const Page = ({ children }) => {
     return (
         <>
             <Navbar />
-            <div>{children}</div>
+            <main>{children}</main>
         </>
     )
 }

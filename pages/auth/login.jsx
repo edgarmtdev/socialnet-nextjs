@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../../config/firebase';
 import SectionProvider from '../../components/form/provider/SectionProvider';
+import Head from 'next/head';
 
 export default function Login() {
 
@@ -30,6 +31,9 @@ export default function Login() {
 
     return (
         <>
+            <Head>
+                <title>Login</title>
+            </Head>
             <Formik
                 initialValues={{
                     email: '',
@@ -39,25 +43,34 @@ export default function Login() {
             >
                 {({ errors, isSubmitting }) => {
                     return <>
-                        <Form className=' flex flex-col mx-3 md:w-1/3 md:mx-auto bg-slate-200 p-7 md:p-14 mt-10 gap-8 shadow-xl'>
-                            <h1 className=' text-4xl font-light'>Login</h1>
-
-                            <div className=' h-[1px] bg-gray-400'></div>
+                        <Form className=' flex flex-col mx-5 md:w-[30%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
+                            <h1 className=' text-3xl '>Login</h1>
 
                             {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
 
-                            <Field placeholder='Email' type='email' name='email' className=' p-2 outline-none' />
-                            <Field placeholder='Password' type='password' name='password' className=' p-2  outline-none ' />
+                            <Field
+                                placeholder='Enter your email'
+                                type='email'
+                                name='email'
+                                className=' bg-gray-100 shadow-md p-2 outline-none text-sm rounded-sm text-slate-600'
+                            />
+                            <Field
+                                placeholder='Enter your password'
+                                type='password' name='password'
+                                className='bg-gray-100 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
+                            />
                             <button
                                 type='submit'
-                                className={`bg-blue-600 p-2 shadow-md text-white text-xl mb-5 hover:bg-blue-500`}
+                                className={` bg-mine-shaft-600 rounded-sm p-[6px] shadow-md text-white text-base mb-5 hover:opacity-95`}
                             >
                                 Sign In
                             </button>
+                            <section className=' flex items-center justify-between'>
+                                <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
+                                <h1 className=' text-center text-base w-full text-gray-600'>Sign in with</h1>
+                                <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
+                            </section>
 
-                            <div className=' h-[1px] bg-gray-400'></div>
-
-                            <h1 className=' text-center text-lg'>SignIn with</h1>
 
                             <SectionProvider />
                         </Form>
