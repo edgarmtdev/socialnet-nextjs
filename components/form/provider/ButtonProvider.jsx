@@ -1,19 +1,18 @@
-import { signInWithPopup } from 'firebase/auth'
-import { auth } from '../../../config/firebase'
+import { loginProvider } from '../../../libs/auth'
 
 export default function ButtonProvider({ icon, provider }) {
 
-    const loginProvider = (provider) => {
-        signInWithPopup(auth, provider)
-            .then(res => console.log(res))
+    const loginWithProvider = (provider) => {
+        loginProvider(provider)
+            .then(res => console.log('Hola', res))
             .catch(err => console.log(err))
     }
 
     return (
         <button
             type='button'
-            onClick={() => loginProvider(provider)}
-            className={`p-2 font-medium`}
+            onClick={() => loginWithProvider(provider)}
+            className={`p-2 font-medium hover:scale-110 transition-transform 2s hover:opacity-90`}
         >
             {icon}
         </button>

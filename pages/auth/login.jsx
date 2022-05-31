@@ -52,12 +52,12 @@ export default function Login() {
                                 placeholder='Enter your email'
                                 type='email'
                                 name='email'
-                                className=' bg-gray-100 shadow-md p-2 outline-none text-sm rounded-sm text-slate-600'
+                                className='  bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-slate-600'
                             />
                             <Field
                                 placeholder='Enter your password'
                                 type='password' name='password'
-                                className='bg-gray-100 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
+                                className=' bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
                             />
                             <button
                                 type='submit'
@@ -70,8 +70,6 @@ export default function Login() {
                                 <h1 className=' text-center text-base w-full text-gray-600'>Sign in with</h1>
                                 <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
                             </section>
-
-
                             <SectionProvider />
                         </Form>
                     </>

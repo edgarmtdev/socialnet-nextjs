@@ -1,6 +1,5 @@
-import { signOut } from 'firebase/auth'
 import Link from 'next/link'
-import React from 'react'
+import { signOut } from 'firebase/auth'
 import { useSelector } from 'react-redux'
 import { auth } from '../../config/firebase'
 
@@ -20,8 +19,8 @@ export default function Navbar() {
                     :
                     <ul className=' flex items-center ml-auto gap-5'>
                         <li className=' cursor-pointer' onClick={() => { signOut(auth) }}>Logout</li>
-                        <li><Link href={'/'}><p>{name}</p></Link></li>
                         <li><img src={profilePic} alt="" className=' w-6 h-6 rounded-full' /></li>
+                        <li>{name}</li>
                     </ul>
                 }
             </div>
