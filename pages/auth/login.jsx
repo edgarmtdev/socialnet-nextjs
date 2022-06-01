@@ -25,7 +25,7 @@ export default function Login() {
 
     useEffect(() => {
         if (logged) {
-            router.replace('/')
+            router.replace('/profile')
         }
     }, [logged])
 
@@ -43,7 +43,7 @@ export default function Login() {
             >
                 {({ errors, isSubmitting }) => {
                     return <>
-                        <Form className=' flex flex-col mx-5 md:w-[30%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
+                        <Form className=' flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
                             <h1 className=' text-3xl '>Login</h1>
 
                             {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
@@ -56,12 +56,13 @@ export default function Login() {
                             />
                             <Field
                                 placeholder='Enter your password'
-                                type='password' name='password'
+                                type='password' 
+                                name='password'
                                 className=' bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
                             />
                             <button
                                 type='submit'
-                                className={` bg-mine-shaft-600 rounded-sm p-[6px] shadow-md text-white text-base mb-5 hover:opacity-95`}
+                                className={` bg-mine-shaft-600 rounded-sm p-[8px] shadow-md text-white text-base mb-5 hover:opacity-95`}
                             >
                                 Sign In
                             </button>

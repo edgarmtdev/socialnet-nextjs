@@ -4,8 +4,8 @@ export default function ButtonProvider({ icon, provider }) {
 
     const loginWithProvider = (provider) => {
         loginProvider(provider)
-            .then(res => console.log('Hola', res))
-            .catch(err => console.log(err))
+            // .then(res => console.log(res))
+            // .catch(err => console.log(err))
     }
 
     return (

@@ -30,8 +30,10 @@ export async function loginProvider(id) {
     try {
         return await signInWithPopup(auth, getProvider(id))
     } catch (error) {
-        if (error.email && error.credentials && error.code === 'auth/account-exists-with-different-credential') {
-            const providers = await fetchSignInMethodsForEmail(error.email)
+        // console.log({ ...error }) // para ver las propiedades del error
+        const email = error.customData.email
+        if (email && error.code === 'auth/account-exists-with-different-credential') {
+            const providers = await fetchSignInMethodsForEmail(auth, email)
             const method = providers.find(provider => supportedSignInMethods.includes(provider))
 
             if (!method) {
@@ -43,7 +45,7 @@ export async function loginProvider(id) {
             return result
         }
 
-        return { 
+        return {
             message: 'not supported'
         }
     }

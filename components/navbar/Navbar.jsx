@@ -17,10 +17,10 @@ export default function Navbar() {
                         <li><Link href={'/auth/sigup'}>SignUp</Link></li>
                     </ul>
                     :
-                    <ul className=' flex items-center ml-auto gap-5'>
+                    <ul className=' flex items-center ml-auto gap-8'>
+                        <li><Link href={'/profile'}>MyProfile</Link></li>
                         <li className=' cursor-pointer' onClick={() => { signOut(auth) }}>Logout</li>
-                        <li><img src={profilePic} alt="" className=' w-6 h-6 rounded-full' /></li>
-                        <li>{name}</li>
+                        <li className=' flex gap-2 items-center'><img src={profilePic} alt="" className=' w-6 h-6 rounded-full' />{name}</li>
                     </ul>
                 }
             </div>
