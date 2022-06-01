@@ -1,10 +1,15 @@
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { newPost } from '../../features/posts';
 
 export default function Profile() {
 
+    const dispatch = useDispatch()
+
     const createPost = (values, { setSubmitting }) => {
         console.log(values);
+        dispatch(newPost(values))
     }
 
     return (

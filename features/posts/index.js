@@ -3,17 +3,23 @@ import { collection, addDoc, doc } from 'firebase/firestore';
 import { database } from "../../config/firebase";
 export const getPosts = createAsyncThunk('posts/getPosts')
 
-export const createPosts = createAsyncThunk(
+export const newPost = createAsyncThunk(
     'posts/create',
     async function (data, thunkAPI) {
-        const state = thunkAPI.getState()
-        const col = collection(database, 'posts')
-        const doc = await addDoc(col, {
-            idUser: state.auth.user.id,
-            ...data
-        })
+        try {
+            const state = thunkAPI.getState()
+            const col = collection(database, 'posts')
+            const doc = await addDoc(col, {
+                idUser: state.auth.user.id,
+                ...data
+            })
 
-        return doc.data()
+            console.log(doc);
+
+            return data
+        } catch (error) {
+            console.log(error);
+        }
     }
 )
 
@@ -25,8 +31,18 @@ const initialState = {
 const postSlice = createSlice({
     name: 'posts',
     initialState,
-    extraReducers: {
-
+    extraReducers: (builder) => {
+        builder.addCase(newPost.pending, (state, action) => {
+            state.loading = true
+        })
+            .addCase(newPost.rejected, (state, action) => {
+                state.posts = []
+                state.loading = false
+            })
+            .addCase(newPost.fulfilled, (state, action) => {
+                state.loading = false
+                state.posts = state.posts.push(action.payload)
+            })
     }
 })
 
