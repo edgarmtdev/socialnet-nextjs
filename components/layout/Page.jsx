@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { useDispatch } from 'react-redux';
-import { logIn, logOut } from '../../features/auth';
+import { login, logOut } from '../../features/auth';
 import Navbar from '../Navbar/Navbar';
 
 const Page = ({ children }) => {
@@ -10,12 +10,16 @@ const Page = ({ children }) => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (result) => {
+            console.log(result);
             if (result) {
-                dispatch(logIn({
-                    id: result.uid,
+                dispatch(login({
+                    // id: result.uid,
                     name: result.displayName,
                     email: result.email,
-                    profilePic: result.photoURL
+                    profilePic: result.photoURL,
+                    provider: result.providerId,
+                    idProvider: result.uid
+                    
                 }))
             } else {
                 dispatch(logOut())
