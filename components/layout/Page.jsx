@@ -10,7 +10,6 @@ const Page = ({ children }) => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (result) => {
-            console.log(result);
             if (result) {
                 dispatch(login({
                     // id: result.uid,

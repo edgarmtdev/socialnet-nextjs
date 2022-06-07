@@ -4,9 +4,6 @@ import axios from "axios"
 export const login = createAsyncThunk('auth/login', async (data, thunkAPI) => {
     const { idProvider, provider } = data
     const user = await axios.post('/api/auth/login', { idProvider, provider })
-
-    console.log(data);
-
     return { ...data, idUser: user.data.id }
 })
 
@@ -26,14 +23,6 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        // logIn(state, action) {
-        //     state.logged = true
-        //     state.loading = false
-        //     state.user.name = action.payload.name
-        //     state.user.email = action.payload.email
-        //     state.user.id = action.payload.id
-        //     state.user.profilePic = action.payload.profilePic
-        // },
         logOut(state, action) {
             state.logged = false
             state.loading = false
