@@ -12,7 +12,6 @@ const Page = ({ children }) => {
         onAuthStateChanged(auth, (result) => {
             if (result) {
                 dispatch(login({
-                    // id: result.uid,
                     name: result.displayName,
                     email: result.email,
                     profilePic: result.photoURL,

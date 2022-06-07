@@ -1,25 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { collection, addDoc, doc } from 'firebase/firestore';
-import { database } from "../../config/firebase";
+import axios from "axios";
 export const getPosts = createAsyncThunk('posts/getPosts')
 
 export const newPost = createAsyncThunk(
     'posts/create',
     async function (data, thunkAPI) {
-        try {
-            const state = thunkAPI.getState()
-            const col = collection(database, 'posts')
-            const doc = await addDoc(col, {
-                idUser: state.auth.user.id,
-                ...data
-            })
-
-            console.log(doc);
-
-            return data
-        } catch (error) {
-            console.log(error);
-        }
+        const state = thunkAPI.getState()
+        console.log(state);
+        const result = await axios.post('/api/posts/create', {
+            ...data, 
+            author: state.auth.user.idUser
+        })
+        console.log(result.data);
+        return result.data
     }
 )
 

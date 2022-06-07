@@ -3,6 +3,7 @@ const client = new PrismaClient()
 
 export default async function create(req, res) {
     if (req.method === 'POST') {
+        console.log(req.body);
         const post = await client.post.create({
             data: {
                 content: req.body.content,
