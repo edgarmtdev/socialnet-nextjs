@@ -22,7 +22,7 @@ model User {
 
 model Post {
     id       String    @id @default(auto()) @map("_id") @db.ObjectId
-    body     String
+    content  String
     image    String
     author   User  @relation(name:"author", fields: [id], references: [id])
     likesUserIDs String[] @db.ObjectId
@@ -32,7 +32,7 @@ model Post {
 
 model Comment {
     id      String @id @default(auto()) @map("_id") @db.ObjectId
-    comment String
+    body    String
     author  User  @relation(fields: [id], references: [id])
     post    Post  @relation(fields: [id], references: [id])
 }

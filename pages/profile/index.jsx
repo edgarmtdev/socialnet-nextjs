@@ -1,12 +1,15 @@
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { newPost } from '../../features/posts';
+import { useDispatch, useSelector } from 'react-redux';
+import posts, { newPost } from '../../features/posts';
 import Head from 'next/head';
 
 export default function Profile() {
 
+    const { data, loading } = useSelector(state => state.post)
     const dispatch = useDispatch()
+
+    console.log(data);
 
     const createPost = (values, { setSubmitting }) => {
         console.log(values);
@@ -32,6 +35,15 @@ export default function Profile() {
                         <button type='submit'>POST</button>
                     </Form>
                 </Formik>
+
+                <section>
+                    {data.map(post => {
+                        return (<article key={1}>
+                            <p>{post.content}</p>
+                            <img src={post.image} alt="" />
+                        </article>)
+                    })}
+                </section>
             </div>
         </>
     )

@@ -3,7 +3,6 @@ const client = new PrismaClient()
 
 export default async function login(req, res) {
     if (req.method === 'POST') {
-        console.log(req.body.idProvider, req.body.provider);
         const user = await client.user.findFirst({
             where: {
                 idProvider: req.body.idProvider,

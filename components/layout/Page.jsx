@@ -4,6 +4,7 @@ import { auth } from '../../config/firebase';
 import { useDispatch } from 'react-redux';
 import { login, logOut } from '../../features/auth';
 import Navbar from '../Navbar/Navbar';
+import { getPosts } from '../../features/posts';
 
 const Page = ({ children }) => {
     const dispatch = useDispatch()
@@ -17,8 +18,10 @@ const Page = ({ children }) => {
                     profilePic: result.photoURL,
                     provider: result.providerId,
                     idProvider: result.uid
-                    
                 }))
+                    .then(() => {
+                        dispatch(getPosts())
+                    })
             } else {
                 dispatch(logOut())
             }
