@@ -10,19 +10,13 @@ export default function Profile() {
     const { data, loading } = useSelector(state => state.post)
     const dispatch = useDispatch()
 
-    console.log(data);
-
     const createPost = (values, { setSubmitting }) => {
         dispatch(newPost(values))
     }
-    
-    if (loading) {
-        return (
-            <section className='h-screen flex justify-center items-center'>
-                <ImSpinner10 className=' animate-spin w-10 h-10' />
-            </section>
-        )
-    }
+
+    if (loading) return (<section className='h-screen flex justify-center items-center'>
+        <ImSpinner10 className=' animate-spin w-10 h-10' />
+    </section>)
 
     return (
         <>
@@ -45,7 +39,7 @@ export default function Profile() {
                 </Formik>
 
                 <section className=' mx-auto w-full'>
-                    {data.map(post => (<Post post={post} key={post.id}/>))}
+                    {data.map(post => (<Post post={post} key={post.id} />))}
                 </section>
             </div>
         </>

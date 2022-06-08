@@ -14,6 +14,8 @@ model User {
     id            String    @id @default(auto()) @map("_id") @db.ObjectId
     idProvider    String    @unique
     provider      String
+    name          String
+    profilePic    String
     posts         Post[]    @relation(name: "author")
     comments      Comment[]
     likes         Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])

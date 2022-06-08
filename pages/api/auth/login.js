@@ -15,8 +15,10 @@ export default async function login(req, res) {
         try {
             const newUser = await client.user.create({
                 data: {
+                    name: req.body.name,
                     idProvider: req.body.idProvider,
-                    provider: req.body.provider
+                    provider: req.body.provider,
+                    profilePic: req.body.profilePic
                 }
             })
             return res.json(newUser)
