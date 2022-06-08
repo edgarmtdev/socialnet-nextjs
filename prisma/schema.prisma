@@ -11,28 +11,31 @@ datasource db {
 }
 
 model User {
-    id         String @id @default(auto()) @map("_id") @db.ObjectId
-    idProvider String @unique
-    provider   String
-    posts      Post[] @relation(name: "author")
-    comments   Comment[]
-    likesPostsIDs String[] @db.ObjectId
-    likes      Post[] @relation(name: "likes", fields: [likesPostsIDs], references: [id])
+    id            String    @id @default(auto()) @map("_id") @db.ObjectId
+    idProvider    String    @unique
+    provider      String
+    posts         Post[]    @relation(name: "author")
+    comments      Comment[]
+    likes         Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])
+    likesPostsIDs String[]  @db.ObjectId
 }
 
 model Post {
-    id       String    @id @default(auto()) @map("_id") @db.ObjectId
-    content  String
-    image    String
-    author   User  @relation(name:"author", fields: [id], references: [id])
-    likesUserIDs String[] @db.ObjectId
-    likes    User[]  @relation(name:"likes", fields: [likesUserIDs], references: [id])
-    comments Comment[]
+    id           String    @id @default(auto()) @map("_id") @db.ObjectId
+    content      String
+    image        String
+    author       User      @relation(name: "author", fields: [authorId], references: [id]) //fields -> ref a el mismo model, references -> ref al model externo
+    authorId     String    @db.ObjectId
+    likes        User[]    @relation(name: "likes", fields: [likesUserIDs], references: [id])
+    likesUserIDs String[]  @db.ObjectId
+    comments     Comment[]
 }
 
 model Comment {
-    id      String @id @default(auto()) @map("_id") @db.ObjectId
-    body    String
-    author  User  @relation(fields: [id], references: [id])
-    post    Post  @relation(fields: [id], references: [id])
+    id       String @id @default(auto()) @map("_id") @db.ObjectId
+    body     String
+    author   User   @relation(fields: [authorId], references: [id])
+    authorId String @db.ObjectId
+    post     Post   @relation(fields: [postId], references: [id])
+    postId   String @db.ObjectId
 }

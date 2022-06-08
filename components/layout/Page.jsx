@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../config/firebase';
-import { useDispatch } from 'react-redux';
-import { login, logOut } from '../../features/auth';
-import Navbar from '../Navbar/Navbar';
-import { getPosts } from '../../features/posts';
+import { onAuthStateChanged } from 'firebase/auth' 
+import React, { useEffect } from 'react' 
+import { useDispatch } from 'react-redux' 
+import { auth } from '../../config/firebase' 
+import { login, logOut } from '../../features/auth' 
+import { getPosts } from '../../features/posts' 
+import Navbar from '../Navbar/Navbar' 
 
 const Page = ({ children }) => {
     const dispatch = useDispatch()

@@ -1,8 +1,9 @@
+import Head from 'next/head'
+import Post from '../../components/posts'
 import { Field, Form, Formik } from 'formik'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import posts, { newPost } from '../../features/posts';
-import Head from 'next/head';
+import { ImSpinner10 } from 'react-icons/im'
+import { newPost } from '../../features/posts'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Profile() {
 
@@ -12,8 +13,15 @@ export default function Profile() {
     console.log(data);
 
     const createPost = (values, { setSubmitting }) => {
-        console.log(values);
         dispatch(newPost(values))
+    }
+    
+    if (loading) {
+        return (
+            <section className='h-screen flex justify-center items-center'>
+                <ImSpinner10 className=' animate-spin w-10 h-10' />
+            </section>
+        )
     }
 
     return (
@@ -36,13 +44,8 @@ export default function Profile() {
                     </Form>
                 </Formik>
 
-                <section>
-                    {data.map(post => {
-                        return (<article key={1}>
-                            <p>{post.content}</p>
-                            <img src={post.image} alt="" />
-                        </article>)
-                    })}
+                <section className=' mx-auto w-full'>
+                    {data.map(post => (<Post post={post} key={post.id}/>))}
                 </section>
             </div>
         </>

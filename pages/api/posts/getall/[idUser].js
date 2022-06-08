@@ -1,4 +1,4 @@
-import {PrismaClient} from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 const client = new PrismaClient()
 
 export default async function getAll(req, res) {
@@ -10,5 +10,5 @@ export default async function getAll(req, res) {
             }
         }
     })
-    return res.json(posts) 
+    return res.json(posts)
 }
