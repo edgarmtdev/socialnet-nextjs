@@ -1,18 +1,25 @@
-import axios from 'axios';
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
 
-export async function getServerSideProps(context) {
-    const host = context.req.headers.host
-    const secure = context.req.connection.encrypted
-    const { data: users } = await axios.get(`${secure ? "https" : "http"}://${host}/api/users/all`)
-    return {
-        props: {
-            users
-        }
+// export async function getServerSideProps(context) {
+//     const host = context.req.headers.host
+//     const secure = context.req.connection.encrypted
+
+//     const { data: users } = await axios.get(`${secure ? "https" : "http"}://${host}/api/users/all`)
+//     return {
+//         props: {
+//             users
+//         }
+//     }
+// }
+
+export default function People() {
+    const { users, loading } = useSelector(state => state.users)
+
+    if (loading) {
+        return (<p>Loading....</p>)
     }
-}
 
-export default function People({ users }) {
     return (
         <div>
             <Head>

@@ -16,7 +16,7 @@ export const Menu = styled.div`
     top: 55px;
     background-color: black;
     width: 20%;
-    ${props => props.primary === true && css`
+    ${({ primary }) => primary === true && css`
     animation: ${animate} 1s ease;
     display: block;
     `

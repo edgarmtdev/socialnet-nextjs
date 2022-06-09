@@ -14,9 +14,11 @@ export default function Profile() {
         dispatch(newPost(values))
     }
 
-    if (loading) return (<section className='h-screen flex justify-center items-center'>
-        <ImSpinner10 className=' animate-spin w-10 h-10' />
-    </section>)
+    if (loading) {
+        return (<section className='h-screen flex justify-center items-center'>
+            <ImSpinner10 className=' animate-spin w-10 h-10' />
+        </section>)
+    }
 
     return (
         <>

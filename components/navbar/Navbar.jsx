@@ -24,6 +24,7 @@ export default function Navbar() {
                     <>
                         <ul className=' flex items-center ml-auto gap-8'>
                             <li><Link href={'/profile'}>MyProfile</Link></li>
+                            <li><Link href={'/people'}>People</Link></li>
                             <li className=' flex gap-2 items-center cursor-pointer' onClick={() => setOpen(!open)}>
                                 <img src={profilePic} alt="" className=' w-6 h-6 rounded-full' />
                             </li>
@@ -31,7 +32,12 @@ export default function Navbar() {
                         <Menu primary={open ? true : false}>
                             <ul className=' flex flex-col'>
                                 <li className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'>{name}</li>
-                                <li className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5' onClick={() => { signOut(auth) }}>Logout</li>
+                                <li
+                                    className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'
+                                    onClick={() => { signOut(auth) }}
+                                >
+                                    Logout
+                                </li>
                             </ul>
                         </Menu>
                     </>

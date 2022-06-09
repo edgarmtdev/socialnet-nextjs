@@ -1,11 +1,11 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Field, Form, Formik } from 'formik';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import { auth } from '../../config/firebase';
 import SectionProvider from '../../components/form/provider/SectionProvider';
-import Head from 'next/head';
+import { auth } from '../../config/firebase';
 
 export default function Login() {
 
@@ -14,8 +14,8 @@ export default function Login() {
 
     const login = (values, { setSubmitting, setErrors }) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
-            .then(res => setSubmitting(false))
-            .catch(err => {
+            .then(() => setSubmitting(false))
+            .catch(() => {
                 setSubmitting(false)
                 setErrors({
                     credentials: "Las credenciales son incorrectas"
@@ -41,7 +41,7 @@ export default function Login() {
                 }}
                 onSubmit={login}
             >
-                {({ errors, isSubmitting }) => {
+                {({ errors }) => {
                     return <>
                         <Form className=' flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
                             <h1 className=' text-3xl '>Login</h1>
