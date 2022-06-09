@@ -4,12 +4,18 @@ import Link from 'next/link'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase'
 import { Menu } from './Menu'
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
-
-    const { logged, user: { name, profilePic } } = useSelector(state => state.auth)
-
     const [open, setOpen] = useState(false)
+    const { logged, user: { name, profilePic } } = useSelector(state => state.auth)
+    const router = useRouter()
+
+    const logout = () => {
+        signOut(auth)
+        setOpen(false)
+        router.replace('/')
+    }
 
     return (
         <nav className=' bg-mine-shaft-600 text-white p-4'>
@@ -18,7 +24,7 @@ export default function Navbar() {
                 {!logged ?
                     <ul className=' flex items-center ml-auto gap-10'>
                         <li><Link href={'/auth/login'}>LogIn</Link></li>
-                        <li><Link href={'/auth/sigup'}>SignUp</Link></li>
+                        <li><Link href={'/auth/signup'}>SignUp</Link></li>
                     </ul>
                     :
                     <>
@@ -34,7 +40,7 @@ export default function Navbar() {
                                 <li className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'>{name}</li>
                                 <li
                                     className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'
-                                    onClick={() => { signOut(auth) }}
+                                    onClick={logout}
                                 >
                                     Logout
                                 </li>

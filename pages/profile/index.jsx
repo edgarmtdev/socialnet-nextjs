@@ -4,11 +4,14 @@ import { Field, Form, Formik } from 'formik'
 import { ImSpinner10 } from 'react-icons/im'
 import { newPost } from '../../features/posts'
 import { useDispatch, useSelector } from 'react-redux'
+import { useAuthState } from '../../hooks/useAuthState'
 
 export default function Profile() {
 
     const { data, loading } = useSelector(state => state.post)
     const dispatch = useDispatch()
+
+    useAuthState()
 
     const createPost = (values, { setSubmitting }) => {
         dispatch(newPost(values))
