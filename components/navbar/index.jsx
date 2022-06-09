@@ -3,14 +3,17 @@ import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { Menu } from './Menu'
+import { Item, Menu } from './Menu'
 import { useRouter } from 'next/router'
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
-    const { logged, user: { name, profilePic } } = useSelector(state => state.auth)
-    const router = useRouter()
+    const {
+        logged,
+        user: { name, profilePic }
+    } = useSelector(state => state.auth)
 
+    const router = useRouter()
     const logout = () => {
         signOut(auth)
         setOpen(false)
@@ -18,28 +21,32 @@ export default function Navbar() {
     }
 
     return (
-        <nav className=' bg-mine-shaft-600 text-white p-4'>
-            <div className=' max-w-screen-xl w-full flex items-center mx-auto text-sm'>
-                <h2 className=' text-base'><Link href={'/'}>Home</Link></h2>
+        <nav className=' bg-mine-shaft-600 text-white text-xs font-medium'>
+            <div className='max-w-screen-xl w-full flex items-center mx-auto'>
+                <h2 className='text-base'><Link href={'/'}>Home</Link></h2>
                 {!logged ?
-                    <ul className=' flex items-center ml-auto gap-10'>
+                    <ul className='flex items-center ml-auto gap-10 m-4'>
                         <li><Link href={'/auth/login'}>LogIn</Link></li>
                         <li><Link href={'/auth/signup'}>SignUp</Link></li>
                     </ul>
                     :
                     <>
-                        <ul className=' flex items-center ml-auto gap-8'>
-                            <li><Link href={'/profile'}>MyProfile</Link></li>
-                            <li><Link href={'/people'}>People</Link></li>
-                            <li className=' flex gap-2 items-center cursor-pointer' onClick={() => setOpen(!open)}>
+                        <ul className=' flex items-center ml-auto'>
+                            <Link href={'/profile'}><Item>MyProfile</Item></Link>
+                            <Link href={'/people'}><Item>People</Item></Link>
+                            <li className='flex m-4 gap-2 items-center cursor-pointer'
+                                onMouseOver={() => setOpen(true)}
+                            >
                                 <img src={profilePic} alt="" className=' w-6 h-6 rounded-full' />
+                                {name}
                             </li>
                         </ul>
-                        <Menu primary={open ? true : false}>
+                        <Menu primary={open ? true : false}
+                            onMouseLeave={() => setOpen(false)}
+                        >
                             <ul className=' flex flex-col'>
-                                <li className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'>{name}</li>
                                 <li
-                                    className=' cursor-pointer hover:bg-mine-shaft-600 py-3 px-5'
+                                    className='cursor-pointer py-3 px-5 hover:bg-mine-shaft-500 rounded-bl-md'
                                     onClick={logout}
                                 >
                                     Logout

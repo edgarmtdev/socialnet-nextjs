@@ -7,11 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useAuthState } from '../../hooks/useAuthState'
 
 export default function Profile() {
-
     const { data, loading } = useSelector(state => state.post)
     const dispatch = useDispatch()
-
-    useAuthState()
 
     const createPost = (values, { setSubmitting }) => {
         dispatch(newPost(values))
@@ -28,7 +25,7 @@ export default function Profile() {
             <Head>
                 <title>Profile</title>
             </Head>
-            <div>
+            <section className=' max-w-screen-xl mx-auto'>
                 <h1>My Profile</h1>
                 <Formik
                     onSubmit={createPost}
@@ -36,17 +33,22 @@ export default function Profile() {
                         content: '',
                         image: ''
                     }}>
-                    <Form>
+                    <Form className=' flex flex-col w-1/2'>
                         <Field name='content' type='text' placeholder='Write...' />
                         <Field name='image' type='text' placeholder='Image' />
-                        <button type='submit'>POST</button>
+                        <button
+                            className=' bg-mine-shaft-700 text-white font-medium px-6 py-2 rounded hover:bg-mine-shaft-600'
+                            type='submit'
+                        >
+                            POST
+                        </button>
                     </Form>
                 </Formik>
 
                 <section className=' mx-auto w-full'>
                     {data.map(post => (<Post post={post} key={post.id} />))}
                 </section>
-            </div>
+            </section>
         </>
     )
 }

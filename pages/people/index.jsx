@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router'
-import { useEffect } from 'react';
 import { useAuthState } from '../../hooks/useAuthState';
 
 // export async function getServerSideProps(context) {
@@ -18,9 +16,6 @@ import { useAuthState } from '../../hooks/useAuthState';
 
 export default function People() {
     const { users, loading } = useSelector(state => state.users)
-
-    useAuthState()
-
     if (loading) {
         return (<p>Loading....</p>)
     }

@@ -5,7 +5,8 @@ import { auth } from '../../config/firebase'
 import { login, logOut } from '../../features/auth' 
 import { getPosts } from '../../features/posts' 
 import { getUsers } from '../../features/users'
-import Navbar from '../Navbar/Navbar' 
+import { useAuthState } from '../../hooks/useAuthState'
+import Navbar from '../navbar' 
 
 const Page = ({ children }) => {
     const dispatch = useDispatch()
@@ -29,7 +30,6 @@ const Page = ({ children }) => {
             }
         })
     }, [])
-
     return (
         <>
             <Navbar />
