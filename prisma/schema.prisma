@@ -11,15 +11,23 @@ datasource db {
 }
 
 model User {
-    id            String    @id @default(auto()) @map("_id") @db.ObjectId
-    idProvider    String    @unique
-    provider      String
-    name          String
-    profilePic    String
-    posts         Post[]    @relation(name: "author")
-    comments      Comment[]
-    likes         Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])
-    likesPostsIDs String[]  @db.ObjectId
+    id                   String    @id @default(auto()) @map("_id") @db.ObjectId
+    idProvider           String    @unique
+    provider             String
+    name                 String
+    profilePic           String
+    posts                Post[]    @relation(name: "author")
+    comments             Comment[]
+    likes                Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])
+    likesPostsIDs        String[]  @db.ObjectId
+    friends              User[]    @relation(name: "friends", fields: [friendsIDs], references: [id])
+    friendsIDs           String[]  @db.ObjectId
+    friendOf             User[]    @relation(name: "friends", fields: [friendOfIDs], references: [id])
+    friendOfIDs          String[]  @db.ObjectId
+    friendshipReqSend    User[]    @relation(name: "friendshipReq", fields: [friendshipReqSendIDs], references: [id])
+    friendshipReqSendIDs String[]  @db.ObjectId
+    friendshipReqRec     User[]    @relation(name: "friendshipReq", fields: [friendshipReqRecIDs], references: [id])
+    friendshipReqRecIDs  String[]  @db.ObjectId
 }
 
 model Post {

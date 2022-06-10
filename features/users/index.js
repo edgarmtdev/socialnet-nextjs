@@ -11,8 +11,24 @@ export const getUsers = createAsyncThunk(
     }
 )
 
+export const sendFriendshipRequest = createAsyncThunk(
+    'users/sendFriendshipReq',
+    async function (data, thunkAPI) {
+        const { idFriend } = data
+        const state = thunkAPI.getState()
+        const idUser = state.auth.user.idUser
+        const users = await axios.post('/api/users/friendShipRequest', {
+            idUser, idFriend
+        })
+
+        return users.data
+    }
+)
+
 const initialState = {
     users: [],
+    receivedReq: [],
+    sendedReq: [],
     loading: false
 }
 
@@ -24,10 +40,24 @@ const usersSlice = createSlice({
             state.loading = false
         })
             .addCase(getUsers.fulfilled, (state, action) => {
-                state.users = action.payload
+                state.receivedReq = action.payload.receivedReq
+                state.sendedReq = action.payload.sendedReq
+                state.users = action.payload.people
                 state.loading = false
             })
             .addCase(getUsers.pending, (state, action) => {
+                state.loading = true
+            })
+        builder.addCase(sendFriendshipRequest.rejected, (state, action) => {
+            state.loading = false
+        })
+            .addCase(sendFriendshipRequest.fulfilled, (state, action) => {
+                state.receivedReq = action.payload.receivedReq
+                state.sendedReq = action.payload.sendedReq
+                state.users = action.payload.people
+                state.loading = false
+            })
+            .addCase(sendFriendshipRequest.pending, (state, action) => {
                 state.loading = true
             })
     }
