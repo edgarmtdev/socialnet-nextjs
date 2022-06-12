@@ -34,10 +34,10 @@ export default function Navbar() {
                         <ul className=' flex items-center ml-auto'>
                             <Link href={'/profile'}><Item>MyProfile</Item></Link>
                             <Link href={'/people'}><Item>People</Item></Link>
-                            <li className='flex m-4 gap-2 items-center cursor-pointer'
+                            <li className='flex p-4 gap-2 items-center cursor-pointer'
                                 onMouseOver={() => setOpen(true)}
                             >
-                                <img src={profilePic} alt="" className=' w-6 h-6 rounded-full' />
+                                <img src={profilePic} alt=" " className=' w-6 h-6 rounded-full' />
                                 {name}
                             </li>
                         </ul>

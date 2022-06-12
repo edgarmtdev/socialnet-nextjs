@@ -4,7 +4,6 @@ import { Field, Form, Formik } from 'formik'
 import { ImSpinner10 } from 'react-icons/im'
 import { newPost } from '../../features/posts'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAuthState } from '../../hooks/useAuthState'
 
 export default function Profile() {
     const { data, loading } = useSelector(state => state.post)
@@ -12,12 +11,6 @@ export default function Profile() {
 
     const createPost = (values, { setSubmitting }) => {
         dispatch(newPost(values))
-    }
-
-    if (loading) {
-        return (<section className='h-screen flex justify-center items-center'>
-            <ImSpinner10 className=' animate-spin w-10 h-10' />
-        </section>)
     }
 
     return (
@@ -45,9 +38,12 @@ export default function Profile() {
                     </Form>
                 </Formik>
 
-                <section className=' mx-auto w-full'>
-                    {data.map(post => (<Post post={post} key={post.id} />))}
-                </section>
+                {!loading ?
+                    <section className=' mx-auto w-full'>
+                        {data.map(post => (<Post post={post} key={post.id} />))}
+                    </section> :
+                    <ImSpinner10 className=' animate-spin w-6 h-6' />
+                }
             </section>
         </>
     )
