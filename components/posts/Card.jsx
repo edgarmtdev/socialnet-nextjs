@@ -1,14 +1,17 @@
 import React from 'react'
+import { Author, Content, Post } from './styled'
 
 export default function Card({ post }) {
     return (
-        <article>
-            <div className=' flex items-center'>
+        <Post>
+            <Author>
                 <img src={post.author.profilePic} className="w-10 rounded-full" alt="" />
                 <span>{post.author.name}</span>
-            </div>
-            <p>{post.content}</p>
-            <img src={post.image} alt="" className=' w-[200px] h-[200px] object-cover' />
-        </article>
+            </Author>
+            <Content>
+                <p>{post.content}</p>
+                <img src={post.image} alt="" className='w-[200px] h-[200px] object-cover' />
+            </Content>
+        </Post>
     )
 }
