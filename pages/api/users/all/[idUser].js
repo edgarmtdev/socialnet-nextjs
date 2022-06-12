@@ -9,7 +9,8 @@ export default async function getAll(req, res) {
         },
         include: {
             friendshipReqSend: true,
-            friendshipReqRec: true    
+            friendshipReqRec: true, 
+            friends: true 
         }
     })
     const users = await client.user.findMany({
@@ -22,6 +23,7 @@ export default async function getAll(req, res) {
     return res.json({
         people: users ,
         receivedReq: user.friendshipReqRec,
-        sendedReq: user.friendshipReqSend
+        sendedReq: user.friendshipReqSend,
+        friends: user.friends
     })
 }

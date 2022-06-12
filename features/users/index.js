@@ -7,6 +7,8 @@ export const getUsers = createAsyncThunk(
         const state = thunkAPI.getState()
 
         const users = await axios.get(`/api/users/all/${state.auth.user.idUser}`)
+
+        console.log(users);
         return users.data
     }
 )
@@ -25,10 +27,27 @@ export const sendFriendshipRequest = createAsyncThunk(
     }
 )
 
+export const acceptFriendshipRequest = createAsyncThunk(
+    'users/acceptFriendshipReq',
+    async function (data, thunkAPI) {
+        const { idFriend, accepted } = data
+        const state = thunkAPI.getState()
+        const idUser = state.auth.user.idUser
+        console.log(data);
+        const users = await axios.post('/api/users/friendShipResponse', {
+            idUser, idFriend, accepted
+        })
+        console.log(users);
+
+        return users.data
+    }
+)
+
 const initialState = {
-    users: [],
+    people: [],
     receivedReq: [],
     sendedReq: [],
+    friends: [],
     loading: false
 }
 
@@ -42,7 +61,8 @@ const usersSlice = createSlice({
             .addCase(getUsers.fulfilled, (state, action) => {
                 state.receivedReq = action.payload.receivedReq
                 state.sendedReq = action.payload.sendedReq
-                state.users = action.payload.people
+                state.people = action.payload.people
+                state.friends = action.payload.friends
                 state.loading = false
             })
             .addCase(getUsers.pending, (state, action) => {
@@ -54,12 +74,27 @@ const usersSlice = createSlice({
             .addCase(sendFriendshipRequest.fulfilled, (state, action) => {
                 state.receivedReq = action.payload.receivedReq
                 state.sendedReq = action.payload.sendedReq
-                state.users = action.payload.people
+                state.people = action.payload.people
+                state.friends = action.payload.friends
                 state.loading = false
             })
             .addCase(sendFriendshipRequest.pending, (state, action) => {
                 state.loading = true
             })
+        builder.addCase(acceptFriendshipRequest.rejected, (state, action) => {
+            state.loading = false
+        })
+            .addCase(acceptFriendshipRequest.fulfilled, (state, action) => {
+                state.receivedReq = action.payload.receivedReq
+                state.sendedReq = action.payload.sendedReq
+                state.people = action.payload.people
+                state.friends = action.payload.friends
+                state.loading = false
+            })
+            .addCase(acceptFriendshipRequest.pending, (state, action) => {
+                state.loading = true
+            })
+
     }
 })
 

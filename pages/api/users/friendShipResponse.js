@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client'
 const client = new PrismaClient()
 
-export async function friendShipResponse(req, res) {
+export default async function friendShipResponse(req, res) {
     if (req.method === 'POST') {
+        console.log(req.body);
         const { idUser, idFriend, accepted } = req.body
 
         const friend = await client.user.findUnique({
@@ -46,6 +47,9 @@ export async function friendShipResponse(req, res) {
                     friendsIDs: {
                         push: idFriend
                     },
+
+                },
+                include: {
                     friendshipReqRec: true,
                     friendshipReqSend: true,
                     friends: true

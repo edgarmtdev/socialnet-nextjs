@@ -1,15 +1,21 @@
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendFriendshipRequest } from '../../features/users';
+import { acceptFriendshipRequest, sendFriendshipRequest } from '../../features/users';
 
 export default function People() {
-    const { users: { people }, receivedReq, sendedReq, loading } = useSelector(state => state.users)
+    const {  people , receivedReq, sendedReq, loading } = useSelector(state => state.users)
 
     const dispatch = useDispatch()
 
     const sendFriendReq = (idUser) => {
         dispatch(sendFriendshipRequest({
             idFriend: idUser
+        }))
+    }
+
+    const acceptFriend = (idUser) => {
+        dispatch(acceptFriendshipRequest({
+            idFriend: idUser, accepted: true
         }))
     }
 
@@ -48,7 +54,7 @@ export default function People() {
                     <article key={user.id}>
                         <p>{user.name}</p>
                         <img src={user.profilePic} />
-                        <button onClick={() => sendFriendReq(user.id)}>Add Friend</button>
+                        <button onClick={() => acceptFriend(user.id)}>Accept</button>
                     </article>
                 ))}
             </section>
