@@ -18,7 +18,7 @@ export default async function getAll(req, res) {
             id:{
                 notIn: [idUser, ...user.friendsIDs, ...user.friendshipReqRecIDs, ...user.friendshipReqSendIDs ]
             }
-        }
+        }, 
     })
     return res.json({
         people: users ,

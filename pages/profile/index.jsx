@@ -4,6 +4,7 @@ import { Field, Form, Formik } from 'formik'
 import { ImSpinner10 } from 'react-icons/im'
 import { newPost } from '../../features/posts'
 import { useDispatch, useSelector } from 'react-redux'
+import Posts from '../../components/posts'
 
 export default function Profile() {
     const { data, loading } = useSelector(state => state.post)
@@ -39,9 +40,7 @@ export default function Profile() {
                 </Formik>
 
                 {!loading ?
-                    <section className=' mx-auto w-full'>
-                        {data.map(post => (<Post post={post} key={post.id} />))}
-                    </section> :
+                    <Posts posts={data}/> :
                     <ImSpinner10 className=' animate-spin w-6 h-6' />
                 }
             </section>

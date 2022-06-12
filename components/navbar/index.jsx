@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { Item, Menu } from './Menu'
+import { Item, Menu } from './styled'
 import { useRouter } from 'next/router'
 
 export default function Navbar() {

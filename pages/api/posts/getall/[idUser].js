@@ -8,6 +8,9 @@ export default async function getAll(req, res) {
             author: {
                 id: idUser
             }
+        }, 
+        include: {
+            author: true
         }
     })
     return res.json(posts)
