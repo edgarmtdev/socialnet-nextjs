@@ -25,7 +25,7 @@ export default function Login() {
 
     useEffect(() => {
         if (logged) {
-            router.replace('/profile')
+            router.replace('/home')
         }
     }, [logged])
 

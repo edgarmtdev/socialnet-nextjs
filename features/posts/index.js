@@ -5,7 +5,6 @@ export const getPosts = createAsyncThunk(
     'posts/getPosts',
     async function (data, thunkAPI) {
         const state = thunkAPI.getState()
-
         const posts = await axios.get(`/api/posts/getall/${state.auth.user.idUser}`)
         return posts.data
     }
@@ -23,8 +22,22 @@ export const newPost = createAsyncThunk(
     }
 )
 
+export const getofFriends = createAsyncThunk(
+    'posts/getOfFriends',
+    async function (data, thunkAPI) {
+        const state = thunkAPI.getState()
+        try {
+            const posts = await axios.get(`/api/posts/getOfFriends/${state.auth.user.idUser}`)
+            return posts.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const initialState = {
     data: [],
+    dataOfFriends: [],
     loading: false
 }
 
@@ -51,6 +64,17 @@ const postSlice = createSlice({
                 state.loading = false
             })
             .addCase(getPosts.pending, (state, action) => {
+                state.loading = true
+            })
+
+        builder.addCase(getofFriends.rejected, (state, action) => {
+            state.loading = false
+        })
+            .addCase(getofFriends.fulfilled, (state, action) => {
+                state.dataOfFriends = action.payload
+                state.loading = false
+            })
+            .addCase(getofFriends.pending, (state, action) => {
                 state.loading = true
             })
     }

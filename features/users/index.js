@@ -5,10 +5,7 @@ export const getUsers = createAsyncThunk(
     'users/getUsers',
     async function (data, thunkAPI) {
         const state = thunkAPI.getState()
-
         const users = await axios.get(`/api/users/all/${state.auth.user.idUser}`)
-
-        console.log(users);
         return users.data
     }
 )
@@ -33,12 +30,9 @@ export const acceptFriendshipRequest = createAsyncThunk(
         const { idFriend, accepted } = data
         const state = thunkAPI.getState()
         const idUser = state.auth.user.idUser
-        console.log(data);
         const users = await axios.post('/api/users/friendShipResponse', {
             idUser, idFriend, accepted
         })
-        console.log(users);
-
         return users.data
     }
 )

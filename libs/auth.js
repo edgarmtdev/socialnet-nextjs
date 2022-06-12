@@ -1,4 +1,10 @@
-import { GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, signInWithPopup, fetchSignInMethodsForEmail } from 'firebase/auth'
+import {
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    GithubAuthProvider,
+    signInWithPopup,
+    fetchSignInMethodsForEmail
+} from 'firebase/auth'
 import { auth } from '../config/firebase'
 
 const supportedSignInMethods = [

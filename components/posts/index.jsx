@@ -1,10 +1,10 @@
 import React from 'react'
+import Card from './Card';
 
-export default function Post({ post }) {
+export default function Posts({ posts }) {
     return (
-        <article>
-            <p>{post.content}</p>
-            <img src={post.image} alt="" className=' w-[200px] h-[200px] object-cover'/>
-        </article>
+        <section className=' mx-auto w-full'>
+            {posts.map(post => (<Card post={post} key={post.id} />))}
+        </section>
     )
 }

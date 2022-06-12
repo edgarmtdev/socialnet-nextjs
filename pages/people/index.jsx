@@ -29,7 +29,7 @@ export default function People() {
                 <title>People</title>
             </Head>
             <section>
-                <h1>All people</h1>
+                <h1 className=' text-lg font-medium'>All people</h1>
                 {people?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>
@@ -39,7 +39,7 @@ export default function People() {
                 ))}
             </section>
             <section>
-                <h1>Friendship request sended</h1>
+                <h1 className=' text-lg font-medium'>Friendship request sended</h1>
                 {sendedReq?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>
@@ -49,7 +49,7 @@ export default function People() {
                 ))}
             </section>
             <section>
-                <h1>Friendship request</h1>
+                <h1 className=' text-lg font-medium'>Friendship request</h1>
                 {receivedReq?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>

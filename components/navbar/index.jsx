@@ -35,7 +35,7 @@ export default function Navbar() {
                             <Link href={'/profile'}><Item>MyProfile</Item></Link>
                             <Link href={'/people'}><Item>People</Item></Link>
                             <li className='flex p-4 gap-2 items-center cursor-pointer'
-                                onMouseOver={() => setOpen(true)}
+                                onClick={() => setOpen(!open)}
                             >
                                 <img src={profilePic} alt=" " className=' w-6 h-6 rounded-full' />
                                 {name}
