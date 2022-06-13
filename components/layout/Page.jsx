@@ -34,7 +34,7 @@ const Page = ({ children }) => {
     return (
         <>
             <Navbar />
-            <main className=' bg-slate-100 h-[100%] pb-10'>{children}</main>
+            <main>{children}</main>
         </>
     )
 }
