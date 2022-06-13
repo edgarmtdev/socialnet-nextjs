@@ -6,7 +6,6 @@ import { login, logOut } from '../../features/auth'
 import { getPosts } from '../../features/posts'
 import { getUsers } from '../../features/users'
 import { getofFriends } from '../../features/posts'
-import { useAuthState } from '../../hooks/useAuthState'
 import Navbar from '../navbar'
 
 const Page = ({ children }) => {
@@ -35,7 +34,7 @@ const Page = ({ children }) => {
     return (
         <>
             <Navbar />
-            <main>{children}</main>
+            <main className=' bg-slate-100 h-[100%] pb-10'>{children}</main>
         </>
     )
 }

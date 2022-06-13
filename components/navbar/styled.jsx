@@ -9,14 +9,22 @@ const animate = keyframes`
     }
 `
 
+export const Nav = styled.nav`
+    background-color: #212121;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+`
+
 export const Menu = styled.div`
     display: none;
-    position: absolute;
+    position: fixed;
+    width: 100vh;
     right: 0px;
     top: 55px;
     background-color: #212121;
     width: 20%;
-    ${({ primary }) => primary === true && css`
+    ${({ primary }) => primary && css`
     animation: ${animate} 1s ease;
     display: block;
     border-bottom-left-radius: 5px;

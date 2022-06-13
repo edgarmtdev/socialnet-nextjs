@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { Item, Menu } from './styled'
-import { useRouter } from 'next/router'
+import { Item, Menu, Nav } from './styled'
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
@@ -21,9 +21,9 @@ export default function Navbar() {
     }
 
     return (
-        <nav className=' bg-mine-shaft-600 text-white text-xs font-medium'>
+        <Nav>
             <div className='max-w-screen-xl w-full flex items-center mx-auto'>
-                <h2 className='text-base'><Link href={'/'}>Home</Link></h2>
+                <h2 className='text-base'><Link href={logged ? '/home' : '/'}>Home</Link></h2>
                 {!logged ?
                     <ul className='flex items-center ml-auto gap-10 m-4'>
                         <li><Link href={'/auth/login'}>LogIn</Link></li>
@@ -41,9 +41,7 @@ export default function Navbar() {
                                 {name}
                             </li>
                         </ul>
-                        <Menu primary={open ? true : false}
-                            onMouseLeave={() => setOpen(false)}
-                        >
+                        <Menu primary={open ? true : false}>
                             <ul className=' flex flex-col'>
                                 <li
                                     className='cursor-pointer py-3 px-5 hover:bg-mine-shaft-500 rounded-bl-md'
@@ -56,6 +54,6 @@ export default function Navbar() {
                     </>
                 }
             </div>
-        </nav>
+        </Nav>
     )
 }
