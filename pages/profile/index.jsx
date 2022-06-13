@@ -1,13 +1,10 @@
-import Head from 'next/head'
+import { HeadComponent } from '../../components/utils/HeadComponent'
 import MyProfile from '../../components/profile'
 
 export default function Profile() {
-
     return (
         <>
-            <Head>
-                <title>Feed | SocialNet</title>
-            </Head>
+            <HeadComponent title={'Profile'}/>
             <MyProfile/>
         </>
     )

@@ -1,14 +1,10 @@
-import React from 'react'
-import Head from 'next/head'
+import { HeadComponent } from '../../components/utils/HeadComponent'
 import MyFeed from '../../components/home'
 
 export default function Home() {
     return (
         <>
-            <Head>
-                <title>Home</title>
-            </Head>
-
+            <HeadComponent title={'Feed | SocialNet'}/>
             <MyFeed />
         </>
     )

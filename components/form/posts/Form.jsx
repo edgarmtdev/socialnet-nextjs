@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik'
-import { Button } from '../profile/styled'
+import { Button } from './styles'
 
 export default function FormComponent({ handlePost }) {
     return (

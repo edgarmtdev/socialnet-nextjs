@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { Item, Menu, Nav } from './styled'
+import { Item, Menu, Nav } from './styles'
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)

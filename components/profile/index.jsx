@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { newPost } from '../../features/posts'
-import { ImSpinner3 } from 'react-icons/im'
 import Posts from '../../components/posts'
-import FormComponent from '../form/Form'
-import { Feed } from './styled'
+import FormComponent from '../form/posts/Form'
+import { Feed } from './styles'
 import Spinner from '../utils/Spinner'
 
 export default function MyProfile() {

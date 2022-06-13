@@ -1,5 +1,5 @@
 import React from 'react'
-import { Author, Content, Post } from './styled'
+import { Author, Content, Post } from './styles'
 
 export default function Card({ post }) {
     return (

@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Field, Form, Formik } from 'formik';
-import Head from 'next/head';
+import { HeadComponent } from '../../components/utils/HeadComponent';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -31,9 +31,7 @@ export default function Login() {
 
     return (
         <>
-            <Head>
-                <title>Login</title>
-            </Head>
+            <HeadComponent title = {'Login'}/>
             <Formik
                 initialValues={{
                     email: '',
@@ -43,7 +41,7 @@ export default function Login() {
             >
                 {({ errors }) => {
                     return <>
-                        <Form className=' flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
+                        <Form className='bg-white flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
                             <h1 className=' text-3xl '>Login</h1>
 
                             {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}

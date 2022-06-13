@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
+import { HeadComponent } from '../../components/utils/HeadComponent';
 import { acceptFriendshipRequest, sendFriendshipRequest } from '../../features/users';
 
 export default function People() {
@@ -25,9 +25,7 @@ export default function People() {
 
     return (
         <div>
-            <Head>
-                <title>People</title>
-            </Head>
+            <HeadComponent title={'People'}/>
             <section>
                 <h1 className=' text-lg font-medium'>All people</h1>
                 {people?.map(user => (

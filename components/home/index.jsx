@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Posts from '../../components/posts'
-import { Aside, Feed } from './styled'
-import FormComponent from '../form/Form'
+import { Aside, Feed } from './styles'
+import FormComponent from '../form/posts/Form'
 import Spinner from '../utils/Spinner'
 
 export default function MyFeed() {
