@@ -1,10 +1,9 @@
 import React from 'react'
 import { Author, Content, Post } from './styles'
-import { Field, Form, Formik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { Button } from '../form/posts/styles'
 import { addComment } from '../../features/posts'
 import { useRef } from 'react'
+import Comments from './comments'
 
 export default function Card({ post }) {
 
@@ -36,11 +35,14 @@ export default function Card({ post }) {
                 <p className=' my-5 text-sm px-[20px]'>{post.content}</p>
                 <img
                     src={post.image}
-                    className='w-full h-[400px] object-cover rounded-b-lg'
+                    className='w-full h-[400px] object-cover'
                 />
             </Content>
-            <textarea ref={body} name='body' placeholder='Write...' />
-            <button onClick={() => newComment(post.id)}>Listo</button>
+            <section>
+                <textarea ref={body} name='body' placeholder='Write...' />
+                <button onClick={() => newComment(post.id)}>Listo</button>
+            </section>
+            <Comments comments={post.comments} />
         </Post>
     )
 }

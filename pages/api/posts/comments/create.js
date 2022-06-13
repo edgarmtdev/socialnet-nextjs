@@ -6,8 +6,6 @@ export default async function create(req, res) {
 
         const { idUser, idPost, body } = req.body
 
-        console.log(idUser);
-
         const comment = await client.comment.create({
             data: {
                 body: body,
