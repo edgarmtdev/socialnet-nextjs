@@ -17,7 +17,17 @@ export default async function getOfFriends(req, res) {
             }
         },
         include: {
-            author: true
+            author: true,
+            comments: {
+                include: {
+                    author: {
+                        select: {
+                            name: true, 
+                            profilePic: true
+                        }
+                    }
+                }
+            }
         }
     })
 

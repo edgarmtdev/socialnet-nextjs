@@ -10,7 +10,8 @@ export default async function getAll(req, res) {
             }
         }, 
         include: {
-            author: true
+            author: true,
+            comments: true
         }
     })
     return res.json(posts)

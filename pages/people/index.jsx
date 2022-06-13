@@ -4,9 +4,8 @@ import { acceptFriendshipRequest, sendFriendshipRequest } from '../../features/u
 
 export default function People() {
     const {  people , receivedReq, sendedReq, loading } = useSelector(state => state.users)
-
     const dispatch = useDispatch()
-
+    
     const sendFriendReq = (idUser) => {
         dispatch(sendFriendshipRequest({
             idFriend: idUser

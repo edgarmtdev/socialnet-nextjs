@@ -6,6 +6,7 @@ export const getPosts = createAsyncThunk(
     async function (data, thunkAPI) {
         const state = thunkAPI.getState()
         const posts = await axios.get(`/api/posts/getall/${state.auth.user.idUser}`)
+        console.log(posts.data);
         return posts.data
     }
 )
@@ -32,6 +33,21 @@ export const getofFriends = createAsyncThunk(
         } catch (error) {
             console.log(error);
         }
+    }
+)
+
+export const addComment = createAsyncThunk(
+    'posts/addComment',
+    async function (data, thunkAPI) {
+        const state = thunkAPI.getState()
+        const { idPost, body } = data
+        const comment = await axios.post('/api/posts/comments/create', {
+            idUser: state.auth.user.idUser,
+            idPost,
+            body
+        })
+
+        return comment.data
     }
 )
 
@@ -75,6 +91,16 @@ const postSlice = createSlice({
                 state.loading = false
             })
             .addCase(getofFriends.pending, (state, action) => {
+                state.loading = true
+            })
+
+        builder.addCase(addComment.rejected, (state, action) => {
+            state.loading = false
+        })
+            .addCase(addComment.fulfilled, (state, action) => {
+                state.loading = false
+            })
+            .addCase(addComment.pending, (state, action) => {
                 state.loading = true
             })
     }
