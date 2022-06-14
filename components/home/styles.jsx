@@ -6,15 +6,15 @@ export const Feed = styled.section`
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
 `
 
 export const Aside = styled.aside`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 15px;
     background-color: white;
     height: 30rem;
     box-shadow: 5px 5px 6px -1px #d5d5d5bf;

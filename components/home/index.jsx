@@ -28,6 +28,9 @@ export default function MyFeed() {
                     <Spinner />
                 }
             </div>
+            <Aside>
+                
+            </Aside>
         </Feed>
     )
 }

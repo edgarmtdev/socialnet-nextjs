@@ -38,9 +38,11 @@ export default function Card({ post }) {
                     className='w-full h-[400px] object-cover'
                 />
             </Content>
-            <section className='flex flex-col'>
+            <section className='flex flex-col mx-5 gap-5'>
                 <textarea ref={body} name='body' placeholder='Write...' />
-                <button onClick={() => newComment(post.id)}>Listo</button>
+                <button 
+                    onClick={() => newComment(post.id)} 
+                    className=' bg-mine-shaft-700 text-white py-2 rounded font-medium'>POST</button>
             </section>
             <Comments comments={post.comments} />
         </Post>

@@ -18,16 +18,17 @@ export const Nav = styled.nav`
 
 export const Menu = styled.div`
     display: none;
-    position: fixed;
+    position: absolute;
     width: 100vh;
     right: 0px;
     top: 55px;
     background-color: #212121;
     width: 20%;
     ${({ primary }) => primary && css`
-    animation: ${animate} 1s ease;
+    animation: ${animate} .4s ease;
     display: block;
     border-bottom-left-radius: 5px;
+    z-index: 10;
     `
     }
 `
