@@ -6,7 +6,6 @@ export const getPosts = createAsyncThunk(
     async function (data, thunkAPI) {
         const state = thunkAPI.getState()
         const posts = await axios.get(`/api/posts/getall/${state.auth.user.idUser}`)
-        console.log(posts.data);
         return posts.data
     }
 )

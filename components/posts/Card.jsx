@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux'
 import { addComment } from '../../features/posts'
 import { useRef } from 'react'
 import Comments from './comments'
+import ReactMarkdown from 'react-markdown'
 
 export default function Card({ post }) {
 
     const dispatch = useDispatch()
-
     const body = useRef()
 
     const newComment = (idPost) => {
@@ -27,18 +27,18 @@ export default function Card({ post }) {
             <Author>
                 <img
                     src={post.author.profilePic}
-                    className="w-10 rounded-full" alt={post.author.profilePic}
+                    className='w-10 rounded-full' alt={post.author.profilePic}
                 />
                 <span>{post.author.name}</span>
             </Author>
             <Content>
-                <p className=' my-5 text-sm px-[20px]'>{post.content}</p>
+                <ReactMarkdown className='my-5 text-sm px-[20px]'>{post.content}</ReactMarkdown>
                 <img
                     src={post.image}
                     className='w-full h-[400px] object-cover'
                 />
             </Content>
-            <section>
+            <section className='flex flex-col'>
                 <textarea ref={body} name='body' placeholder='Write...' />
                 <button onClick={() => newComment(post.id)}>Listo</button>
             </section>
