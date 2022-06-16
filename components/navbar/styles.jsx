@@ -1,13 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
-
-const animate = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-`
+import styled, { css } from 'styled-components'
 
 export const Nav = styled.nav`
     background-color: #212121;
@@ -16,21 +7,13 @@ export const Nav = styled.nav`
     font-weight: 500;
 `
 
-export const Menu = styled.div`
-    display: none;
-    position: absolute;
-    width: 100vh;
-    right: 0px;
-    top: 55px;
-    background-color: #212121;
-    width: 20%;
-    ${({ primary }) => primary && css`
-    animation: ${animate} .4s ease;
-    display: block;
-    border-bottom-left-radius: 5px;
-    z-index: 10;
-    `
-    }
+export const NavContainer = styled.div`
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 export const Item = styled.li`
@@ -40,5 +23,17 @@ export const Item = styled.li`
     cursor: pointer;
     &:hover {
         background-color: #3D3D3D;
+    }
+`
+
+export const Links = styled.ul`
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 2rem;
+    padding: 1rem;
+    ${({ idLogged }) => idLogged && css`
+    padding: 0;
+    `
     }
 `
