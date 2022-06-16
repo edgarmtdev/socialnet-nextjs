@@ -50,7 +50,7 @@ export default function Card({ post }) {
             <Author>
                 <img
                     src={post.author.profilePic}
-                    className='w-10 rounded-full' alt={post.author.name.split(' ')[0]}
+                    className='w-10 rounded-full'
                 />
                 <p className='flex flex-col'>
                     {post.author.name}
@@ -58,7 +58,7 @@ export default function Card({ post }) {
                 </p>
             </Author>
             <Content>
-                <ReactMarkdown className='my-5 text-sm px-[20px]'>{post.content}</ReactMarkdown>
+                <ReactMarkdown className='my-5 text-sm px-[20px] prose'>{post.content}</ReactMarkdown>
                 <img
                     src={post.image}
                     className='w-full h-[400px] object-cover'

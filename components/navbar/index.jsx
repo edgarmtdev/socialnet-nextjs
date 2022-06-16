@@ -32,6 +32,7 @@ export default function Navbar() {
                     :
                     <>
                         <ul className=' flex items-center ml-auto'>
+                            <Link href={'/friends'}><Item>Friends</Item></Link>
                             <Link href={'/profile'}><Item>MyProfile</Item></Link>
                             <Link href={'/people'}><Item>People</Item></Link>
                             <li className='flex p-4 gap-2 items-center cursor-pointer'

@@ -7,7 +7,7 @@ export default function Comment({ comment }) {
             <img
                 src={comment.author.profilePic}
                 className='w-7 h-7 rounded-full'
-                alt={comment.author.name}
+                
             />
             <Body>
                 <p className='font-medium'>{comment.author.name}</p>
