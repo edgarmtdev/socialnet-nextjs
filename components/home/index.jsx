@@ -16,7 +16,7 @@ export default function MyFeed() {
             <Aside>
                 <img
                     src={user.profilePic}
-                    className='w-36 rounded-full'
+                    className='w-36 h-36 rounded-full object-cover'
                 />
                 <p className='text-lg font-medium'>{user.name}</p>
             </Aside>

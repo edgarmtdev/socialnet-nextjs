@@ -30,7 +30,7 @@ export default function People() {
                 {people?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>
-                        <img src={user.profilePic} />
+                        <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full'/>
                         <button onClick={() => sendFriendReq(user.id)}>Add Friend</button>
                     </article>
                 ))}

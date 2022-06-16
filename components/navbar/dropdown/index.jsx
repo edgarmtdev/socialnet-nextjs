@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { auth } from '../../../config/firebase'
 import { signOut } from 'firebase/auth'
 
-export default function Dropdown({ open }) {
+export default function Dropdown({ open, setOpen }) {
 
     const router = useRouter()
     const logout = () => {

@@ -35,7 +35,7 @@ export default function Navbar() {
                         <Links idLogged={true}>
                             <Routes user={user} setOpen={setOpen} open={open} />
                         </Links>
-                        <Dropdown open={open} />
+                        <Dropdown open={open} setOpen={setOpen} />
                     </>
                 }
             </NavContainer>
