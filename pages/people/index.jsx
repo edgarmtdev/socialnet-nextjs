@@ -40,7 +40,7 @@ export default function People() {
                 {sendedReq?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>
-                        <img src={user.profilePic} />
+                        <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full' />
                         <button onClick={() => sendFriendReq(user.id)}>Add Friend</button>
                     </article>
                 ))}
@@ -50,7 +50,7 @@ export default function People() {
                 {receivedReq?.map(user => (
                     <article key={user.id}>
                         <p>{user.name}</p>
-                        <img src={user.profilePic} />
+                        <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full'/>
                         <button onClick={() => acceptFriend(user.id)}>Accept</button>
                     </article>
                 ))}

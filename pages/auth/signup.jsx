@@ -2,7 +2,6 @@ import { HeadComponent } from '../../components/utils/HeadComponent'
 import { Field, Form, Formik } from 'formik'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { data } from 'autoprefixer'
 import { useDispatch } from 'react-redux'
 import { login } from '../../features/auth'
 
@@ -17,6 +16,13 @@ export default function signup() {
                     displayName: values.name,
                     photoURL: values.profilePic,
                 })
+                dispatch(login({
+                    name: result.displayName,
+                    email: result.email,
+                    profilePic: result.photoURL,
+                    provider: result.providerId,
+                    idProvider: result.uid
+                }))
             })
     }
 

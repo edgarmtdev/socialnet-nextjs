@@ -4,7 +4,7 @@ import { CardFriend } from './styles'
 export default function Friend({ friend }) {
   return (
     <CardFriend>
-      <img src={friend.profilePic} alt="" className=' w-12' />
+      <img src={friend.profilePic} alt="" className=' w-12 h-12 rounded-full object-cover' />
       <h3>{friend.name}</h3>
     </CardFriend>
   )
