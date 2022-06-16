@@ -22,7 +22,7 @@ export const Author = styled.div`
 
 export const Content = styled.div`
     margin-top: 1px;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 `
 
 export const Form = styled.section`

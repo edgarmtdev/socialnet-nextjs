@@ -2979,6 +2979,11 @@
   dependencies:
     "yallist" "^4.0.0"
 
+"luxon@^2.4.0":
+  "integrity" "sha512-w+NAwWOUL5hO0SgwOHsMBAmZ15SoknmQXhSO0hIbJCAmPKSsGeK8MlmhYh2w6Iib38IxN2M+/ooXWLbeis7GuA=="
+  "resolved" "https://registry.npmjs.org/luxon/-/luxon-2.4.0.tgz"
+  "version" "2.4.0"
+
 "make-dir@^3.0.2", "make-dir@^3.1.0":
   "integrity" "sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw=="
   "resolved" "https://registry.npmjs.org/make-dir/-/make-dir-3.1.0.tgz"

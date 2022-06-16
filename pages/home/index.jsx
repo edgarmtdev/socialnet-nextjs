@@ -4,7 +4,7 @@ import MyFeed from '../../components/home'
 export default function Home() {
     return (
         <>
-            <HeadComponent title={'Feed | SocialNet'}/>
+            <HeadComponent title={'Feed | SocialNet'} />
             <MyFeed />
         </>
     )

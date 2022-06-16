@@ -32,13 +32,14 @@ model User {
 
 model Post {
     id           String    @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt    DateTime  @default(now())
     content      String
     image        String
     author       User      @relation(name: "author", fields: [authorId], references: [id]) //fields -> ref a el mismo model, references -> ref al model externo
     authorId     String    @db.ObjectId
     likes        User[]    @relation(name: "likes", fields: [likesUserIDs], references: [id])
     likesUserIDs String[]  @db.ObjectId
-    comments     Comment[] 
+    comments     Comment[]
 }
 
 model Comment {
