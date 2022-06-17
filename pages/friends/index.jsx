@@ -5,7 +5,6 @@ import { HeadComponent } from '../../components/utils/HeadComponent'
 
 export default function Friends() {
     const { friends } = useSelector(state => state.users)
-    console.log(friends);
     return (
         <>
             <HeadComponent title={'Friends'} />

@@ -13,7 +13,6 @@ const Page = ({ children }) => {
     useEffect(() => {
         onAuthStateChanged(auth, (result) => {
             if (result) {
-                console.log(result);
                 dispatch(login({
                     name: result.displayName,
                     email: result.email,

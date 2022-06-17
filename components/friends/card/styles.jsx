@@ -6,9 +6,9 @@ export const CardFriend = styled.article`
     gap: 20px;
     background-color: #e7e7e7;
     padding: 1.25rem;
-    &:hover {
+    /* &:hover {
         cursor: pointer;
         background-color: #f1f5f9;
         border: 1px solid #de800e7a;
-    }
+    } */
 `
