@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { child, get, push, ref } from 'firebase/database'
+import { useState, useRef, useEffect } from 'react'
+import { child, get, onValue, push, ref } from 'firebase/database'
 import { realTimeDB } from '../../../config/firebase'
+import { useRouter } from 'next/router'
 import { HeadComponent } from '../../../components/utils/HeadComponent'
 
 export default function Chat() {
@@ -12,15 +11,12 @@ export default function Chat() {
     const { idUser, idFriend } = router.query
 
     useEffect(() => {
-        const dbRef = ref(realTimeDB)
-        if (idUser, idFriend) {
-            get(child(dbRef, `chats/${idUser}/${idFriend}`))
-                .then(snapshot => {
-                    if (snapshot.exists()) {
-                        setMessages(snapshot.val().messages)
-                        console.log(messages)
-                    }
-                })
+        const chatRef = ref(realTimeDB, `chats/${idUser}/${idFriend}`)
+        if (idUser && idFriend) {
+            onValue(chatRef, (snapshot) => {
+                setMessages(snapshot.val().messages)
+                messageInput.current.value = ''
+            })
         }
     }, [idFriend])
 
@@ -45,9 +41,9 @@ export default function Chat() {
             <div className='max-w-screen-md mx-auto mt-20'>
                 {Object.entries(messages).map(([id, data]) => (
                     <div key={id}
-                        className={`rounded-full py-2 px-4 gap-2 text-white font-medium w-max ${data.sender == idUser ?
-                                'ml-auto bg-blue-500' :
-                                'bg-green-500'
+                        className={`rounded-full py-2 px-4 gap-2 text-white font-medium w-max mb-2 ${data.sender == idUser ?
+                            'ml-auto bg-blue-500' :
+                            'bg-green-500'
                             }`
                         }>
                         <p>{data.content}</p>
