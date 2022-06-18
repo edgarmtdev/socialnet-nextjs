@@ -14,9 +14,10 @@ export default function MyFeed() {
     return (
         <Feed>
             <Aside>
+                <div className=' bg-mine-shaft-600 h-[15%] w-full absolute top-0 rounded-t-lg'></div>
                 <img
                     src={user.profilePic}
-                    className='w-36 h-36 rounded-full object-cover'
+                    className='w-24 h-24 rounded-full object-cover z-[1] border-[3px]'
                 />
                 <p className='text-lg font-medium'>{user.name}</p>
             </Aside>

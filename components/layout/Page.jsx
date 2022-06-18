@@ -33,7 +33,7 @@ const Page = ({ children }) => {
     return (
         <>
             <Navbar />
-            <main>{children}</main>
+            <main className='pt-20 z-[-1]'>{children}</main>
         </>
     )
 }

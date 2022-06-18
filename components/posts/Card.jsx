@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { BiLike } from 'react-icons/bi'
 import { AiTwotoneLike } from 'react-icons/ai'
+import { MdOutlineInsertComment } from 'react-icons/md'
 
 export default function Card({ post }) {
 
@@ -58,21 +59,28 @@ export default function Card({ post }) {
                 </p>
             </Author>
             <Content>
-                <ReactMarkdown className='my-5 text-sm px-[20px] prose'>{post.content}</ReactMarkdown>
+                <ReactMarkdown className='my-5 text-sm px-[20px] prose text-stone-200'>{post.content}</ReactMarkdown>
                 <img
                     src={post.image}
                     className='w-full h-[400px] object-cover'
                 />
-                <button
-                    onClick={() => !likeState ? like(post.id) : dislike(post.id)}
-                    className=' p-2 flex items-center gap-2'>
-                    {likeState ? <AiTwotoneLike /> : <BiLike />}
-                    <span>{post.likesUserIDs.length}</span>
-                </button>
+                <section className=' flex justify-between mt-5 border-y border-slate-500 mx-4'>
+                    <button
+                        onClick={() => !likeState ? like(post.id) : dislike(post.id)}
+                        className=' p-2 flex items-center justify-center gap-2 mx-auto hover:bg-slate-700 w-full m-1 rounded-lg'>
+                        {likeState ? <AiTwotoneLike /> : <BiLike />}
+                        <span>{post.likesUserIDs.length}</span>
+                    </button>
+                    <button
+                        className=' p-2 flex items-center justify-center gap-2 mx-auto hover:bg-slate-700 w-full m-1 rounded-lg'>
+                            <MdOutlineInsertComment />
+                        <span>Comments</span>
+                    </button>
+                </section>
             </Content>
             <section className='flex flex-col mx-5 gap-5 mb-8'>
-            <h1 className='text-lg font-medium '>Comments</h1>
-                <textarea ref={body} name='body' placeholder='Write...' className=' outline-none bg-gray-200 rounded p-1' />
+                <h1 className='text-lg font-medium '>Comments</h1>
+                <textarea ref={body} name='body' placeholder='Write...' className=' outline-none rounded-full py-1 px-5 bg-[#4b565d5a]' />
                 <button
                     onClick={() => newComment(post.id)}
                     className=' bg-mine-shaft-700 text-white py-2 rounded font-medium'>POST</button>

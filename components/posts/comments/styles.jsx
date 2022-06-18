@@ -8,8 +8,8 @@ export const Container = styled.article`
 `
 
 export const Body = styled.div`
-    background-color: #ececec;
+    background-color: #4b565d5a;
     width: 100%;
     border-radius: 15px;
-    padding: 3px 16px;
+    padding: 5px 16px;
 `

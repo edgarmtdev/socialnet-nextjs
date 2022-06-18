@@ -36,7 +36,8 @@ export default function FormComponent({ handlePost }) {
                     console.log(data)
                     setValue(data)
                 }} />
-                <Field name='image' type='text' placeholder='Image' />
+                <Field name='image' type='text' placeholder='Image URL' 
+                    className=' bg-[#212E36] p-2 rounded-full outline-none my-2'/>
                 <Button type='submit'>POST</Button>
             </Form>
         </Formik>

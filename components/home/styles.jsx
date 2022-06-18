@@ -15,11 +15,12 @@ export const Aside = styled.aside`
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background-color: white;
+    background-color: #2b3b45;
     height: 30rem;
-    box-shadow: 5px 5px 6px -1px #d5d5d5bf;
     padding: 20px;
     border-radius: 10px;
+    color: #dadada;
+    position: relative;
 `
 
 export const Button = styled.button`

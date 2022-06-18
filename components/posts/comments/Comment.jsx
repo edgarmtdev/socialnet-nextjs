@@ -10,8 +10,8 @@ export default function Comment({ comment }) {
                 
             />
             <Body>
-                <p className='font-medium'>{comment.author.name}</p>
-                <p className='text-gray-600'>{comment.body}</p>
+                <p>{comment.author.name}</p>
+                <p className=' text-slate-400 mt-1 text-xs'>{comment.body}</p>
             </Body>
         </Container>
     )
