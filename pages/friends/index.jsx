@@ -10,7 +10,9 @@ export default function Friends() {
             <HeadComponent title={'Friends'} />
             {friends ?
                 <MyFriends friends={friends} />
-                : <p>Dont have Friends</p>}
+                :
+                <p>Dont have Friends</p>
+            }
         </>
     )
 }
