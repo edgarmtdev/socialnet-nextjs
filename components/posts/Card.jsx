@@ -1,7 +1,7 @@
 import React from 'react'
 import { Author, Content, Post } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { addComment, likePost } from '../../features/posts'
+import { addComment, dislikePost, likePost } from '../../features/posts'
 import { useRef } from 'react'
 import Comments from './comments'
 import ReactMarkdown from 'react-markdown'
@@ -39,11 +39,13 @@ export default function Card({ post }) {
 
 
     const like = (idPost) => {
+        setLikeState(true)
         dispatch(likePost({ idPost }))
     }
 
     const dislike = (idPost) => {
         setLikeState(false)
+        dispatch(dislikePost({ idPost }))
     }
 
     return (

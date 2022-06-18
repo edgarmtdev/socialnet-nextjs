@@ -42,7 +42,7 @@ export default function Chat() {
 
     return (
         <>
-            <HeadComponent title={'Chat'} />
+            <HeadComponent title={'Chat | SocialNet'} />
             <section className='flex'>
                 <section>
                     {friends ?

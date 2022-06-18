@@ -54,6 +54,24 @@ export const likePost = createAsyncThunk(
     }
 )
 
+export const dislikePost = createAsyncThunk(
+    'posts/dislikes',
+    async function (data, thunkAPI) {
+        const state = thunkAPI.getState()
+        const { idPost } = data
+        try {
+            const post = await axios.post('api/posts/dislike',
+                {
+                    idUser: state.auth.user.idUser,
+                    idPost
+                })
+            return post.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 export const addComment = createAsyncThunk(
     'posts/addComment',
     async function (data, thunkAPI) {
@@ -119,7 +137,7 @@ const postSlice = createSlice({
             })
             .addCase(addComment.pending, (state, action) => {
                 state.loading = true
-            })
+            });
         builder.addCase(likePost.rejected, (state, action) => {
             state.loading = false
         })
@@ -127,6 +145,15 @@ const postSlice = createSlice({
                 state.loading = false
             })
             .addCase(likePost.pending, (state, action) => {
+                state.loading = true
+            });
+        builder.addCase(dislikePost.rejected, (state, action) => {
+            state.loading = false
+        })
+            .addCase(dislikePost.fulfilled, (state, action) => {
+                state.loading = false
+            })
+            .addCase(dislikePost.pending, (state, action) => {
                 state.loading = true
             })
     }

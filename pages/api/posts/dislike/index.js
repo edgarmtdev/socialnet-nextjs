@@ -5,17 +5,26 @@ export default async function like(req, res) {
     if (req.method === 'POST') {
         const { idUser, idPost } = req.body
 
-        const post = await client.post.update({
+        console.log(idUser, idPost);
+
+        const post = await client.post.findUnique({
+            where: {
+                id: idPost
+            }
+        })
+
+        const user = await client.user.findUnique({
+            where: {
+                id: idUser
+            }
+        })
+
+        const postUpdated = await client.post.update({
             where: {
                 id: idPost
             },
             data: {
-                likesUserIDs: {
-                    push: idUser
-                }
-            },
-            include: {
-                likes: true
+                likesUserIDs: post.likesUserIDs.filter(id => id != idUser)
             }
         })
 
@@ -23,14 +32,12 @@ export default async function like(req, res) {
             where: {
                 id: idUser
             },
-            data:{
-                likesPostsIDs: {
-                    push: idPost
-                }
+            data: {
+                likesPostsIDs: user.likesPostsIDs.filter(id => id != idPost)
             }
         })
 
-        return res.json(post)
+        return res.json(postUpdated)
 
     }
 }
