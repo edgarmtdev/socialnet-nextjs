@@ -1,9 +1,12 @@
-import { Menu } from './styles'
-import { useRouter } from 'next/router'
-import { auth } from '../../../config/firebase'
+import Link from 'next/link'
+import { useRouter } from 'next/router' 
 import { signOut } from 'firebase/auth'
+import { auth } from '../../../config/firebase'
+import { HiOutlineLogout } from 'react-icons/hi'
+import { Menu, Item, User } from './styles'
+import { BiUser } from 'react-icons/bi'
 
-export default function Dropdown({ open, setOpen }) {
+export default function Dropdown({ open, setOpen, user }) {
 
     const router = useRouter()
     const logout = () => {
@@ -13,13 +16,21 @@ export default function Dropdown({ open, setOpen }) {
     }
     return (
         <Menu primary={open ? true : false}>
-            <ul className=' flex flex-col'>
-                <li
-                    className='cursor-pointer py-3 px-5 hover:bg-mine-shaft-500 rounded-bl-md'
-                    onClick={logout}
-                >
+            <ul className=' flex flex-col text-sm'>
+                <User>
+                    <img src={user.profilePic} className=' w-9 h-9 rounded-full' />
+                    {user.name}
+                </User>
+                <Link href={'/profile'}>
+                    <Item>
+                        <BiUser className='w-5 h-5' />
+                        Profile
+                    </Item>
+                </Link>
+                <Item signout={true} onClick={logout}>
+                    <HiOutlineLogout className='w-5 h-5'/>
                     Logout
-                </li>
+                </Item>
             </ul>
         </Menu>
     )

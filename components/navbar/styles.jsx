@@ -10,16 +10,15 @@ export const Nav = styled.nav`
     width: 100%;
     z-index: 10;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 3rem;
 `
 
 export const NavContainer = styled.div`
-    /* max-width: 1280px; */
     width: 100%;
     display: flex;
     align-items: center;
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
 `
 
 export const Item = styled.li`
