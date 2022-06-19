@@ -18,6 +18,7 @@ export const Author = styled.div`
     font-size: 18px;
     font-weight: 500;
     text-align: left;
+    cursor: pointer;
 `
 
 export const Content = styled.div`

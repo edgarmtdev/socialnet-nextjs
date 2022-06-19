@@ -10,6 +10,14 @@ export const getUsers = createAsyncThunk(
     }
 )
 
+export const getUser = createAsyncThunk(
+    'users/getOne',
+    async function(data, thunkAPI) {
+        const user = await axios.get(`/api/users/getOne/${data.idUser}`)
+        return user.data
+    }
+)
+
 export const sendFriendshipRequest = createAsyncThunk(
     'users/sendFriendshipReq',
     async function (data, thunkAPI) {
@@ -42,7 +50,8 @@ const initialState = {
     receivedReq: [],
     sendedReq: [],
     friends: [],
-    loading: false
+    loading: false,
+    userFound: []
 }
 
 const usersSlice = createSlice({
@@ -88,6 +97,9 @@ const usersSlice = createSlice({
             .addCase(acceptFriendshipRequest.pending, (state, action) => {
                 state.loading = true
             })
+        builder.addCase(getUser.fulfilled, (state, action) => {
+            state.userFound = action.payload
+        })
 
     }
 })

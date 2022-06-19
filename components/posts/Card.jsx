@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { BiLike } from 'react-icons/bi'
 import { AiTwotoneLike } from 'react-icons/ai'
 import { MdOutlineInsertComment } from 'react-icons/md'
+import Link from 'next/link'
 
 export default function Card({ post }) {
 
@@ -50,16 +51,16 @@ export default function Card({ post }) {
 
     return (
         <Post>
-            <Author>
-                <img
-                    src={post.author.profilePic}
-                    className='w-10 rounded-full'
-                />
-                <p className='flex flex-col'>
-                    {post.author.name}
+            <Link href={`/profile/${post.author.id}`}>
+                <Author>
+                    <img
+                        src={post.author.profilePic}
+                        className='w-10 h-10 rounded-full object-cover hover:opacity-50'
+                    />
+                    <p className='flex flex-col hover:underline'>{post.author.name}</p>
                     <span className='text-sm font-extralight text-gray-400'>{post.createdAt.split('T')[0]}</span>
-                </p>
-            </Author>
+                </Author>
+            </Link>
             <Content>
                 <ReactMarkdown className='my-5 text-sm px-[20px] prose text-stone-200'>{post.content}</ReactMarkdown>
                 <img
@@ -75,7 +76,7 @@ export default function Card({ post }) {
                     </button>
                     <button
                         className=' p-2 flex items-center justify-center gap-2 mx-auto hover:bg-slate-700 w-full m-1 rounded-lg'>
-                            <MdOutlineInsertComment />
+                        <MdOutlineInsertComment />
                         <span>Comments</span>
                     </button>
                 </section>

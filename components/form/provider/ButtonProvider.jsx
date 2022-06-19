@@ -14,7 +14,10 @@ export default function ButtonProvider({ icon, provider, title }) {
             onClick={() => loginWithProvider(provider)}
             className={`p-2 font-medium hover:scale-105 hover:opacity-90 bg-white flex rounded`}
         >
-            <div className=' mx-auto flex gap-10'>{icon}<span>{title}</span></div>
+            <div className='mx-auto flex gap-10'>
+                {icon}
+                <span>{title}</span>
+            </div>
         </button>
     )
-}
+}        

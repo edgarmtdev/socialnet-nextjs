@@ -21,7 +21,7 @@ export default function Dropdown({ open, setOpen, user }) {
                     <img src={user.profilePic} className=' w-9 h-9 rounded-full' />
                     {user.name}
                 </User>
-                <Link href={'/profile'}>
+                <Link href={`/profile/${user.idUser}`}>
                     <Item>
                         <BiUser className='w-5 h-5' />
                         Profile
