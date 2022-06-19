@@ -7,18 +7,21 @@ import { sighInMethods } from '../../../libs/auth'
 
 export default function SectionProvider() {
     return (
-        <div className=' flex justify-between md:mx-10'>
+        <div className=' flex flex-col gap-3 justify-between'>
             <ButtonProvider
-                icon={<FcGoogle className=' w-10 h-10' />}
+                icon={<FcGoogle className=' w-7 h-7' />}
                 provider={sighInMethods.google}
+                title={'Google'}
             />
             <ButtonProvider
-                icon={<FaFacebookSquare className=' text-blue-700  w-10 h-10' />}
+                icon={<FaFacebookSquare className=' text-blue-700  w-7 h-7' />}
                 provider={sighInMethods.facebook}
+                title={'Facebook'}
             />
             <ButtonProvider
-                icon={<AiFillGithub className='w-10 h-10' />}
+                icon={<AiFillGithub className=' w-7 h-7' />}
                 provider={sighInMethods.github}
+                title={'Github'}
             />
         </div>
     )

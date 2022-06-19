@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { HeadComponent } from '../../components/utils/HeadComponent';
+import Spinner from '../../components/utils/Spinner';
 import { acceptFriendshipRequest, sendFriendshipRequest } from '../../features/users';
 
 export default function People() {
@@ -18,8 +19,14 @@ export default function People() {
         }))
     }
 
+    const deleteRequest = (idUser) => {
+        dispatch(acceptFriendshipRequest({
+            idFriend: idUser, accepted: false
+        }))
+    }
+
     if (loading) {
-        return (<p>Loading....</p>)
+        return (<Spinner />)
     }
 
     return (
@@ -41,7 +48,6 @@ export default function People() {
                     <article key={user.id}>
                         <p>{user.name}</p>
                         <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full' />
-                        <button onClick={() => sendFriendReq(user.id)}>Add Friend</button>
                     </article>
                 ))}
             </section>
@@ -52,6 +58,7 @@ export default function People() {
                         <p>{user.name}</p>
                         <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full'/>
                         <button onClick={() => acceptFriend(user.id)}>Accept</button>
+                        <button onClick={() => deleteRequest(user.id)}>Delete</button>
                     </article>
                 ))}
             </section>

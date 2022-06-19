@@ -41,8 +41,8 @@ export default function Login() {
             >
                 {({ errors }) => {
                     return <>
-                        <Form className='bg-white flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md border-[1px] p-7 md:p-14 mt-14 gap-9 shadow-md'>
-                            <h1 className=' text-3xl '>Login</h1>
+                        <Form className='flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md p-7 md:p-14 mt-14 gap-9'>
+                            <h1 className=' text-4xl text-gray-200 font-medium '>Login</h1>
 
                             {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
 
@@ -60,13 +60,13 @@ export default function Login() {
                             />
                             <button
                                 type='submit'
-                                className={` bg-mine-shaft-600 rounded-sm p-[8px] shadow-md text-white text-base mb-5 hover:opacity-95`}
+                                className={` bg-great-blue-400 rounded-sm p-[8px] shadow-md text-white mb-5 hover:scale-[1.02]`}
                             >
                                 Sign In
                             </button>
                             <section className=' flex items-center justify-between'>
                                 <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
-                                <h1 className=' text-center text-base w-full text-gray-600'>Sign in with</h1>
+                                <h1 className=' text-center text-base w-full text-gray-200'>Sign in with</h1>
                                 <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
                             </section>
                             <SectionProvider />
