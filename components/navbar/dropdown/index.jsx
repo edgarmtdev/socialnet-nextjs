@@ -12,13 +12,13 @@ export default function Dropdown({ open, setOpen, user }) {
     const logout = () => {
         signOut(auth)
         setOpen(false)
-        router.replace('/')
+        router.replace('/login')
     }
     return (
         <Menu primary={open ? true : false}>
             <ul className=' flex flex-col text-sm'>
                 <User>
-                    <img src={user.profilePic} className=' w-9 h-9 rounded-full' />
+                    <img src={user.profilePic} className=' w-9 h-9 rounded-full object-cover' />
                     {user.name}
                 </User>
                 <Link href={`/profile/${user.idUser}`}>

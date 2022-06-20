@@ -14,7 +14,7 @@ export default function Routes({ user, setOpen, open }) {
                 <Item>People</Item>
             </Link>
             <Cicle>
-                <img src={user.profilePic} alt=" " className=' w-7 h-7 rounded-full' />
+                <img src={user.profilePic} alt=" " className=' w-7 h-7 rounded-full object-cover' />
                 <BiChevronDown className=' w-7 h-7' onClick={() => setOpen(!open)} />
             </Cicle>
         </>
