@@ -10,7 +10,7 @@ export default function Routes({ user, setOpen, open }) {
             <Link href={'/friends'}>
                 <Item>Friends</Item>
             </Link>
-            <Link href={'/people'}>
+            <Link href={'/people/allusers'}>
                 <Item>People</Item>
             </Link>
             <Cicle>

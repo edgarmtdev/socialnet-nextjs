@@ -1,20 +1,37 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import ProfileLayout from '../../../components/layout/people'
+import Spinner from '../../../components/utils/Spinner';
+import { sendFriendshipRequest } from '../../../features/users';
 
-export default function index() {
-    const { people } = useSelector(state => state.users)
+export default function AllUsers() {
+    const { people, loading } = useSelector(state => state.users)
+    const dispatch = useDispatch()
+
+    const sendFriendReq = (idUser) => {
+        dispatch(sendFriendshipRequest({
+            idFriend: idUser
+        }))
+    }
+    
+    if (loading) {
+        return (<Spinner />)
+    }
+
     return (
-        <div className=' ml-[20%] p-10'>
-            <section>
-                <h1 className=' text-lg font-medium'>All people</h1>
+        <div className=' ml-[22%] p-10'>
+            <h1 className=' text-xl text-white mb-10 font-medium'>All people</h1>
+            <section className='flex gap-5 flex-wrap text-gray-200 mb-16'>
                 {people?.map(user => (
-                    <article key={user.id}>
+                    <article key={user.id} className='w-[250px] h-full bg-[#2b3b45] px-5 pt-56 pb-5 rounded-lg relative'>
+                        <img src={user.profilePic} className=' w-full h-52 object-cover absolute top-0 left-0 rounded-t-lg ' />
                         <p>{user.name}</p>
-                        <img src={user.profilePic} className=' w-20 h-20 object-cover rounded-full' />
-                        <button onClick={() => sendFriendReq(user.id)}>Add Friend</button>
+                        <button onClick={() => sendFriendReq(user.id)} className=' w-full bg-great-blue-500 mt-4 p-1 text-white rounded-lg'>Add Friend</button>
                     </article>
                 ))}
             </section>
         </div>
     )
 }
+
+AllUsers.Layout = ProfileLayout

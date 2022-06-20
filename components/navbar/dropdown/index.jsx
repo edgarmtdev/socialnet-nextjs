@@ -12,7 +12,7 @@ export default function Dropdown({ open, setOpen, user }) {
     const logout = () => {
         signOut(auth)
         setOpen(false)
-        router.replace('/login')
+        router.replace('/auth/login')
     }
     return (
         <Menu primary={open ? true : false}>
