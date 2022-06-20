@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Page from '../components/layout/Page'
 
 export default function Home() {
 

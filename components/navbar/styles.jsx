@@ -19,6 +19,9 @@ export const NavContainer = styled.div`
     align-items: center;
     margin-left: 1rem;
     margin-right: 2rem;
+    @media(max-width: 400px) {
+        padding: 15px;
+    }
 `
 
 export const Item = styled.li`
@@ -29,6 +32,10 @@ export const Item = styled.li`
 
     &:hover {
         background-color: #2d3449;
+    }
+
+    @media(max-width: 400px) {
+        display: none;
     }
 `
 

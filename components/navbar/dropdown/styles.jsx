@@ -26,6 +26,10 @@ export const Menu = styled.div`
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     `
     }
+
+@media(max-width: 400px) {
+    width: 70%;
+}
 `
 
 export const User = styled.li`

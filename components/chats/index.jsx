@@ -30,7 +30,7 @@ export default function Chats() {
         <ContainerChat>
             <Messages idUser={idUser} idFriend={idFriend} />
             <div className='flex bottom-0 gap-5 fixed w-[73%] left-1/4 p-4'>
-                <input ref={messageInput} className="w-full outline-none bg-transparent border-[1px] rounded-full p-3 text-gray-200" placeholder='Write message...'></input>
+                <input ref={messageInput} className="w-full outline-none bg-[#2d363c] rounded-full p-3 text-gray-200" placeholder='Write message...'></input>
                 <button onClick={sendMessage} className=' text-white'>Enviar</button>
             </div>
         </ContainerChat>

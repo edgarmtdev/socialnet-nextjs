@@ -5,6 +5,7 @@ export const ContainerChat = styled.div`
     padding: 40px;
     overflow-y: scroll;
     height: 80vh;
-    width: 90%;
+    width: 100%;
     position: relative;
+    z-index: -1;
 `

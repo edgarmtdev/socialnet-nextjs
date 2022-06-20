@@ -7,7 +7,7 @@ export default function Navigation() {
         <NavAside>
             <ContainerNav>
                 <Link href={'/people/allusers'}>
-                    <ListItem>All</ListItem>
+                    <ListItem>All People</ListItem>
                 </Link>
                 <Link href={'/people/friendship-request'}>
                     <ListItem>Friendship Request</ListItem>
