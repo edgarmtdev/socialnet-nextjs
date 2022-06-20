@@ -1,35 +1,23 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { HeadComponent } from '../../../components/utils/HeadComponent'
 import ProfileLayout from '../../../components/layout/people'
 import ContainerPeople from '../../../components/people'
 import Spinner from '../../../components/utils/Spinner'
-import { acceptFriendshipRequest } from '../../../features/users'
 
 export default function FriendShipRequest() {
     const { receivedReq, loading } = useSelector(state => state.users)
-    const dispatch = useDispatch()
 
-    if (loading) {
-        return (<Spinner />)
-    }
+    if (loading) return (<Spinner />)
 
     return (
-        <div className=' ml-[20%] p-10'>
-            <ContainerPeople title={'Friendship request'} data={receivedReq} />
-        </div>
+        <>
+            <HeadComponent title={'Friendship request'} />
+            <div className=' ml-[20%] p-10'>
+                <ContainerPeople title={'Friendship request'} data={receivedReq} />
+            </div>
+        </>
     )
 }
 
 FriendShipRequest.Layout = ProfileLayout
-
-{/* <h1 className=' text-xl text-white mb-10 font-medium'>Friendship Requests</h1>
-            <section className='flex gap-5 flex-wrap text-gray-200 mb-16'>
-                {receivedReq?.map(user => (
-                    <article key={user.id} className='w-[250px] h-full bg-[#2b3b45] px-5 pt-56 pb-5 rounded-lg relative'>
-                        <img src={user.profilePic} className=' w-full h-52 object-cover absolute top-0 left-0 rounded-t-lg ' />
-                        <p>{user.name}</p>
-                        <button onClick={() => acceptFriend(user.id)} className=' w-full bg-great-blue-500 mt-4 p-1 text-white rounded-lg'>Accept</button>
-                        <button onClick={() => deleteRequest(user.id)} className=' w-full bg-red-500 mt-4 p-1 text-white rounded-lg'>Delete</button>
-                    </article>
-                ))}
-            </section> */}
