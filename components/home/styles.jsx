@@ -15,7 +15,7 @@ export const Aside = styled.aside`
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background-color: #2b3b45;
+    background-color: #212e36;
     height: 30rem;
     padding: 20px;
     border-radius: 10px;

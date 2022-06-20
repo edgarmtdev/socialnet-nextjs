@@ -17,6 +17,7 @@ export const CardUser = styled.section`
     padding: 2.5rem;
     z-index: 0;
     width: 100%;
+    height: 300px;
     border-radius: 10px;
 `
 
@@ -35,7 +36,7 @@ export const Background = styled.img`
 
 export const Promotions = styled.section`
     width: 100%;
-    height: 100%;
+    height: 300px;
     background-color: #212e36;
     border-radius: 10px;
 `

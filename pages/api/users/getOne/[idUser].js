@@ -9,6 +9,16 @@ export default async function getOne(req, res) {
         },
         include: {
             friends: true,
+            posts: {
+                include: {
+                    author: true,
+                    comments: {
+                        include: {
+                            author: true
+                        }
+                    }
+                }
+            }
         }
     })
 

@@ -1,16 +1,13 @@
-import React from 'react'
-import { Author, Content, Post } from './styles'
+import Link from 'next/link'
+import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addComment, dislikePost, likePost } from '../../features/posts'
-import { useRef } from 'react'
-import Comments from './comments'
 import ReactMarkdown from 'react-markdown'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { addComment, dislikePost, likePost } from '../../features/posts'
+import Comments from './comments'
 import { BiLike } from 'react-icons/bi'
 import { AiTwotoneLike } from 'react-icons/ai'
 import { MdOutlineInsertComment } from 'react-icons/md'
-import Link from 'next/link'
+import { Author, Content, Post } from './styles'
 
 export default function Card({ post }) {
 

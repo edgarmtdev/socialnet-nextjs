@@ -5,8 +5,6 @@ export default async function like(req, res) {
     if (req.method === 'POST') {
         const { idUser, idPost } = req.body
 
-        console.log(idUser, idPost);
-
         const post = await client.post.findUnique({
             where: {
                 id: idPost
