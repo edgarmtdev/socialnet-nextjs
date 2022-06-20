@@ -48,7 +48,8 @@ export const Item = styled.li`
         background-color: rgb(71 85 105)
     }
     ${({ signout }) => signout && css`
-        color: rgb(220 38 38 )
+        color: rgb(220 38 38 );
+        font-weight: 700;
     `
     }
 `

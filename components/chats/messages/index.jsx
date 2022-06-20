@@ -15,7 +15,7 @@ export default function Messages({ idUser, idFriend}) {
                 }
             })
         }
-    }, [idFriend])
+    }, [idFriend])  
     
     return (
         <>

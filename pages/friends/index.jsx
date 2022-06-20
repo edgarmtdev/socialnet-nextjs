@@ -8,7 +8,7 @@ export default function Friends() {
     return (
         <>
             <HeadComponent title={'Friends'} />
-            {friends ?
+            {friends ? 
                 <MyFriends friends={friends} />
                 :
                 <p>Dont have Friends</p>
