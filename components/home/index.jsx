@@ -22,7 +22,7 @@ export default function MyFeed() {
                 />
                 <p className='text-lg font-medium'>{user.name}</p>
             </Aside>
-            <div>
+            <div className=' w-full'>
                 <FormComponent />
                 {!loading ?
                     <Posts posts={dataOfFriends} />

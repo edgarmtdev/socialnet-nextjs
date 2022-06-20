@@ -27,9 +27,9 @@ export const Menu = styled.div`
     `
     }
 
-@media(max-width: 400px) {
-    width: 70%;
-}
+    @media(max-width: 400px) {
+        width: 70%;
+    }
 `
 
 export const User = styled.li`

@@ -8,6 +8,10 @@ export const Feed = styled.section`
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 2rem;
+    @media(max-width: 700px) {
+       display: block;
+       margin: 0 1rem;
+    }
 `
 
 export const Aside = styled.aside`
@@ -21,6 +25,10 @@ export const Aside = styled.aside`
     border-radius: 10px;
     color: #dadada;
     position: relative;
+    @media(max-width: 700px) {
+        height: 10rem;
+        margin-bottom: 3rem;
+    }
 `
 
 export const Button = styled.button`

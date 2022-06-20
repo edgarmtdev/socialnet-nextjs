@@ -55,7 +55,7 @@ export default function Card({ post }) {
                         className='w-10 h-10 rounded-full object-cover hover:opacity-50'
                     />
                     <p className='flex flex-col hover:underline'>{post.author.name}</p>
-                    <span className='text-sm font-extralight text-gray-400'>{post.createdAt.split('T')[0]}</span>
+                    <span className='text-sm font-extralight text-gray-400 hidden md:block'>{post.createdAt.split('T')[0]}</span>
                 </Author>
             </Link>
             <Content>
