@@ -75,8 +75,8 @@ const usersSlice = createSlice({
             state.loading = false
         })
             .addCase(sendFriendshipRequest.fulfilled, (state, action) => {
-                state.receivedReq = action.payload.receivedReq
-                state.sendedReq = action.payload.sendedReq
+                state.receivedReq = action.payload.receivedRequests
+                state.sendedReq = action.payload.sendedRequests
                 state.people = action.payload.people
                 state.friends = action.payload.friends
                 state.loading = false

@@ -19,6 +19,8 @@ export default function Messages({ idUser, idFriend }) {
 
     }, [idUser, idFriend])
 
+    console.log(messages);
+
     return (
         <>
             {messages.length !== 0 ?

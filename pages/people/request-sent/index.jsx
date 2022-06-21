@@ -6,7 +6,7 @@ import ContainerPeople from '../../../components/people'
 import Spinner from '../../../components/utils/Spinner'
 
 export default function RequestSent() {
-    const { sendedReq, loading} = useSelector(state => state.users)
+    const { sendedReq, loading } = useSelector(state => state.users)
 
     if (loading) return (<Spinner />)
 
@@ -14,7 +14,12 @@ export default function RequestSent() {
         <>
             <HeadComponent title={'Requests Sent'} />
             <div className='md:ml-[20%] p-10'>
-                <ContainerPeople title={'Requests Sent'} data={sendedReq} />
+                {sendedReq.length > 0 ?
+                    <ContainerPeople title={'Requests Sent'} data={sendedReq} /> :
+                    <div className=' w-full h-[80vh] flex items-center justify-center'>
+                        <p className=' text-xl text-slate-400'>No requests</p>
+                    </div>
+                }
             </div>
         </>
     )

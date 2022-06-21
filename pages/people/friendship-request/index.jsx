@@ -14,7 +14,12 @@ export default function FriendShipRequest() {
         <>
             <HeadComponent title={'Friendship request'} />
             <div className=' ml-[20%] p-10'>
-                <ContainerPeople title={'Friendship request'} data={receivedReq} />
+                {receivedReq.length > 0 ?
+                    <ContainerPeople title={'Friendship request'} data={receivedReq} /> :
+                    <div className=' w-full h-[80vh] flex items-center justify-center'>
+                        <p className=' text-xl text-slate-400'>No requests</p>
+                    </div>
+                }
             </div>
         </>
     )

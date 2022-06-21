@@ -56,7 +56,28 @@ export default async function friendShipResponse(req, res) {
                 }
             })
         } else {
+            await client.user.update({
+                where: {
+                    id: idFriend
+                },
+                data: {
+                    friendshipReqSendIDs: friend.friendshipReqSendIDs.filter(id => id != idUser)
+                },
+            })
 
+            newUser = await client.user.update({
+                where: {
+                    id: idUser
+                },
+                data: {
+                    friendshipReqRecIDs: user.friendshipReqRecIDs.filter(id => id != idFriend)
+                },
+                include: {
+                    friendshipReqSend: true,
+                    friendshipReqRec: true,
+                    friends: true
+                }
+            })
         }
 
         const users = await client.user.findMany({
