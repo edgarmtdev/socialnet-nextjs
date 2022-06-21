@@ -14,7 +14,7 @@ export default function Friend({ friend }) {
             <h3>{friend.name}</h3>
             <div className=' ml-auto hover:opacity-30 cursor-pointer'>
                 <Link href={`/chats/${idUser}/${friend.id}`}>
-                    <BsChatSquareDotsFill />
+                    <span><BsChatSquareDotsFill className='w-5 h-5 text-slate-300' /></span>
                 </Link>
             </div>
         </CardFriend>

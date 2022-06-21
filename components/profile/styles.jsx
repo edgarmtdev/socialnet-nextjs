@@ -27,7 +27,7 @@ export const CardUser = styled.section`
 `
 
 export const Background = styled.img`
-    height: 50%;
+    height: 45%;
     width: 100%;
     position: absolute;
     object-fit: cover;
@@ -39,12 +39,23 @@ export const Background = styled.img`
     border-top-right-radius: 10px;
 `
 
-export const Promotions = styled.section`
+export const Aside = styled.section`
     width: 100%;
     height: 300px;
     background-color: #212e36;
     border-radius: 10px;
+    padding: 2.5rem;
     @media(max-width: 700px) {
         display: none;
+    }
+`
+
+export const NumberFriend = styled.p`
+    display: inline-block;
+    color: lightgray;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+        text-decoration-line: underline;
     }
 `
