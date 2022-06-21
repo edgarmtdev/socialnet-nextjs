@@ -60,7 +60,7 @@ export default function Card({ post }) {
                 </Author>
             </Link>
             <Content>
-                <ReactMarkdown className='my-5 text-sm px-[20px] prose text-stone-200'>{post.content}</ReactMarkdown>
+                <ReactMarkdown className='my-5 text-sm px-[20px] prose prose-invert text-stone-200'>{post.content}</ReactMarkdown>
                 <img
                     src={post.image}
                     className='w-full h-[400px] object-cover'

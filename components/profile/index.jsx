@@ -26,7 +26,7 @@ export default function MyProfile({ user }) {
 
             <Aside>
                 <h1 className=' text-white text-xl mb-5 font-medium'>Friends</h1>
-                <ol className=' grid grid-cols-4'>
+                <ol className=' grid grid-cols-4 gap-2'>
                     {user.friends.map(friend => {
                         return (
                             <Link href={'/profile/' + friend.id} key={friend.id}>

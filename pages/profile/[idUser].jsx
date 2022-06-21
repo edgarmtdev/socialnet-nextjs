@@ -24,7 +24,7 @@ export default function Profile() {
 
     return (
         <>
-            <HeadComponent title={'Profile'} />
+            <HeadComponent title={user.name} />
             <MyProfile user={user} />
         </>
     )
