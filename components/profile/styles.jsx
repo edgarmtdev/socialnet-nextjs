@@ -8,6 +8,10 @@ export const ProfileCont = styled.section`
     margin-left: auto;
     margin-right: auto;
     gap: 20px;
+    @media(max-width: 700px) {
+        display: block;
+        margin: 0 10px;
+    }
 `
 
 export const CardUser = styled.section`
@@ -15,6 +19,7 @@ export const CardUser = styled.section`
     color: white;
     position: relative;
     padding: 2.5rem;
+    margin-bottom: 2.5rem;
     z-index: 0;
     width: 100%;
     height: 300px;
@@ -39,4 +44,7 @@ export const Promotions = styled.section`
     height: 300px;
     background-color: #212e36;
     border-radius: 10px;
+    @media(max-width: 700px) {
+        display: none;
+    }
 `

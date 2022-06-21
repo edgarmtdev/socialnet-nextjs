@@ -46,7 +46,9 @@ export const likePost = createAsyncThunk(
                     idUser: state.auth.user.idUser,
                     idPost
                 })
-
+            
+            const posts = state.posts.data
+            console.log(posts);
             return post.data
         } catch (error) {
             console.log(error);
@@ -105,6 +107,7 @@ const postSlice = createSlice({
             })
             .addCase(newPost.fulfilled, (state, action) => {
                 state.loading = false
+                state.data = [ ...state.data, action.payload ]
             })
 
         builder.addCase(getPosts.rejected, (state, action) => {
@@ -145,7 +148,7 @@ const postSlice = createSlice({
                 state.loading = false
             })
             .addCase(likePost.pending, (state, action) => {
-                state.loading = true
+                state.loading = false
             });
         builder.addCase(dislikePost.rejected, (state, action) => {
             state.loading = false
@@ -154,7 +157,7 @@ const postSlice = createSlice({
                 state.loading = false
             })
             .addCase(dislikePost.pending, (state, action) => {
-                state.loading = true
+                state.loading = false
             })
     }
 })

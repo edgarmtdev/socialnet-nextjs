@@ -14,7 +14,7 @@ export default function MyFeed() {
         <Feed>
             <Aside>
                 <img 
-                    src='https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80' 
+                    src={user.background} 
                     className=' bg-mine-shaft-600 h-[15%] w-full absolute top-0 rounded-t-lg object-cover'/>
                 <img
                     src={user.profilePic}
