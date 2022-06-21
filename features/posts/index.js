@@ -41,7 +41,7 @@ export const likePost = createAsyncThunk(
         const state = thunkAPI.getState()
         const { idPost } = data
         try {
-            const post = await axios.post('api/posts/like',
+            const post = await axios.post('/api/posts/like',
                 {
                     idUser: state.auth.user.idUser,
                     idPost
@@ -62,7 +62,7 @@ export const dislikePost = createAsyncThunk(
         const state = thunkAPI.getState()
         const { idPost } = data
         try {
-            const post = await axios.post('api/posts/dislike',
+            const post = await axios.post('/api/posts/dislike',
                 {
                     idUser: state.auth.user.idUser,
                     idPost

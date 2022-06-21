@@ -37,6 +37,7 @@ export default function Card({ post }) {
 
 
     const like = (idPost) => {
+        console.log(idPost);
         setLikeState(true)
         dispatch(likePost({ idPost }))
     }

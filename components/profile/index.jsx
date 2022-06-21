@@ -29,7 +29,7 @@ export default function MyProfile({ user }) {
                 <ol className=' grid grid-cols-4'>
                     {user.friends.map(friend => {
                         return (
-                            <Link href={'/profile/' + friend.id}>
+                            <Link href={'/profile/' + friend.id} key={friend.id}>
                                 <li className='flex flex-col items-center text-white hover:underline hover:opacity-80 cursor-pointer'>
                                     <img src={friend.profilePic} className=' w-16 h-16 object-cover rounded-lg' />
                                     <p>{friend.name.split(' ')[0]}</p>
