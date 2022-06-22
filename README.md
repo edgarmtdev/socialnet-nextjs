@@ -7,7 +7,13 @@
 
 ## Getting Started
 
-First, run the development server:
+First, rebuild node_modules:
+
+```bash
+npm install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
