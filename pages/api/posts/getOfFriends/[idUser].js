@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-const client = new PrismaClient()
+import { prisma } from '../../../../libs/db'
+const client = prisma
 
 export default async function getOfFriends(req, res) {
     const { idUser } = req.query

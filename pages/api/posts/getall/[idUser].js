@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-const client = new PrismaClient()
+import { prisma } from '../../../../libs/db'
+const client = prisma
 
 export default async function getAll(req, res) {
     const { idUser } = req.query // -> Las rutas de API admiten rutas dinámicas y siguen las mismas reglas de nomenclatura de archivos utilizadas para .pages
