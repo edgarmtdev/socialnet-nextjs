@@ -38,7 +38,7 @@ export const User = styled.li`
     align-items: center;
     padding: 20px 20px;
     border-bottom: 1px;
-    border-color: rgb(100 116 139)
+    border-color: rgb(100 116 139);
 `
 
 export const Item = styled.li`

@@ -28,21 +28,6 @@ export const NavContainer = styled.div`
     }
 `
 
-export const Item = styled.li`
-    padding: 1rem;
-    margin: 0.7rem 0;
-    border-radius: 0.400rem;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #2d3449;
-    }
-
-    @media(max-width: 400px) {
-        display: none;
-    }
-`
-
 export const Links = styled.ul`
     display: flex;
     align-items: center;

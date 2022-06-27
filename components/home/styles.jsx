@@ -41,3 +41,18 @@ export const Button = styled.button`
         background-color: #212121;
     }
 `
+
+export const Name = styled.p`
+    font-size: 18px;
+    font-weight: 500;
+`
+
+export const Background = styled.img`
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+    height: 15%;
+    width: 100%;
+`

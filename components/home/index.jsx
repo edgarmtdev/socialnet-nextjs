@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Posts from '../../components/posts'
-import { Aside, Feed } from './styles'
+import { Aside, Background, Feed, Name } from './styles'
 import FormComponent from '../form/posts/Form'
 import Spinner from '../utils/Spinner'
+import ProfilePic from '../utils/ProfilePic'
 
 export default function MyFeed() {
 
@@ -13,26 +14,15 @@ export default function MyFeed() {
     return (
         <Feed>
             <Aside>
-                <img 
-                    src={user.background} 
-                    className=' bg-mine-shaft-600 h-[15%] w-full absolute top-0 rounded-t-lg object-cover'/>
-                <img
-                    src={user.profilePic}
-                    className='w-24 h-24 rounded-full object-cover z-[1] border-[3px]'
-                />
-                <p className='text-lg font-medium'>{user.name}</p>
+                <Background src={user.background} />
+                <ProfilePic size={'xl'} src={user.profilePic} />
+                <Name>{user.name}</Name>
             </Aside>
-            <div className=' w-full'>
+            <div className='w-full'>
                 <FormComponent />
-                {!loading ?
-                    <Posts posts={dataOfFriends} />
-                    :
-                    <Spinner />
-                }
+                {!loading ? <Posts posts={dataOfFriends} /> : <Spinner />}
             </div>
-            <Aside>
-                
-            </Aside>
+            <Aside></Aside>
         </Feed>
     )
 }

@@ -7,17 +7,17 @@
 
 ## Technologies
 
-### Principals
+#### Principals
 - [x] NextJS
 - [x] React
 - [x] Redux
 
-### Database Technologies
+#### Database
 - [x] MongoDB
 - [x] Prisma
 - [x] Firebase 
 
-### Other Libraries
+#### Other Libraries
 - [x] Axios
 - [x] Fromik
 - [x] React Icons

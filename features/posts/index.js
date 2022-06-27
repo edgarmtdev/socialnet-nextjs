@@ -48,7 +48,6 @@ export const likePost = createAsyncThunk(
                 })
             
             const posts = state.posts.data
-            console.log(posts);
             return post.data
         } catch (error) {
             console.log(error);

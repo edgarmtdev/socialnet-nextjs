@@ -1,18 +1,14 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { CgUserlane } from 'react-icons/cg'
 import { useSelector } from 'react-redux'
-import { Links, Nav, NavContainer } from './styles'
 import Dropdown from './dropdown'
 import Routes from './routes'
-import { CgUserlane } from 'react-icons/cg'
+import { Links, Nav, NavContainer } from './styles'
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
-    const {
-        logged,
-        user
-    } = useSelector(state => state.auth)
-
+    const { logged, user } = useSelector(state => state.auth)
 
     return (
         <>
