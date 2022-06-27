@@ -1,15 +1,10 @@
 import Comment from './comment'
+import { SectionComment } from './styles'
 
 export default function Comments({ comments }) {
     return (
-        <>
-            <section className='mx-5 flex flex-col gap-2 mb-5 text-sm'>
-                {comments.map(comment => {
-                    return (
-                        <Comment key={comment.id} comment={comment} />
-                    )
-                })}
-            </section>
-        </>
+        <SectionComment>
+            {comments.map(comment => (<Comment key={comment.id} comment={comment} />))}
+        </SectionComment>
     )
 }
