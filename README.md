@@ -5,17 +5,19 @@
   This repository is the frontend of the social-net project with Next.JS
 </h3>
 
-## Principal Technologies
+## Technologies
+
+### Principals
 - [x] NextJS
 - [x] React
 - [x] Redux
 
-## Database Technologies
+### Database Technologies
 - [x] MongoDB
 - [x] Prisma
 - [x] Firebase 
 
-## Other Libraries
+### Other Libraries
 - [x] Axios
 - [x] Fromik
 - [x] React Icons
