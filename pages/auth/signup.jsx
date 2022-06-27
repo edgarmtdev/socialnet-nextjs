@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { newUser } from '../../features/auth'
 import { useAuthState } from '../../hooks/useAuthState'
 
-export default function signup() {
+export default function Signup() {
     const dispatch = useDispatch()
 
     useAuthState('/home')

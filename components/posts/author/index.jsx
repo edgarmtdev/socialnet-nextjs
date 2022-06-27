@@ -8,11 +8,9 @@ export default function Author({ post }) {
     const date = post.createdAt.split('T')[0]
     return (
         <AuthorContainer>
+            <ProfilePic src={post.author.profilePic} size={'md'} />
             <Link href={`/profile/${post.author.id}`}>
-                <>
-                    <ProfilePic src={post.author.profilePic} size={'md'} />
-                    <p className='flex flex-col hover:underline'>{post.author.name}</p>
-                </>
+                <p className='flex flex-col hover:underline'>{post.author.name}</p>
             </Link>
             <span className='text-sm text-gray-400 hidden md:block'>{date}</span>
         </AuthorContainer>
