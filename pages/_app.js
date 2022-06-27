@@ -1,8 +1,8 @@
-import '../styles/globals.css'
 import { Provider } from 'react-redux'
-import Page from '../components/Layout/Page'
-import { store } from '../redux/store'
 import Default from '../components/layout/Default'
+import Page from '../components/layout/Page'
+import { store } from '../redux/store'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
     const Layout = Component.Layout || Default
