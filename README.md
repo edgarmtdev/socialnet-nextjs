@@ -5,6 +5,26 @@
   This repository is the frontend of the social-net project with Next.JS
 </h3>
 
+## Principal Technologies
+- [x] NextJS
+- [x] React
+- [x] Redux
+
+## Database Technologies
+- [x] MongoDB
+- [x] Prisma
+- [x] Firebase 
+
+## Other Libraries
+- [x] Axios
+- [x] Fromik
+- [x] React Icons
+- [x] React Markdown
+- [x] Styled Components
+- [x] Tailwind
+- [x] Tailwind Typography
+- [ ] Framer Motion
+
 ## Getting Started
 
 First, rebuild node_modules:
