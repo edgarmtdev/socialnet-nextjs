@@ -2,7 +2,7 @@
 const removeImports = require("next-remove-imports")();
 
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   compiler: {
     styledComponents: true
   }

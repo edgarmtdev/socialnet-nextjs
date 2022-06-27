@@ -24,6 +24,12 @@ export const CardUser = styled.section`
     width: 100%;
     height: 300px;
     border-radius: 10px;
+    @media(max-width: 720px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 export const Background = styled.img`

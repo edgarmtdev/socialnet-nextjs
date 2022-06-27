@@ -11,6 +11,10 @@ export const Nav = styled.nav`
     z-index: 10;
     padding-left: 1rem;
     padding-right: 3rem;
+    @media(max-width: 720px) {
+        padding-left: 0;
+        padding-right: 2rem;
+    }
 `
 
 export const NavContainer = styled.div`
@@ -19,8 +23,8 @@ export const NavContainer = styled.div`
     align-items: center;
     margin-left: 1rem;
     margin-right: 2rem;
-    @media(max-width: 400px) {
-        padding: 15px;
+    @media(max-width: 720px) {
+        padding: 15px 0;
     }
 `
 

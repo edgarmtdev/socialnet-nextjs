@@ -6,8 +6,7 @@ export default function Comment({ comment }) {
         <Container key={comment.id}>
             <img
                 src={comment.author.profilePic}
-                className='w-7 h-7 rounded-full'
-                
+                className='w-7 h-7 rounded-full' 
             />
             <Body>
                 <p>{comment.author.name}</p>

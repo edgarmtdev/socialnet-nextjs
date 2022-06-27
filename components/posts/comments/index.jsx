@@ -1,4 +1,4 @@
-import Comment from './Comment'
+import Comment from './comment'
 
 export default function Comments({ comments }) {
     return (
