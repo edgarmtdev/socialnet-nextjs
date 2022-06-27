@@ -1,16 +1,11 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Field, Form, Formik } from 'formik';
 import { HeadComponent } from '../../components/utils/HeadComponent';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import SectionProvider from '../../components/form/provider/SectionProvider';
 import { auth } from '../../config/firebase';
+import { useAuthState } from '../../hooks/useAuthState';
 
 export default function Login() {
-
-    const { logged } = useSelector(state => state.auth)
-    const router = useRouter()
 
     const login = (values, { setSubmitting, setErrors }) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
@@ -22,13 +17,7 @@ export default function Login() {
                 })
             })
     }
-
-    useEffect(() => {
-        if (logged) {
-            router.replace('/home')
-        }
-    }, [logged])
-
+    useAuthState('/home')
     return (
         <>
             <HeadComponent title = {'Login'}/>

@@ -1,23 +1,15 @@
-import { useEffect } from 'react'
 import { HeadComponent } from '../../components/utils/HeadComponent'
 import { Field, Form, Formik } from 'formik'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../config/firebase'
-import { useDispatch, useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
 import { newUser } from '../../features/auth'
+import { useAuthState } from '../../hooks/useAuthState'
 
 export default function signup() {
-
-    const { logged } = useSelector(state => state.auth)
     const dispatch = useDispatch()
-    const router = useRouter()
 
-    useEffect(() => {
-        if (logged) {
-            router.replace('/home')
-        }
-    }, [logged])
+    useAuthState('/home')
 
     const signup = (values, { setSubmitting, setErrors }) => {
         createUserWithEmailAndPassword(auth, values.email, values.password)

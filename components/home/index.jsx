@@ -1,10 +1,8 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import Posts from '../../components/posts'
-import { Aside, Background, Feed, Name } from './styles'
 import FormComponent from '../form/posts/Form'
-import Spinner from '../utils/Spinner'
 import ProfilePic from '../utils/ProfilePic'
+import { Aside, Background, Feed, Name } from './styles'
 
 export default function MyFeed() {
 
@@ -20,7 +18,7 @@ export default function MyFeed() {
             </Aside>
             <div className='w-full'>
                 <FormComponent />
-                {!loading ? <Posts posts={dataOfFriends} /> : <Spinner />}
+                {!loading && <Posts posts={dataOfFriends} />}
             </div>
             <Aside></Aside>
         </Feed>
