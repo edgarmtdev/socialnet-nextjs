@@ -4,6 +4,8 @@ let prisma
 
 //Singleton
 
+console.log(process.env.DATABASE_URL);
+
 if (process.env.NODE_ENV === 'production') {
     prisma = new PrismaClient()
 } else {

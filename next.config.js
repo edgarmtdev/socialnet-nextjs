@@ -5,6 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   compiler: {
     styledComponents: true
+  },
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL
   }
 }
 
