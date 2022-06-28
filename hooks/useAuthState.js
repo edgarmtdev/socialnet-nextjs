@@ -9,6 +9,6 @@ export const useAuthState = (path) => {
         if (logged) {
             router.replace(path)
         }
-    }, [logged])
+    }, [logged === true])
     return
 }

@@ -6,14 +6,21 @@ import { HiOutlineLogout } from 'react-icons/hi'
 import { Menu, Item, User } from './styles'
 import { BiUser } from 'react-icons/bi'
 import ProfilePic from '../../utils/ProfilePic'
+import { logOut } from '../../../features/auth'
+import { useDispatch } from 'react-redux'
 
 export default function Dropdown({ open, setOpen, user }) {
+
+    const dispatch = useDispatch()
+
     const router = useRouter()
     const logout = () => {
+        dispatch(logOut())
         signOut(auth)
         setOpen(false)
         router.replace('/auth/login')
     }
+
     return (
         <Menu primary={open ? true : false}>
             <ul>
