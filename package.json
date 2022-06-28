@@ -6,7 +6,9 @@
     "dev": "cross-env NODE_ENV=development next dev",
     "build": "next build",
     "start": "cross-env NODE_ENV=production next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prismaDev": "dotenv -e .env.local prisma migrate dev ",
+    "db:migrate": "dotenv -e .env.local -- npx prisma migrate dev --preview-feature"
   },
   "dependencies": {
     "@prisma/client": "^3.14.0",
@@ -15,6 +17,8 @@
     "@uiw/react-md-editor": "^3.14.4",
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
+    "dotenv-cli": "^5.1.0",
+    "dotenv-flow": "^3.2.0",
     "firebase": "^9.8.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.3",

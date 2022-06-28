@@ -3,8 +3,8 @@ import { useSelector } from "react-redux"
 import { useRouter } from "next/router"
 
 export const useAuthState = (path) => {
-    const router = useRouter()
     const { logged } = useSelector(state => state.auth)
+    const router = useRouter()
     useEffect(() => {
         if (logged) {
             router.replace(path)

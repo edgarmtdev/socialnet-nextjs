@@ -1,9 +1,9 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Field, Form, Formik } from 'formik';
-import { HeadComponent } from '../../components/utils/HeadComponent';
-import SectionProvider from '../../components/form/provider/SectionProvider';
-import { auth } from '../../config/firebase';
-import { useAuthState } from '../../hooks/useAuthState';
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { Field, Form, Formik } from 'formik'
+import SectionProvider from '../../components/form/provider/SectionProvider'
+import { HeadComponent } from '../../components/utils/HeadComponent'
+import { auth } from '../../config/firebase'
+import { useAuthState } from '../../hooks/useAuthState'
 
 export default function Login() {
 
