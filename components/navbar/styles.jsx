@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const Nav = styled.nav`
-    background-color: #212e36;
+    background-color: #1B2831;
     border-bottom: #54586e 1px solid;
     color: white;
     font-size: 0.75rem;

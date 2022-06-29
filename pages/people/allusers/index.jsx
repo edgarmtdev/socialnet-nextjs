@@ -4,6 +4,7 @@ import { HeadComponent } from '../../../components/utils/HeadComponent'
 import ProfileLayout from '../../../components/layout/people'
 import ContainerPeople from '../../../components/people';
 import Spinner from '../../../components/utils/Spinner';
+import NotData from '../../../components/utils/NotData';
 
 export default function AllUsers() {
     const { people, loading } = useSelector(state => state.users)
@@ -14,7 +15,10 @@ export default function AllUsers() {
         <>
             <HeadComponent title={'All people'}/>
             <div className='ml-[22%] p-10'>
-                <ContainerPeople data={people} title={'All people'} />
+            {people.length > 0 ?
+                    <ContainerPeople title={'Friendship request'} data={receivedReq} /> :
+                    <NotData message={'No more people for show you'}/>
+                }
             </div>
         </>
     )

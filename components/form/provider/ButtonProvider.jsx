@@ -12,7 +12,7 @@ export default function ButtonProvider({ icon, provider, title }) {
         <button
             type='button'
             onClick={() => loginWithProvider(provider)}
-            className={`p-2 font-medium hover:scale-105 hover:opacity-90 bg-white grid grid-cols-2 rounded items-center`}
+            className={`p-1 font-medium hover:scale-105 hover:opacity-90 bg-white grid grid-cols-2 rounded items-center`}
         >
                 <span className=' ml-auto mr-10'>{icon}</span>
                 <p className=' mr-auto'>{title}</p>

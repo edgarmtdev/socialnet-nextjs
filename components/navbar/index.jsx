@@ -22,10 +22,12 @@ export default function Navbar() {
                     </Link>
                     {!logged ?
                         <Links>
-                            <li>
-                                <Link href={'/auth/login'}>LogIn</Link>
-                            </li>
-                            <li>
+                            <Link href={'/auth/login'}>
+                                <li className=' bg-white px-4 py-[6px] text-slate-600 rounded-full hover:opacity-80 cursor-pointer'>
+                                    LogIn
+                                </li>
+                            </Link>
+                            <li className=' border-[1px] text-white px-4 py-[5px] font-normal rounded-full hover:opacity-80 cursor-pointer'>
                                 <Link href={'/auth/signup'}>SignUp</Link>
                             </li>
                         </Links>

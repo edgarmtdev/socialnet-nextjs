@@ -30,8 +30,8 @@ export default function Login() {
             >
                 {({ errors }) => {
                     return <>
-                        <Form className='flex flex-col mx-8 md:w-[55%] lg:w-[40%] md:mx-auto rounded-md p-7 md:p-14 gap-9'>
-                            <h1 className=' text-4xl text-gray-200 font-medium '>Login</h1>
+                        <Form className='flex flex-col mx-8 pt-4 md:w-[60%] lg:w-[50%] md:mx-auto rounded-md gap-9'>
+                            <h1 className=' text-4xl text-gray-200 font-normal '>Login</h1>
 
                             {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
 
@@ -49,7 +49,7 @@ export default function Login() {
                             />
                             <button
                                 type='submit'
-                                className={` bg-great-blue-400 rounded-sm p-[8px] shadow-md text-white mb-5 hover:scale-[1.02]`}
+                                className={` bg-great-blue-400 rounded-sm p-[5px] shadow-md text-white mb-5 hover:scale-[1.02]`}
                             >
                                 Sign In
                             </button>
