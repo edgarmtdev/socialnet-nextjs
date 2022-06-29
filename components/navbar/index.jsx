@@ -15,7 +15,7 @@ export default function Navbar() {
             <NavContainer>
                 <Link href={logged ? '/home' : '/'}>
                     <h1 className=' flex gap-2 items-center text-base cursor-pointer'>
-                        <CgUserlane className=' w-10 h-10' />
+                        <CgUserlane className=' w-8 h-8' />
                         <span>Home</span>
                     </h1>
                 </Link>
