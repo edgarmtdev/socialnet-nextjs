@@ -19,7 +19,7 @@
 
 #### Other Libraries
 - [x] Axios
-- [x] Fromik
+- [x] Formik
 - [x] React Icons
 - [x] React Markdown
 - [x] Styled Components
@@ -67,3 +67,10 @@ MEASUREMENT_ID=
 ```
 DATABASE_URL=
 ```
+
+### Test accounts
+
+````
+email: batman@mail.com
+password: 123456
+````
