@@ -11,11 +11,11 @@ export default function Chat() {
         <>
             <HeadComponent title={'Chat | SocialNet'} />
             <section className='flex'>
-                <section className=' bg-[#212e36] md:w-[20%] h-screen fixed top-0 pt-24 z-9 '>
+                <section className=' bg-[#212e36] w-[15%] md:w-[20%] h-screen fixed top-0 pt-24 z-9 '>
                     {friends.map(friend => {
                         return (
                             <Link key={friend.id}  href={`/chats/${idUser}/${friend.id}`}>
-                                <div className=' flex text-white items-center gap-5 hover:bg-slate-700 px-4 cursor-pointer w-full'>
+                                <div className=' flex text-white items-center gap-5 hover:bg-slate-700 px-2 cursor-pointer w-full'>
                                     <img src={friend.profilePic} alt="" className='w-8 h-8 rounded-full object-cover my-2' />
                                     <p className=' hidden md:block text-sm'>{friend.name}</p>
                                 </div>

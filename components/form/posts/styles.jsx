@@ -4,7 +4,7 @@ export const Button = styled.button`
     background-color: #084BB8;
     color: white;
     font-weight: 500;
-    padding: 10px 1rem;
+    padding: 6px;
     border-radius: 4px;
     &:hover{ 
         background-color: #0B61EE;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Feed = styled.section`
-    padding-top: 2rem;
+    padding-top: 1rem;
     max-width: 1180px;
     margin-left: auto;
     margin-right: auto;

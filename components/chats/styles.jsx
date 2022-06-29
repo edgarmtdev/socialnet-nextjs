@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerChat = styled.div`
     margin-left: 20%;
-    padding: 4rem;
+    padding: 2rem;
     overflow-y: scroll;
     height: 80vh;
     width: 100%;
@@ -18,5 +18,9 @@ export const ContainerChat = styled.div`
     }
     &::-webkit-scrollbar-thumb{
         background: #1f1e31;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0.5rem;
     }
 `
