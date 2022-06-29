@@ -16,7 +16,6 @@ export default function Messages({ idUser, idFriend }) {
                 }
             })
         }
-
     }, [idUser, idFriend])
 
     return (

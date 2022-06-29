@@ -5,8 +5,8 @@ export const AuthorContainer = styled.div`
     gap: 15px;
     align-items: center;
     padding: 20px 20px 7px 20px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 450;
     text-align: left;
     cursor: pointer;
 `

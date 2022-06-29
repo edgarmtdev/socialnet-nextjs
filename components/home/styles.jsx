@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Feed = styled.section`
     padding-top: 2rem;
-    max-width: 1280px;
+    max-width: 1180px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1.8fr 1fr;
+    gap: 4.5rem;
     @media(max-width: 700px) {
        display: block;
        margin: 0 1rem;
@@ -20,7 +20,7 @@ export const Aside = styled.aside`
     align-items: center;
     gap: 15px;
     background-color: #212e36;
-    height: 30rem;
+    height: 25rem;
     padding: 20px;
     border-radius: 10px;
     color: #dadada;

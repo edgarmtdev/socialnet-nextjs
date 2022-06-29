@@ -38,11 +38,11 @@ export default function Card({ post }) {
             <Content likeState={likeState} post={post} handleLikeState={setLikeState} />
 
             <section className='flex flex-col mx-5 gap-5 mb-8'>
-                <h1 className='text-lg font-medium '>Comments</h1>
-                <textarea ref={body} name='body' placeholder='Write...' className=' outline-none rounded-full py-1 px-5 bg-[#4b565d5a]' />
+                <h1 className='font-medium '>Comments</h1>
+                <textarea ref={body} name='body' placeholder='Write...' className='outline-none rounded-md py-1 px-5 bg-[#4b565d5a]' />
                 <button
                     onClick={() => newComment(post.id)}
-                    className=' bg-mine-shaft-700 text-white py-2 rounded font-medium'>POST</button>
+                    className=' bg-mine-shaft-700 text-white py-1 rounded font-medium'>POST</button>
             </section>
             <Comments comments={post.comments} />
         </Post>

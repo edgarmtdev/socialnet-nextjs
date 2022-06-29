@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: [
         "./pages/**/*.{js,jsx,}",
@@ -5,6 +7,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            "fontFamily": {
+                'sans': ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
             "colors": {
                 "laic": {
                     "50": "#ffc1ff",

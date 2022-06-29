@@ -12,7 +12,7 @@ export default function Author({ post }) {
             <Link href={`/profile/${post.author.id}`}>
                 <p className='flex flex-col hover:underline'>{post.author.name}</p>
             </Link>
-            <span className='text-sm text-gray-400 hidden md:block'>{date}</span>
+            <span className='text-xs text-gray-400 hidden md:block'>{date}</span>
         </AuthorContainer>
     )
 }

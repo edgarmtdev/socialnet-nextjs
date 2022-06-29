@@ -6,11 +6,11 @@ export default function Comment({ comment }) {
         <Container key={comment.id}>
             <img
                 src={comment.author.profilePic}
-                className='w-7 h-7 rounded-full' 
+                className='w-6 h-6 rounded-full' 
             />
             <Body>
                 <p>{comment.author.name}</p>
-                <p className=' text-slate-400 mt-1 text-xs'>{comment.body}</p>
+                <p className=' text-slate-400 mt-[2px] text-xs'>{comment.body}</p>
             </Body>
         </Container>
     )

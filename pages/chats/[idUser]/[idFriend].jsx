@@ -16,8 +16,8 @@ export default function Chat() {
                         return (
                             <Link key={friend.id}  href={`/chats/${idUser}/${friend.id}`}>
                                 <div className=' flex text-white items-center gap-5 hover:bg-slate-700 px-4 cursor-pointer w-full'>
-                                    <img src={friend.profilePic} alt="" className='w-10 h-10 rounded-full object-cover my-2' />
-                                    <p className=' hidden md:block'>{friend.name}</p>
+                                    <img src={friend.profilePic} alt="" className='w-8 h-8 rounded-full object-cover my-2' />
+                                    <p className=' hidden md:block text-sm'>{friend.name}</p>
                                 </div>
                             </Link>
                         )

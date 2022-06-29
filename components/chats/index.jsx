@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { realTimeDB } from '../../config/firebase'
 import Messages from './messages'
 import { ContainerChat } from './styles'
-import { IoIosSend } from 'react-icons/io'
+import WriteMessage from './sendmessage'
 
 export default function Chats() {
     const messageInput = useRef()
@@ -30,12 +30,7 @@ export default function Chats() {
     return (
         <ContainerChat>
             <Messages idUser={idUser} idFriend={idFriend} />
-            <div className='flex bottom-0 gap-5 fixed w-[73%] left-1/4 p-4'>
-                <input ref={messageInput} className="w-full outline-none bg-[#2d363c] rounded-full p-3 text-gray-200" placeholder='Write message...'></input>
-                <button onClick={sendMessage} className=' text-white bg-slate-700 px-3 rounded-full'>
-                    <IoIosSend className='w-6 h-6' />
-                </button>
-            </div>
+            <WriteMessage sendMessage={sendMessage} input={messageInput} />
         </ContainerChat>
     )
 }

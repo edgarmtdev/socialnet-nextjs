@@ -4,7 +4,7 @@ export const Cicle = styled.li`
     display: flex;
     align-items: center;
     cursor: pointer;
-    width: 56px;
+    width: 52px;
     background-color:  rgb(27 51 102);
     border-radius: 9999px;
     &:hover{
@@ -14,8 +14,8 @@ export const Cicle = styled.li`
 
 
 export const Item = styled.li`
-    padding: 1rem;
-    margin: 0.7rem 0;
+    padding: 0.7rem;
+    margin: 0.3rem 0;
     border-radius: 0.400rem;
     cursor: pointer;
 

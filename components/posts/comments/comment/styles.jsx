@@ -10,6 +10,6 @@ export const Container = styled.article`
 export const Body = styled.div`
     background-color: #4b565d5a;
     width: 100%;
-    border-radius: 15px;
-    padding: 5px 16px;
+    border-radius: 8px;
+    padding: 4px 14px;
 `

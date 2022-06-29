@@ -15,7 +15,7 @@ export default function Routes({ user, setOpen, open }) {
             <Cicle onClick={() => setOpen(!open)}>
                 <ProfilePic src={user.profilePic} size={"sm"} />
                 <BiChevronDown
-                    className={` w-7 h-7 transition ${open && "rotate-180 transition"}`}
+                    className={` w-6 h-6 transition ${open && "rotate-180 transition"}`}
                 />
             </Cicle>
         </>

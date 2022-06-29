@@ -10,6 +10,7 @@ export const SectionInteraction = styled.section`
     border-color: rgb(100 116 139);
     margin-left: 1rem;
     margin-right: 1rem;
+    font-size: 12px;
 `
 
 export const InteractiveButton = styled.button`
@@ -17,8 +18,8 @@ export const InteractiveButton = styled.button`
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem;
-    margin: 5px;
+    padding: 4px;
+    margin: 3px;
     width: 100%;
     border-radius: 8px;
     &:hover{

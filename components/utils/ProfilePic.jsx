@@ -14,12 +14,12 @@ export default function ProfilePic({ size, src }) {
         return (
             <img
                 src={src}
-                className="w-10 h-10 rounded-full object-cover hover:opacity-50"
+                className="w-8 h-8 rounded-full object-cover hover:opacity-50"
             />
         );
     }
 
     if (size === "sm") {
-        return <img src={src} className="w-7 h-7 rounded-full object-cover" />;
+        return <img src={src} className="w-6 h-6 rounded-full object-cover" />;
     }
 }
