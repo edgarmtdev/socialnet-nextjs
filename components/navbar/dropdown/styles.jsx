@@ -13,13 +13,13 @@ export const Menu = styled.div`
     display: none;
     position: absolute;
     right: 0px;
-    top: 73px;
+    top: 52px;
     background-color: #293f4e;
-    width: 20%;
+    width: 25%;
     ${({ primary }) => primary && css`
     animation: ${animate} .4s ease;
     display: block;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     z-index: 20;
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -27,7 +27,10 @@ export const Menu = styled.div`
     `
     }
 
-    @media(max-width: 400px) {
+    @media(max-width: 900px) {
+        width: 40%;
+    }
+    @media(max-width: 500px) {
         width: 70%;
     }
 `

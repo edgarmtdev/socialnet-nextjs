@@ -8,6 +8,10 @@ export const Feed = styled.section`
     display: grid;
     grid-template-columns: 1fr 1.8fr 1fr;
     gap: 4.5rem;
+    @media(max-width: 900px) {
+        max-width: 900px;
+        gap: 2rem;
+    }
     @media(max-width: 700px) {
        display: block;
        margin: 0 1rem;
