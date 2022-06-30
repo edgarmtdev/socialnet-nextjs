@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import filterData from "../../utils/filterData";
 
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
@@ -46,9 +47,7 @@ export const likePost = createAsyncThunk(
                     idUser: state.auth.user.idUser,
                     idPost
                 })
-            
-            const posts = state.posts.data
-            return post.data
+            return { post: post.data, idUser: state.auth.user.idUser }
         } catch (error) {
             console.log(error);
         }
@@ -66,7 +65,7 @@ export const dislikePost = createAsyncThunk(
                     idUser: state.auth.user.idUser,
                     idPost
                 })
-            return post.data
+            return { post: post.data, idUser: state.auth.user.idUser }
         } catch (error) {
             console.log(error);
         }
@@ -83,7 +82,7 @@ export const addComment = createAsyncThunk(
             idPost,
             body
         })
-        return comment.data
+        return { post: idPost, comment: comment.data }
     }
 )
 
@@ -106,7 +105,7 @@ const postSlice = createSlice({
             })
             .addCase(newPost.fulfilled, (state, action) => {
                 state.loading = false
-                state.data = [ ...state.data, action.payload ]
+                state.data = [...state.data, action.payload]
             })
 
         builder.addCase(getPosts.rejected, (state, action) => {
@@ -131,20 +130,41 @@ const postSlice = createSlice({
                 state.loading = true
             })
 
-        builder.addCase(addComment.rejected, (state, action) => {
+        builder.addCase(addComment.pending, (state, action) => {
             state.loading = false
         })
             .addCase(addComment.fulfilled, (state, action) => {
                 state.loading = false
+                filterData(
+                    state.data,
+                    action.payload.post,
+                    action.payload.comment
+                )
+                filterData(
+                    state.dataOfFriends,
+                    action.payload.post,
+                    action.payload.comment
+                )
             })
-            .addCase(addComment.pending, (state, action) => {
-                state.loading = true
+            .addCase(addComment.rejected, (state, action) => {
+                state.loading = false
             });
         builder.addCase(likePost.rejected, (state, action) => {
             state.loading = false
         })
             .addCase(likePost.fulfilled, (state, action) => {
                 state.loading = false
+                state.data.forEach(post => {
+                    if (post.id === action.payload.post.id) {
+                        post.likesUserIDs.push(action.payload.idUser)
+                    }
+                })
+
+                state.dataOfFriends.forEach(post => {
+                    if (post.id === action.payload.post.id) {
+                        post.likesUserIDs.push(action.payload.idUser)
+                    }
+                })
             })
             .addCase(likePost.pending, (state, action) => {
                 state.loading = false
@@ -154,6 +174,16 @@ const postSlice = createSlice({
         })
             .addCase(dislikePost.fulfilled, (state, action) => {
                 state.loading = false
+                state.data.forEach((post) => {
+                  state.data = post.likesUserIDs.filter(
+                    (id) => id !== action.payload.idUser
+                  )
+                })
+                state.dataOfFriends.forEach((post) => {
+                  state.dataOfFriends = post.likesUserIDs.filter(
+                    (id) => id !== action.payload.idUser
+                  )
+                })
             })
             .addCase(dislikePost.pending, (state, action) => {
                 state.loading = false

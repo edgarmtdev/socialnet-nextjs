@@ -19,6 +19,7 @@ export default function Card({ post }) {
                 body: body.current.value,
                 idPost
             }))
+            body.current.value = ''
         } else {
             console.log('No');
         }
@@ -39,7 +40,7 @@ export default function Card({ post }) {
 
             <section className='flex flex-col mx-5 gap-5 mb-8'>
                 <h1 className='font-medium '>Comments</h1>
-                <textarea ref={body} name='body' placeholder='Write...' className='outline-none rounded-md py-1 px-5 bg-[#4b565d5a]' />
+                <textarea ref={body} name='body' placeholder='Write...' className='outline-none rounded-md py-1 px-5 bg-[#4b565d5a] text-xs' />
                 <button
                     onClick={() => newComment(post.id)}
                     className=' bg-mine-shaft-700 text-white py-1 rounded font-medium'>POST</button>

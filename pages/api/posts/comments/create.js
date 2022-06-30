@@ -1,6 +1,9 @@
 import { prisma } from '../../../../libs/db'
 const client = prisma
 
+// import { PrismaClient } from '@prisma/client'
+// const client = new PrismaClient()
+
 export default async function create(req, res) {
     if (req.method === 'POST') {
 
@@ -11,6 +14,9 @@ export default async function create(req, res) {
                 body: body,
                 authorId: idUser,
                 postId: idPost
+            },
+            include: {
+                author: true
             }
         })
 
