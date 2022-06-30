@@ -30,33 +30,33 @@ export default function Login() {
             >
                 {({ errors }) => {
                     return <>
-                        <Form className='flex flex-col mx-8 pt-4 md:w-[60%] lg:w-[50%] md:mx-auto rounded-md gap-9'>
-                            <h1 className=' text-4xl text-gray-200 font-normal '>Login</h1>
+                        <Form className='flex flex-col mx-8 pt-4 md:w-[50%] lg:w-[40%] md:mx-auto rounded-md gap-7'>
+                            <h1 className='text-4xl text-gray-200 font-normal'>Login</h1>
 
-                            {errors && <p className='text-red-500 text-center '>{errors.credentials}</p>}
+                            {errors && <p className='text-red-500 text-center'>{errors.credentials}</p>}
 
                             <Field
                                 placeholder='Enter your email'
                                 type='email'
                                 name='email'
-                                className='  bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-slate-600'
+                                className='bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-slate-600'
                             />
                             <Field
                                 placeholder='Enter your password'
                                 type='password' 
                                 name='password'
-                                className=' bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
+                                className='bg-slate-200 shadow-md p-2 outline-none text-sm rounded-sm text-gray-600'
                             />
                             <button
                                 type='submit'
-                                className={` bg-great-blue-400 rounded-sm p-[5px] shadow-md text-white mb-5 hover:scale-[1.02]`}
+                                className={`bg-gradient-to-r from-indigo-500 via-purple-500 to-laic-500 rounded p-[5px] text-white mb-5 hover:scale-[1.02]`}
                             >
                                 Sign In
                             </button>
-                            <section className=' flex items-center justify-between'>
-                                <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
-                                <h1 className=' text-center text-base w-full text-gray-200'>Sign in with</h1>
-                                <div className=' h-[1px] mt-1 w-full bg-gray-400'></div>
+                            <section className='flex items-center justify-between'>
+                                <div className='h-[1px] mt-1 w-full bg-gray-500'></div>
+                                <h1 className='text-center text-sm w-full text-gray-400'>Sign in with</h1>
+                                <div className='h-[1px] mt-1 w-full bg-gray-500'></div>
                             </section>
                             <SectionProvider />
                         </Form>
