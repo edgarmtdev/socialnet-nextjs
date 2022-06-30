@@ -17,8 +17,8 @@ export const ContainerNav = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 12px;
 `
 
 export const ListItem = styled.li`

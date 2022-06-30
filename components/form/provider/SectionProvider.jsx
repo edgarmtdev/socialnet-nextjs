@@ -7,7 +7,7 @@ import { sighInMethods } from '../../../libs/auth'
 
 export default function SectionProvider() {
     return (
-        <div className=' flex flex-col gap-6 justify-between'>
+        <div className=' flex flex-col gap-4 justify-between'>
             <ButtonProvider
                 icon={<FcGoogle className=' w-6 h-6' />}
                 provider={sighInMethods.google}

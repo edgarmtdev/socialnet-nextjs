@@ -1,8 +1,11 @@
-import { Field, Form, Formik } from 'formik'
-import SectionProvider from '../form/provider/SectionProvider'
-import { auth } from '../../config/firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../config/firebase'
+import { FormStyled } from './form/styles'
 import { FieldStyled } from './field/styles'
+import { ButtonAuth, Title } from './styles'
+import { Formik } from 'formik'
+import SectionProvider from '../form/provider/SectionProvider'
+import BarSignIn from './bar'
 
 
 export default function AuthForm() {
@@ -19,21 +22,15 @@ export default function AuthForm() {
     }
 
     return (
-        <Formik
-            initialValues={{
-                email: '',
-                password: ''
-            }}
+        <Formik initialValues={{ email: '', password: '' }}
             onSubmit={login}
         >
             {({ errors }) => {
                 return <>
-                    <Form className='flex flex-col mx-8 pt-4 md:w-[50%] lg:w-[40%] md:mx-auto rounded-md gap-7'>
-                        <h1 className='text-4xl text-gray-200 font-normal'>Login</h1>
-
+                    <FormStyled>
+                        <Title>Login</Title>
                         {errors && <p className='text-red-500 text-center'>{errors.credentials}</p>}
-
-                        <FieldStyled 
+                        <FieldStyled
                             placeholder='Enter your email'
                             type='email'
                             name='email'
@@ -43,19 +40,10 @@ export default function AuthForm() {
                             type='password'
                             name='password'
                         />
-                        <button
-                            type='submit'
-                            className={`bg-gradient-to-r from-indigo-500 via-purple-500 to-laic-500 rounded p-[5px] text-white mb-5 hover:scale-[1.02]`}
-                        >
-                            Sign In
-                        </button>
-                        <section className='flex items-center justify-between'>
-                            <div className='h-[1px] mt-1 w-full bg-gray-500'></div>
-                            <h1 className='text-center text-sm w-full text-gray-400'>Sign in with</h1>
-                            <div className='h-[1px] mt-1 w-full bg-gray-500'></div>
-                        </section>
+                        <ButtonAuth type='submit'>Sign In</ButtonAuth>
+                        <BarSignIn />
                         <SectionProvider />
-                    </Form>
+                    </FormStyled>
                 </>
             }}
         </Formik>

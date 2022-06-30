@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 
 export const Nav = styled.nav`
     background-color: #0E141B;
-    /* border-bottom: #54586e 1px solid; */
     color: white;
     font-size: 0.75rem;
     font-weight: 500;
@@ -24,7 +23,7 @@ export const NavContainer = styled.div`
     margin-left: 1rem;
     margin-right: 2rem;
     @media(max-width: 720px) {
-        padding: 15px 0;
+        /* padding: 15px 0; */
     }
 `
 

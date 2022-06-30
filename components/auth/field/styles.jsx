@@ -2,9 +2,9 @@ import styled from "styled-components"
 import FormField from "."
 
 export const FieldStyled = styled(FormField)`
-    background-color: white ;
-    padding: 8px;
+    padding: 5px;
     outline: none;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 2px;
+    color: white;
 `
