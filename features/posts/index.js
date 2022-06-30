@@ -154,17 +154,17 @@ const postSlice = createSlice({
         })
             .addCase(likePost.fulfilled, (state, action) => {
                 state.loading = false
-                state.data.forEach(post => {
-                    if (post.id === action.payload.post.id) {
-                        post.likesUserIDs.push(action.payload.idUser)
-                    }
-                })
+                // state.data.forEach(post => {
+                //     if (post.id === action.payload.post.id) {
+                //         post.likesUserIDs.push(action.payload.idUser)
+                //     }
+                // })
 
-                state.dataOfFriends.forEach(post => {
-                    if (post.id === action.payload.post.id) {
-                        post.likesUserIDs.push(action.payload.idUser)
-                    }
-                })
+                // state.dataOfFriends.forEach(post => {
+                //     if (post.id === action.payload.post.id) {
+                //         post.likesUserIDs.push(action.payload.idUser)
+                //     }
+                // })
             })
             .addCase(likePost.pending, (state, action) => {
                 state.loading = false
