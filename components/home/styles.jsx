@@ -23,7 +23,7 @@ export const Aside = styled.aside`
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background-color: #212e36;
+    background-color: #182635;
     height: 25rem;
     padding: 20px;
     border-radius: 10px;

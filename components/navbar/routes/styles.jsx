@@ -14,7 +14,7 @@ export const Cicle = styled.li`
 
 
 export const Item = styled.li`
-    padding: 0.7rem;
+    padding: 0.9rem;
     margin: 0.3rem 0;
     border-radius: 0.400rem;
     cursor: pointer;
