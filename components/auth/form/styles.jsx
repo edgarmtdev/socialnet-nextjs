@@ -6,7 +6,7 @@ export const FormStyled = styled(FormCustom)`
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 35%;
     padding: 40px;
     border-radius: 8px;
@@ -22,6 +22,5 @@ export const FormStyled = styled(FormCustom)`
     @media (max-width: 500px) {
         width: 95%;
         padding: 35px 20px;
-        margin-top: 3rem;
     }
 `

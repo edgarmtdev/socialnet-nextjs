@@ -12,13 +12,13 @@ export default function Navbar() {
 
     return (
         <Nav>
+            <Link href={logged ? '/home' : '/'}>
+                <h1 className='flex gap-2 items-center text-base cursor-pointer'>
+                    <CgUserlane className='w-8 h-8' />
+                    <span>Home</span>
+                </h1>
+            </Link>
             <NavContainer>
-                <Link href={logged ? '/home' : '/'}>
-                    <h1 className=' flex gap-2 items-center text-base cursor-pointer'>
-                        <CgUserlane className=' w-8 h-8' />
-                        <span>Home</span>
-                    </h1>
-                </Link>
                 {!logged ?
                     <Links>
                         <Link href={'/auth/login'}>
