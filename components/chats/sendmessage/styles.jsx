@@ -6,12 +6,13 @@ export const SectionToWrite = styled.div`
     gap: 20px;
     bottom: 0;
     left: 20%;
-    width: 85%;
+    width: 80%;
     padding: 10px;
     background-color: #212e36;
 
     @media (max-width: 768px) {
         left: 15%;
+        width: 85%
     }
 `
 

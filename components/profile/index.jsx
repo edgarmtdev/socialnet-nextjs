@@ -25,14 +25,14 @@ export default function MyProfile({ user }) {
             </div>
 
             <Aside>
-                <h1 className=' text-white text-xl mb-5 font-medium'>Friends</h1>
+                <h1 className=' text-white text-lg mb-5'>Friends</h1>
                 <ol className=' grid grid-cols-4 gap-2'>
                     {user.friends.map(friend => {
                         return (
                             <Link href={'/profile/' + friend.id} key={friend.id}>
                                 <li className='flex flex-col items-center text-white hover:underline hover:opacity-80 cursor-pointer'>
-                                    <img src={friend.profilePic} className=' w-16 h-16 object-cover rounded-lg' />
-                                    <p>{friend.name.split(' ')[0]}</p>
+                                    <img src={friend.profilePic} className=' w-14 h-14 object-cover rounded-lg' />
+                                    <p className='text-sm text-gray-200'>{friend.name.split(' ')[0]}</p>
                                 </li>
                             </Link>
                         )

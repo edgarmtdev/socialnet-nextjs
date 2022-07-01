@@ -2,15 +2,19 @@ import styled from "styled-components";
 
 export const ProfileCont = styled.section`
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 4rem;
     padding-top: 2rem;
-    max-width: 1280px;
+    max-width: 1180px;
     margin-left: auto;
     margin-right: auto;
-    gap: 20px;
-    @media(max-width: 700px) {
+    @media(max-width: 900px) {
         display: block;
-        margin: 0 10px;
+        margin: 0 4rem;
+    }
+    @media(max-width: 500px) {
+        display: block;
+        margin: 0 0.5rem;
     }
 `
 
@@ -51,7 +55,7 @@ export const Aside = styled.section`
     background-color: #212e36;
     border-radius: 10px;
     padding: 2.5rem;
-    @media(max-width: 700px) {
+    @media(max-width: 900px) {
         display: none;
     }
 `

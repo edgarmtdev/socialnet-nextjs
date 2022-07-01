@@ -14,7 +14,4 @@ const remove = (phase, { }) => {
   })
 }
 
-
 module.exports = remove
-
-
