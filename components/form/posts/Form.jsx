@@ -7,7 +7,7 @@ import { newPost } from "../../../features/posts";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import { storage } from "../../../config/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const MDEditor = dynamic(
     () => import('@uiw/react-md-editor'),
@@ -17,37 +17,25 @@ const MDEditor = dynamic(
 export default function FormComponent({ handlePost }) {
 
     const [value, setValue] = useState('')
+    const [image, setImage] = useState(null)
     const dispatch = useDispatch()
-    const [image, setImage] = useState();
 
-    const changeImage = e => {
-        console.log(e);
-        setImage(e.target.files[0]);
-        console.log(image);
-    }
+    const changeImage = e => setImage(e.target.files[0]);
 
-    const createPost = async (values, { setSubmitting }) => {
-
+    const createPost = (values, { setSubmitting }) => {
         const storageRef = ref(storage, `images/${image.name}`)
-
         uploadBytes(storageRef, image)
             .then(snapshot => {
-                console.log(snapshot);
+                getDownloadURL(snapshot.ref)
+                    .then(url => {
+                        dispatch(newPost({
+                            image: url,
+                            content: value
+                        }))
+                    })
             })
-        
-        console.log(storageRef);
-
-        // storageRef.put(image).then(data => {
-        //     console.log(data);
-        // })
-
-        // if (url) {
-
-        //     dispatch(newPost({
-        //         image: url,
-        //         content: value
-        //     }))
-        // }
+            setValue('')
+            setImage(null)
     }
 
     return (
@@ -59,7 +47,6 @@ export default function FormComponent({ handlePost }) {
             }}>
             <Form className='flex flex-col'>
                 <MDEditor value={value} onChange={(data, event, editor) => {
-                    console.log(data)
                     setValue(data)
                 }} />
                 <Field name='image' type='file' placeholder='Image URL'
