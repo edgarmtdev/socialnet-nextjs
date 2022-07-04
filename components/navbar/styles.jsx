@@ -12,8 +12,8 @@ export const Nav = styled.nav`
     padding-right: 1rem;
     width: 100%; 
     @media(max-width: 720px) {
-        padding-left: 0;
-        padding-right: 2rem;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 `
 
@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
     align-items: center;
     margin-left: auto;
     @media(max-width: 720px) {
-        /* padding: 15px 0; */
+        padding: 15px 0;
     }
 `
 

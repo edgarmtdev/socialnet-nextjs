@@ -14,7 +14,7 @@ export const Feed = styled.section`
     }
     @media(max-width: 700px) {
        display: block;
-       margin: 0 1rem;
+       margin: 0 10px;
     }
 `
 
