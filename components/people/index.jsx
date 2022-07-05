@@ -23,7 +23,7 @@ export default function ContainerPeople({ title, data }) {
     return (
         <>
             <Title>{title}</Title>
-            <Container className='flex gap-5 flex-wrap text-gray-200 mb-16'>
+            <Container>
                 {data?.map(user => <CardUser key={user.id} user={user} idPeople={idPeople} />)}
             </Container>
         </>

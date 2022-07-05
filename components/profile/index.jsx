@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import FormComponent from '../form/posts/Form'
 import Posts from '../posts'
@@ -15,7 +14,7 @@ export default function MyProfile({ user }) {
                     <Background src={user.background} />
                     <ProfilePic src={user.profilePic} size={'4xl'} />
                     <Name>{user.name}</Name>
-                    <Link href={'/friends'}><NumberFriend>{user.friends.length} friends</NumberFriend></Link>
+                    <NumberFriend>{user.friends.length} friends</NumberFriend>
                 </CardUser>
                 {auth.idUser === user.id && <FormComponent />}
                 <Posts posts={user.posts} />

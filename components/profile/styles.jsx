@@ -64,10 +64,6 @@ export const NumberFriend = styled.p`
     display: inline-block;
     color: lightgray;
     font-size: 14px;
-    cursor: pointer;
-    &:hover {
-        text-decoration-line: underline;
-    }
 `
 
 export const Name = styled.p`
