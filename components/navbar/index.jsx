@@ -19,14 +19,12 @@ export default function Navbar() {
             <NavContainer>
                 {!logged ?
                     <Links>
-                        <Button
-                            route={'/auth/login'}
+                        <Button route={'/auth/login'}
                             title={'LogIn'}
                             isLogin={true}
                         />
-                        <Button 
-                             route={'/auth/signup'}
-                             title={'SignUp'}
+                        <Button route={'/auth/signup'}
+                            title={'SignUp'}
                         />
                     </Links>
                     :

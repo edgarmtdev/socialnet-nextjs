@@ -6,5 +6,4 @@ export const FieldStyled = styled(FormField)`
     outline: none;
     font-size: 14px;
     border-radius: 2px;
-    color: white;
 `

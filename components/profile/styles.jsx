@@ -69,3 +69,9 @@ export const NumberFriend = styled.p`
         text-decoration-line: underline;
     }
 `
+
+export const Name = styled.p`
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 2.5rem;
+`

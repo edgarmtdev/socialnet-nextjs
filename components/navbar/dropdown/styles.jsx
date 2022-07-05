@@ -1,12 +1,8 @@
 import styled, { keyframes, css } from 'styled-components'
 
 const animate = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from {opacity: 0;}
+    to {opacity: 1;}
 `
 
 export const Menu = styled.div`
@@ -16,17 +12,14 @@ export const Menu = styled.div`
     top: 52px;
     background-color: #293f4e;
     width: 25%;
+    font-size: 12px;
     ${({ primary }) => primary && css`
     animation: ${animate} .4s ease;
     display: block;
     border-radius: 10px;
     z-index: 20;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     `
     }
-
     @media(max-width: 900px) {
         width: 40%;
     }
@@ -42,6 +35,7 @@ export const User = styled.li`
     padding: 20px 20px;
     border-bottom: 1px;
     border-color: rgb(100 116 139);
+    font-size: 14px;
 `
 
 export const Item = styled.li`
