@@ -34,8 +34,8 @@ export default function FormComponent({ handlePost }) {
                         }))
                     })
             })
-            setValue('')
-            setImage(null)
+        setValue('')
+        setImage(null)
     }
 
     return (
@@ -49,10 +49,10 @@ export default function FormComponent({ handlePost }) {
                 <MDEditor value={value} onChange={(data, event, editor) => {
                     setValue(data)
                 }} />
-                <Field name='image' type='file' placeholder='Image URL'
-                    className=' bg-[#212E36] p-2 rounded-md outline-none my-2 text-gray-200'
-                    onChange={changeImage}
-                />
+                    <Field name='image' type='file' placeholder='Image URL'
+                        className='p-2 bg-slate-700'
+                        onChange={changeImage}
+                    />
                 <Button type='submit'>POST</Button>
             </Form>
         </Formik>
