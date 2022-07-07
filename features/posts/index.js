@@ -154,17 +154,6 @@ const postSlice = createSlice({
         })
             .addCase(likePost.fulfilled, (state, action) => {
                 state.loading = false
-                // state.data.forEach(post => {
-                //     if (post.id === action.payload.post.id) {
-                //         post.likesUserIDs.push(action.payload.idUser)
-                //     }
-                // })
-
-                // state.dataOfFriends.forEach(post => {
-                //     if (post.id === action.payload.post.id) {
-                //         post.likesUserIDs.push(action.payload.idUser)
-                //     }
-                // })
             })
             .addCase(likePost.pending, (state, action) => {
                 state.loading = false
@@ -174,16 +163,6 @@ const postSlice = createSlice({
         })
             .addCase(dislikePost.fulfilled, (state, action) => {
                 state.loading = false
-                // state.data.forEach((post) => {
-                //   state.data = post.likesUserIDs.filter(
-                //     (id) => id !== action.payload.idUser
-                //   )
-                // })
-                // state.dataOfFriends.forEach((post) => {
-                //   state.dataOfFriends = post.likesUserIDs.filter(
-                //     (id) => id !== action.payload.idUser
-                //   )
-                // })
             })
             .addCase(dislikePost.pending, (state, action) => {
                 state.loading = false
