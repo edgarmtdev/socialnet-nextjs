@@ -11,9 +11,10 @@ export default function MyProfile({ user }) {
         <ProfileCont>
             <div>
                 <CardUser>
-                    <Background src={user.background ||
-                        'https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=883&q=80'
-                    } />
+                    <Background
+                        src={user.background ||
+                            'https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=883&q=80'
+                        } />
                     <ProfilePic src={user.profilePic} size={'4xl'} />
                     <Name>{user.name}</Name>
                     <NumberFriend>{user.friends.length} friends</NumberFriend>

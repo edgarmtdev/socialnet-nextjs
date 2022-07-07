@@ -6,11 +6,8 @@ import Spinner from '../utils/Spinner'
 import { Aside, Background, Feed, Name } from './styles'
 
 export default function MyFeed() {
-
     const { dataOfFriends, loading } = useSelector(state => state.post)
     const { user } = useSelector(state => state.auth)
-
-    console.log(user);
 
     return (
         <Feed>
