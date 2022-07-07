@@ -1,18 +1,45 @@
-import { prisma } from '../../../libs/db'
-const client = prisma
+// import { prisma } from '../../../libs/db'
+// const client = prisma
+
+import { PrismaClient } from '@prisma/client';
+const client = new PrismaClient()
 
 export default async function signup(req, res) {
     if (req.method === 'POST') {
-        console.log(req.body);
-        const newUser = await client.user.create({
-            data: {
-                name: req.body.name,
-                idProvider: req.body.idProvider,
-                provider: req.body.provider,
-                profilePic: req.body.profilePic,
-                background: req.body.background
-            }
-        })
+
+        let newUser
+        if (!(req.body.idProvider && req.body.provider)) {
+            newUser = await client.user.create({
+                data: {
+                    name: req.body.name,
+                    email: req.body.email,
+                    profilePic: req.body.profilePic,
+                    background: req.body.background,
+                    posts: undefined,
+                    comments: undefined,
+                    likes: undefined,
+                    likesPostsIDs: undefined,
+                    friends: undefined,
+                    friendsIDs: undefined,
+                    friendOf: undefined,
+                    friendOfIDs: undefined,
+                    friendshipReqRec: undefined,
+                    friendshipReqRecIDs: undefined,
+                    friendshipReqSend: undefined,
+                    friendshipReqSendIDs: undefined
+                }
+            })
+        } else {
+            newUser = await client.user.update({
+                where: {
+                    id: req.body.id
+                },
+                data: {
+                    idProvider: req.body.idProvider,
+                    provider: req.body.provider,
+                }
+            })
+        }
         return res.json(newUser)
     }
 }

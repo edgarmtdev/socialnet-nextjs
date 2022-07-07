@@ -20,6 +20,7 @@ export default async function getAll(req, res) {
             }
         }, 
     })
+
     return res.json({
         people: users ,
         receivedReq: user.friendshipReqRec,

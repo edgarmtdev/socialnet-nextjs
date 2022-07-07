@@ -10,7 +10,6 @@ import Navbar from '../navbar/index'
 const Page = ({ children }) => {
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         onAuthStateChanged(auth, (result) => {
             if (result) {

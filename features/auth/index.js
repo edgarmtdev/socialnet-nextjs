@@ -4,34 +4,20 @@ import axios from "axios"
 export const login = createAsyncThunk(
     'auth/login',
     async (data, thunkAPI) => {
-        const {
-            idProvider,
-            provider,
-            name,
-            profilePic
-        } = data
-        const user = await axios.post('/api/auth/login', {
-            idProvider, provider, name, profilePic
-        })
+        const user = await axios.post('/api/auth/login', data)
+        const result = user.data
         return {
-            ...data,
+            ...result,
             idUser: user.data.id,
             background: user.data.background
         }
-    })
+    }
+)
 
-export const newUser = createAsyncThunk(
-    'users/create',
+export const updateProviders = createAsyncThunk(
+    'auth/updateProviders',
     async function (data, thunkAPI) {
-        const {
-            idProvider,
-            provider,
-            name,
-            profilePic
-        } = data
-        const newUser = await axios.post('/api/auth/signup',  {
-            idProvider, provider, name, profilePic
-        })
+        const newUser = await axios.post('/api/auth/signup', data)
         return newUser.data
     }
 )
@@ -42,7 +28,6 @@ const initialState = {
     user: {
         name: '',
         email: '',
-        id: '',
         idUser: '',
         profilePic: '',
         background: ''
@@ -58,7 +43,7 @@ const authSlice = createSlice({
             state.loading = false
             state.user.name = ''
             state.user.email = ''
-            state.user.id = ''
+            state.user.idUser = ''
             state.user.profilePic = ''
         }
     },
@@ -68,8 +53,17 @@ const authSlice = createSlice({
             state.loading = false
             state.user.name = action.payload.name
             state.user.email = action.payload.email
-            state.user.id = action.payload.id
             state.user.idUser = action.payload.idUser
+            state.user.profilePic = action.payload.profilePic
+            state.user.background = action.payload.background
+        })
+
+        builder.addCase(updateProviders.fulfilled, (state, action) => {
+            state.logged = true
+            state.loading = false
+            state.user.name = action.payload.name
+            state.user.email = action.payload.email
+            state.user.idUser = action.payload.id
             state.user.profilePic = action.payload.profilePic
             state.user.background = action.payload.background
         })
