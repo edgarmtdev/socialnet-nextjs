@@ -16,8 +16,8 @@ model User {
     provider             String?
     name                 String?
     email                String?    
-    profilePic           String
-    background           String
+    profilePic           String?
+    background           String?
     posts                Post[]    @relation(name: "author")
     comments             Comment[] 
     likes                Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])

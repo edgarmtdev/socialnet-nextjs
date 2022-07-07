@@ -24,7 +24,19 @@ export default async function login(req, res) {
                     idProvider: req.body.idProvider,
                     background: undefined,
                     provider: req.body.provider,
-                    profilePic: req.body.profilePic
+                    profilePic: req.body.profilePic,
+                    posts: undefined,
+                    comments: undefined,
+                    likes: undefined,
+                    likesPostsIDs: undefined,
+                    friends: undefined,
+                    friendsIDs: undefined,
+                    friendOf: undefined,
+                    friendOfIDs: undefined,
+                    friendshipReqRec: undefined,
+                    friendshipReqRecIDs: undefined,
+                    friendshipReqSend: undefined,
+                    friendshipReqSendIDs: undefined
                 }
             })
             return res.json(newUser)
