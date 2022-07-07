@@ -1,14 +1,14 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../config/firebase'
-import { FormStyled } from './form/styles'
-import { FieldStyled } from './field/styles'
-import { ButtonAuth, Title } from './styles'
+import { auth } from '../../../config/firebase'
+import { FormStyled } from '../form/styles'
+import { FieldStyled } from '../field/styles'
+import { ButtonAuth, Title } from '../styles'
 import { Formik } from 'formik'
-import SectionProvider from '../form/provider/SectionProvider'
-import BarSignIn from './bar'
+import SectionProvider from '../../form/provider/SectionProvider'
+import BarSignIn from '../bar'
 
 
-export default function AuthForm() {
+export default function LoginModule() {
 
     const login = (values, { setSubmitting, setErrors }) => {
         signInWithEmailAndPassword(auth, values.email, values.password)

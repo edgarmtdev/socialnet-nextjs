@@ -1,4 +1,4 @@
-import AuthForm from '../../components/auth'
+import LoginModule from '../../components/auth/login'
 import { HeadComponent } from '../../components/utils/HeadComponent'
 import { useAuthState } from '../../hooks/useAuthState'
 
@@ -7,7 +7,7 @@ export default function Login() {
     return (
         <>
             <HeadComponent title = {'Login'}/>
-            <AuthForm />
+            <LoginModule />
         </>
     )
 }
