@@ -37,9 +37,11 @@ const Page = ({ children }) => {
     return (
         <>
             <Navbar />
-            {!loading && dataOfFriends ? <>
-                <main className='pt-20 z-[-1]'>{children}</main>
-            </> : <Spinner />
+            {!loading && dataOfFriends ?
+                <>
+                    <main className='pt-20 z-[-1]'>{children}</main>
+                </> :
+                <Spinner />
             }
         </>
     )

@@ -4,6 +4,7 @@ const client = prisma
 export default async function signup(req, res) {
     if (req.method === 'POST') {
 
+        console.log(req.body);
         let newUser
         if (!(req.body.idProvider && req.body.provider)) {
             newUser = await client.user.create({
@@ -26,6 +27,7 @@ export default async function signup(req, res) {
                     friendshipReqSendIDs: undefined
                 }
             })
+            return res.json(newUser)
         } else {
             newUser = await client.user.update({
                 where: {
@@ -36,7 +38,7 @@ export default async function signup(req, res) {
                     provider: req.body.provider,
                 }
             })
+            return res.json(newUser)
         }
-        return res.json(newUser)
     }
 }
