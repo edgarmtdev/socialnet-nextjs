@@ -11,8 +11,6 @@ export default async function login(req, res) {
             }
         })
 
-        console.log(user);
-
         if (user) return res.json(user)
 
         try {

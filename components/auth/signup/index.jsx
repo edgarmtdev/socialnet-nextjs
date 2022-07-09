@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { updateProviders } from '../../../features/auth'
 
-
 export default function SignupModule() {
 
     const dispatch = useDispatch()
