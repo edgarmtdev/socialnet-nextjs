@@ -26,6 +26,7 @@ export default function SignupModule() {
                     })
                     dispatch(updateProviders({
                         id: newUser.data.id,
+                        email: newUser.email,
                         provider: result.user.providerId,
                         idProvider: result.user.uid,
                     }))

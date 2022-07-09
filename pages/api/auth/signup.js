@@ -8,7 +8,7 @@ const client = new PrismaClient()
 export default async function signup(req, res) {
     if (req.method === 'POST') {
         let newUser
-        if (!(req.body.idProvider && req.body.provider)) {
+        if (!req.body.id) {
             // console.log('Step1');
             // console.log(req.body);
 
@@ -42,7 +42,8 @@ export default async function signup(req, res) {
             // console.log(req.body);
             newUser = await client.user.update({
                 where: {
-                    id: req.body.id
+                    id: req.body.id,
+                    email: req.body.email
                 },
                 data: {
                     idProvider: req.body.idProvider,
