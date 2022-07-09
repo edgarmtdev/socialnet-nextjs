@@ -22,7 +22,7 @@ export default function ContainerPeople({ title, data }) {
 
     return (
         <>
-            <Title>{title}</Title>
+            {data && <Title>{title}</Title>}
             <Container>
                 {data?.map(user => <CardUser key={user.id} user={user} idPeople={idPeople} />)}
             </Container>

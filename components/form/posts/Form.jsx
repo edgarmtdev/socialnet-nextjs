@@ -49,7 +49,7 @@ export default function FormComponent({ handlePost }) {
                 <MDEditor value={value} onChange={(data, event, editor) => {
                     setValue(data)
                 }} />
-                    <Field name='image' type='file' placeholder='Image URL'
+                    <input name='image' type='file' placeholder='Image URL'
                         className='p-2 bg-slate-700'
                         onChange={changeImage}
                     />

@@ -7,14 +7,22 @@ export const Feed = styled.section`
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1.8fr 1fr;
-    gap: 4.5rem;
-    @media(max-width: 900px) {
-        max-width: 900px;
-        gap: 2rem;
+    gap: 3rem;
+
+    @media(max-width: 1000px) {
+        max-width: 920px;
+        gap: 1rem;
+        margin: 0 auto;
     }
-    @media(max-width: 700px) {
-       display: block;
-       margin: 0 10px;
+    
+    @media(max-width: 912px) {
+        max-width: 500px;
+        display: block;
+    }
+
+    @media(max-width: 520px) {
+        margin: 0 10px;
+        gap: 0.5rem;
     }
 `
 
@@ -29,8 +37,8 @@ export const Aside = styled.aside`
     border-radius: 10px;
     color: #dadada;
     position: relative;
-    @media(max-width: 700px) {
-        height: 10rem;
+    @media(max-width: 912px) {
+        height: 14rem;
         margin-bottom: 3rem;
     }
 `
@@ -57,6 +65,10 @@ export const Background = styled.img`
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     object-fit: cover;
-    height: 15%;
+    height: 30%;
     width: 100%;
+    
+    @media (min-width: 912px){
+        height: 15%;
+    }
 `

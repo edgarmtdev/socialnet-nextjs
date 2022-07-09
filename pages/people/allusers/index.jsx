@@ -15,7 +15,7 @@ export default function AllUsers() {
         <>
             <HeadComponent title={'All people'}/>
             <div className='ml-[22%] p-10'>
-            {people.length > 0 ?
+            {people && !loading ?
                     <ContainerPeople title={'All people'} data={people} /> :
                     <NotData message={'No more people for show you'}/>
                 }

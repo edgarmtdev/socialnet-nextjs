@@ -15,7 +15,7 @@ export default function ProfilePic({ size, src }) {
         return (
             <img
                 src={src}
-                className="w-24 h-24 rounded-full object-cover z-[1]"
+                className="w-24 h-24 rounded-[50%] object-cover z-[1] border-[3px]"
             />
         );
     }

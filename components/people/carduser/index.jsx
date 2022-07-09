@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { acceptFriendshipRequest, sendFriendshipRequest } from '../../../features/users'
@@ -27,7 +28,7 @@ export default function CardUser({ user, idPeople }) {
     return (
         <Card>
             <img src={user.profilePic} className=' w-full h-52 object-cover absolute top-0 left-0 rounded-t-lg ' />
-            <p>{user.name}</p>
+            <Link href={`/profile/${user.id}`}><p className='hover:underline cursor-pointer inline-block'>{user.name}</p></Link>
             {idPeople === 1 &&
                 <Button onClick={() => deleteRequest(user.id)}
                     color={'red'}>
