@@ -7,19 +7,19 @@ const client = new PrismaClient()
 
 export default async function signup(req, res) {
     if (req.method === 'POST') {
-        let newUser
-        if (!req.body.id) {
-            // console.log('Step1');
-            // console.log(req.body);
+        let user
+        console.log(req.body)
+        if (!req.body.update) {
+            console.log('Step1');
 
-            newUser = await client.user.create({
+            user = await client.user.create({
                 data: {
                     name: req.body.name,
                     email: req.body.email,
                     profilePic: req.body.profilePic,
                     background: req.body.background,
-                    idProvider: undefined,
-                    provider: undefined,
+                    idProvider: '',
+                    provider: '',
                     posts: undefined,
                     comments: undefined,
                     likes: undefined,
@@ -34,13 +34,11 @@ export default async function signup(req, res) {
                     friendshipReqSendIDs: undefined
                 }
             })
-            console.log(newUser);
-
-            return res.json(newUser)
+            console.log(user)
+            return res.json(user)
         } else {
-            // console.log('Step2');
-            // console.log(req.body);
-            newUser = await client.user.update({
+            console.log('Step2')
+            user = await client.user.update({
                 where: {
                     id: req.body.id,
                     email: req.body.email
@@ -50,8 +48,8 @@ export default async function signup(req, res) {
                     provider: req.body.provider,
                 }
             })
-            // console.log(newUser);
-            return res.json(newUser)
+            console.log(user);
+            return res.json(user)
         }
     }
 }

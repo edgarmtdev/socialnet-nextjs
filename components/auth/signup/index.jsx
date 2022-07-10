@@ -15,7 +15,7 @@ export default function SignupModule() {
     const dispatch = useDispatch()
 
     const signup = async (values, { setSubmitting, setErrors }) => {
-        const newUser = await axios.post('/api/auth/signup', values)
+        const newUser = await axios.post('/api/auth/signup', { update: false, ...values })
 
         if (newUser.data.id) {
             createUserWithEmailAndPassword(auth, values.email, values.password)
@@ -25,6 +25,7 @@ export default function SignupModule() {
                         photoURL: values.profilePic,
                     })
                     dispatch(updateProviders({
+                        update: true,
                         id: newUser.data.id,
                         email: newUser.email,
                         provider: result.user.providerId,

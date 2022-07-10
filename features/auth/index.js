@@ -28,7 +28,7 @@ const initialState = {
     user: {
         name: '',
         email: '',
-        idUser: '',
+        idUser: undefined,
         profilePic: '',
         background: ''
     }

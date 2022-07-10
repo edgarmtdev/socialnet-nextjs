@@ -11,26 +11,29 @@ import Spinner from '../utils/Spinner'
 const Page = ({ children }) => {
     const dispatch = useDispatch()
     const { dataOfFriends, loading } = useSelector(state => state.post)
+    const { user: { idUser } } = useSelector(state => state.auth)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (result) => {
-            if (result) {
-                dispatch(login({
-                    name: result.displayName,
-                    email: result.email,
-                    profilePic: result.photoURL,
-                    provider: result.providerId,
-                    idProvider: result.uid
-                }))
-                    .then(() => {
-                        dispatch(getPosts())
-                        dispatch(getUsers())
-                        dispatch(getofFriends())
-                    })
-            } else {
-                dispatch(logOut())
-            }
-        })
+        if (idUser) {
+            onAuthStateChanged(auth, (result) => {
+                if (result) {
+                    dispatch(login({
+                        name: result.displayName,
+                        email: result.email,
+                        profilePic: result.photoURL,
+                        provider: result.providerId,
+                        idProvider: result.uid
+                    }))
+                        .then(() => {
+                            dispatch(getPosts())
+                            dispatch(getUsers())
+                            dispatch(getofFriends())
+                        })
+                }
+            })
+        } else {
+            dispatch(logOut())
+        }
     }, [])
 
 
