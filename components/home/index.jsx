@@ -18,7 +18,7 @@ export default function MyFeed({ dataOfFriends, user }) {
             </Aside>
             <div className='w-full'>
                 <FormComponent />
-                {dataOfFriends ? <Posts posts={dataOfFriends} /> : <Spinner />}
+                <Posts posts={dataOfFriends} />
             </div>
             <Aside></Aside>
         </Feed>

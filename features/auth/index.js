@@ -43,7 +43,7 @@ const authSlice = createSlice({
             state.loading = false
             state.user.name = ''
             state.user.email = ''
-            state.user.idUser = ''
+            state.user.idUser = undefined
             state.user.profilePic = ''
         }
     },

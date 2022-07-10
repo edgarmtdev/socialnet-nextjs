@@ -13,28 +13,30 @@ const Page = ({ children }) => {
     const { dataOfFriends, loading } = useSelector(state => state.post)
     const { user: { idUser } } = useSelector(state => state.auth)
 
+    console.log(idUser);
+
     useEffect(() => {
-        if (idUser) {
-            onAuthStateChanged(auth, (result) => {
-                if (result) {
-                    dispatch(login({
-                        name: result.displayName,
-                        email: result.email,
-                        profilePic: result.photoURL,
-                        provider: result.providerId,
-                        idProvider: result.uid
-                    }))
-                        .then(() => {
+        onAuthStateChanged(auth, (result) => {
+            if (result) {
+                dispatch(login({
+                    name: result.displayName,
+                    email: result.email,
+                    profilePic: result.photoURL,
+                    provider: result.providerId,
+                    idProvider: result.uid
+                }))
+                    .then(() => {
+                        if (idUser) {
                             dispatch(getPosts())
                             dispatch(getUsers())
                             dispatch(getofFriends())
-                        })
-                }
-            })
-        } else {
-            dispatch(logOut())
-        }
-    }, [])
+                        }
+                    })
+            } else {
+                dispatch(logOut())
+            }
+        })
+    }, [idUser])
 
 
     return (
