@@ -13,8 +13,6 @@ const Page = ({ children }) => {
     const { dataOfFriends, loading } = useSelector(state => state.post)
     const { user: { idUser } } = useSelector(state => state.auth)
 
-    console.log(idUser);
-
     useEffect(() => {
         onAuthStateChanged(auth, (result) => {
             if (result) {
@@ -36,7 +34,7 @@ const Page = ({ children }) => {
                 dispatch(logOut())
             }
         })
-    }, [idUser])
+    }, [])
 
 
     return (
