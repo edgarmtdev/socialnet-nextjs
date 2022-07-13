@@ -6,13 +6,18 @@ import { ButtonAuth, Title } from '../styles'
 import { Formik } from 'formik'
 import SectionProvider from '../../form/provider/SectionProvider'
 import BarSignIn from '../bar'
-
+import { useRouter } from 'next/router'
 
 export default function LoginModule() {
+    const router = useRouter()
 
     const login = (values, { setSubmitting, setErrors }) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
-            .then(() => setSubmitting(false))
+            .then(() => {
+                setSubmitting(false)
+                console.log('hola');
+                router.replace('/home')
+            })
             .catch(() => {
                 setSubmitting(false)
                 setErrors({

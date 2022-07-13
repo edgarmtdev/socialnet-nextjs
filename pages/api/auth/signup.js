@@ -2,16 +2,12 @@
 // const client = prisma
 
 import { PrismaClient } from "@prisma/client"
-
 const client = new PrismaClient()
 
 export default async function signup(req, res) {
     if (req.method === 'POST') {
         let user
-        console.log(req.body)
         if (!req.body.update) {
-            console.log('Step1');
-
             user = await client.user.create({
                 data: {
                     name: req.body.name,
@@ -34,7 +30,6 @@ export default async function signup(req, res) {
                     friendshipReqSendIDs: undefined
                 }
             })
-            console.log(user)
             return res.json(user)
         } else {
             console.log('Step2')
@@ -48,7 +43,6 @@ export default async function signup(req, res) {
                     provider: req.body.provider,
                 }
             })
-            console.log(user);
             return res.json(user)
         }
     }

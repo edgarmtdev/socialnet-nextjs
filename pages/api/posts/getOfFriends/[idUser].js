@@ -31,6 +31,8 @@ export default async function getOfFriends(req, res) {
                 }
             }
         })
+
+        console.log(posts);
     
         return res.json(posts)
     } catch (error) {

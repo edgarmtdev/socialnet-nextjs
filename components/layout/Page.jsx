@@ -34,7 +34,7 @@ const Page = ({ children }) => {
                 dispatch(logOut())
             }
         })
-    }, [])
+    }, [idUser])
 
 
     return (

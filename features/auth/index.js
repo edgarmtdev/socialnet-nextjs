@@ -44,7 +44,8 @@ const authSlice = createSlice({
             state.user.name = ''
             state.user.email = ''
             state.user.idUser = undefined
-            state.user.profilePic = ''
+            state.user.profilePic = '',
+            state.user.background = ''
         }
     },
     extraReducers: (builder) => {

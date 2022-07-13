@@ -9,13 +9,18 @@ import BarSignIn from '../bar'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { updateProviders } from '../../../features/auth'
+import { useState } from 'react'
+import { ImSpinner } from 'react-icons/im'
 
 export default function SignupModule() {
-
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
 
     const signup = async (values, { setSubmitting, setErrors }) => {
+        setLoading(true)
         const newUser = await axios.post('/api/auth/signup', { update: false, ...values })
+
+        /*TODO: refactor errors*/
 
         if (newUser.data.id) {
             createUserWithEmailAndPassword(auth, values.email, values.password)
@@ -31,6 +36,7 @@ export default function SignupModule() {
                         provider: result.user.providerId,
                         idProvider: result.user.uid,
                     }))
+                    setLoading(false)
                 })
         }
     }
@@ -49,6 +55,7 @@ export default function SignupModule() {
             {({ errors }) => {
                 return <>
                     <FormStyled>
+                        {loading && <ImSpinner className='text-white animate-spin' />}
                         <Title>Register now!</Title>
                         {errors && <p className='text-red-500 text-center'>{errors.credentials}</p>}
                         <FieldStyled
