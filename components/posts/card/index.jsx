@@ -43,7 +43,6 @@ export default function Card({ post }) {
         post={post}
         handleLikeState={setLikeState}
       />
-
       <section className="flex flex-col mx-5 gap-5 mb-8">
         <h1 className="font-medium ">Comments</h1>
         <textarea

@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import Default from "../components/layout/Default";
-import Page from "../components/layout/Page";
+import Page from "../components/layout/page";
 import { store } from "../redux/store";
 import "../styles/globals.css";
 import GlobalStyles from "../theme/global/globals";

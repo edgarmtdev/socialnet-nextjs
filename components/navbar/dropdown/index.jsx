@@ -34,7 +34,7 @@ export default function Dropdown({ open, setOpen, user }) {
           </Item>
         </Link>
         <Item signout={true} onClick={logout}>
-          <HiOutlineLogout className="w-5 h-5" />
+          <HiOutlineLogout width={40} height={40} />
           Logout
         </Item>
       </ul>

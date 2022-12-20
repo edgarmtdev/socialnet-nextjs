@@ -5,13 +5,18 @@ import { AuthorContainer } from "./styles";
 
 export default function Author({ post }) {
   const date = post.createdAt.split("T")[0];
+
   return (
     <AuthorContainer>
-      <ProfilePic src={post.author.profilePic} size={"md"} />
       <Link href={`/profile/${post.author.id}`}>
-        <p className="flex flex-col hover:underline">{post.author.name}</p>
+        <ProfilePic src={post.author.profilePic} size={"md"} />
       </Link>
-      <span className="text-xs text-gray-400 hidden md:block">{date}</span>
+      <div>
+        <Link href={`/profile/${post.author.id}`}>
+          <p className="flex flex-col hover:underline">{post.author.name}</p>
+        </Link>
+        <span>{date}</span>
+      </div>
     </AuthorContainer>
   );
 }

@@ -9,4 +9,13 @@ export const AuthorContainer = styled.div`
   font-weight: 450;
   text-align: left;
   cursor: pointer;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 10px;
+      color: #4c4c4c;
+    }
+  }
 `;

@@ -11,10 +11,15 @@ export default async function getOfFriends(req, res) {
       },
     });
 
+    const usersPostsIds = [...user.friendsIDs, idUser]
+
+    console.log("This the users posts", usersPostsIds)
+
+
     const posts = await client.post.findMany({
       where: {
         authorId: {
-          in: user.friendsIDs,
+          in: usersPostsIds,
         },
       },
       include: {

@@ -4,7 +4,8 @@ export const Nav = styled.nav`
   display: flex;
   position: fixed;
   z-index: 10;
-  background-color: #202020;
+  background-color: #1c1c1c;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   color: white;
   padding-left: 1rem;
   padding-right: 1rem;

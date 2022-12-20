@@ -1,12 +1,13 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../../config/firebase";
-import { login, logOut } from "../../features/auth";
-import { getofFriends, getPosts } from "../../features/posts";
-import { getUsers } from "../../features/users";
-import Navbar from "../navbar/index";
-import Spinner from "../utils/Spinner";
+import { auth } from "../../../config/firebase";
+import { login, logOut } from "../../../features/auth";
+import { getofFriends, getPosts } from "../../../features/posts";
+import { getUsers } from "../../../features/users";
+import Navbar from "../../navbar/index";
+import Spinner from "../../utils/Spinner";
+import { PageLayout } from "./styles";
 
 const Page = ({ children }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,6 @@ const Page = ({ children }) => {
           })
         ).then(() => {
           if (idUser) {
-            console.log(idUser);
             dispatch(getPosts());
             dispatch(getUsers());
             dispatch(getofFriends());
@@ -38,14 +38,14 @@ const Page = ({ children }) => {
         dispatch(logOut());
       }
     });
-  }, [idUser]);
+  }, [dispatch, idUser]);
 
   return (
     <>
       <Navbar />
       {!loading && dataOfFriends ? (
         <>
-          <main className="pt-20 z-[-1]">{children}</main>
+          <PageLayout>{children}</PageLayout>
         </>
       ) : (
         <Spinner />
