@@ -1,36 +1,35 @@
-import { prisma } from '../../../../libs/db'
-const client = prisma
+import { prisma } from "../../../../libs/db";
+const client = prisma;
 
 export default async function like(req, res) {
-    if (req.method === 'POST') {
-        const { idUser, idPost } = req.body
+  if (req.method === "POST") {
+    const { idUser, idPost } = req.body;
 
-        const post = await client.post.update({
-            where: {
-                id: idPost
-            },
-            data: {
-                likesUserIDs: {
-                    push: idUser
-                }
-            },
-            include: {
-                likes: true
-            }
-        })
+    const post = await client.post.update({
+      where: {
+        id: idPost,
+      },
+      data: {
+        likesUserIDs: {
+          push: idUser,
+        },
+      },
+      include: {
+        likes: true,
+      },
+    });
 
-        await client.user.update({
-            where: {
-                id: idUser
-            },
-            data:{
-                likesPostsIDs: {
-                    push: idPost
-                }
-            }
-        })
+    await client.user.update({
+      where: {
+        id: idUser,
+      },
+      data: {
+        likesPostsIDs: {
+          push: idPost,
+        },
+      },
+    });
 
-        return res.json(post)
-
-    }
+    return res.json(post);
+  }
 }

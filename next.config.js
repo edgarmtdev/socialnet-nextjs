@@ -4,14 +4,14 @@ const removeImports = require("next-remove-imports")();
 const nextConfig = {
   reactStrictMode: false,
   compiler: {
-    styledComponents: true
-  }
-}
+    styledComponents: true,
+  },
+};
 
-const remove = (phase, { }) => {
+const remove = (phase, {}) => {
   return removeImports({
-    ...nextConfig
-  })
-}
+    ...nextConfig,
+  });
+};
 
-module.exports = remove
+module.exports = remove;

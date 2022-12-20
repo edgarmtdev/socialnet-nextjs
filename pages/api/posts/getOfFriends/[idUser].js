@@ -1,41 +1,41 @@
-import { prisma } from '../../../../libs/db'
-const client = prisma
+import { prisma } from "../../../../libs/db";
+const client = prisma;
 
 export default async function getOfFriends(req, res) {
-    const { idUser } = req.query
+  const { idUser } = req.query;
 
-    try {
-        const user = await client.user.findUnique({
-            where: {
-                id: idUser
-            }
-        })
-    
-        const posts = await client.post.findMany({
-            where: {
-                authorId: {
-                        in: user.friendsIDs 
-                }
+  try {
+    const user = await client.user.findUnique({
+      where: {
+        id: idUser,
+      },
+    });
+
+    const posts = await client.post.findMany({
+      where: {
+        authorId: {
+          in: user.friendsIDs,
+        },
+      },
+      include: {
+        author: true,
+        comments: {
+          include: {
+            author: {
+              select: {
+                name: true,
+                profilePic: true,
+              },
             },
-            include: {
-                author: true,
-                comments: {
-                    include: {
-                        author: {
-                            select: {
-                                name: true, 
-                                profilePic: true
-                            }
-                        }
-                    }
-                }
-            }
-        })
+          },
+        },
+      },
+    });
 
-        console.log(posts);
-    
-        return res.json(posts)
-    } catch (error) {
-        console.log(error);
-    }
+    console.log("posts", posts);
+
+    return res.json(posts);
+  } catch (error) {
+    console.log(error);
+  }
 }

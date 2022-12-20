@@ -1,27 +1,27 @@
-import { prisma } from '../../../../libs/db'
-const client = prisma
+import { prisma } from "../../../../libs/db";
+const client = prisma;
 
 export default async function getAll(req, res) {
-    const { idUser } = req.query // -> Las rutas de API admiten rutas dinámicas y siguen las mismas reglas de nomenclatura de archivos utilizadas para .pages
-    const posts = await client.post.findMany({
-        where: {
-            author: {
-                id: idUser
-            }
-        },
+  const { idUser } = req.query; // -> Las rutas de API admiten rutas dinámicas y siguen las mismas reglas de nomenclatura de archivos utilizadas para .pages
+  const posts = await client.post.findMany({
+    where: {
+      author: {
+        id: idUser,
+      },
+    },
+    include: {
+      author: true,
+      comments: {
         include: {
-            author: true,
-            comments: {
-                include: {
-                    author: {
-                        select: {
-                            name: true,
-                            profilePic: true
-                        }
-                    }
-                }
-            }
-        }
-    })
-    return res.json(posts)
+          author: {
+            select: {
+              name: true,
+              profilePic: true,
+            },
+          },
+        },
+      },
+    },
+  });
+  return res.json(posts);
 }

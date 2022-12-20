@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prebuild": "prisma generate",
     "db_push": "dotenv -e .env.local -- npx prisma db push",
-    "prismaDev": "dotenv -e .env.local prisma migrate dev "
+    "prismaDev": "dotenv -e .env.local prisma migrate dev",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
@@ -41,6 +42,7 @@
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
     "postcss": "^8.4.14",
+    "prettier": "^2.8.1",
     "prisma": "^4.0.0",
     "tailwindcss": "^3.0.24"
   },

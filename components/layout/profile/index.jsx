@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function OneProfileLayout({ children }) {
-    return (
-        <div>index</div>
-    )
+  return <div>index</div>;
 }

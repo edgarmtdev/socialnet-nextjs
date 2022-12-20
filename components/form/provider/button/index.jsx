@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function ButtonProv() {
-  return (
-    <div>index</div>
-  )
+  return <div>index</div>;
 }

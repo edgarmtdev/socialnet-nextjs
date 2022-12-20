@@ -1,30 +1,35 @@
-import { prisma } from '../../../../libs/db'
-const client = prisma
+import { prisma } from "../../../../libs/db";
+const client = prisma;
 
 export default async function getAll(req, res) {
-    const { idUser } = req.query
-    const user = await client.user.findUnique({
-        where: {
-            id: idUser
-        },
-        include: {
-            friendshipReqSend: true,
-            friendshipReqRec: true, 
-            friends: true 
-        }
-    })
-    const users = await client.user.findMany({
-        where: {
-            id:{
-                notIn: [idUser, ...user.friendsIDs, ...user.friendshipReqRecIDs, ...user.friendshipReqSendIDs ]
-            }
-        }, 
-    })
+  const { idUser } = req.query;
+  const user = await client.user.findUnique({
+    where: {
+      id: idUser,
+    },
+    include: {
+      friendshipReqSend: true,
+      friendshipReqRec: true,
+      friends: true,
+    },
+  });
+  const users = await client.user.findMany({
+    where: {
+      id: {
+        notIn: [
+          idUser,
+          ...user.friendsIDs,
+          ...user.friendshipReqRecIDs,
+          ...user.friendshipReqSendIDs,
+        ],
+      },
+    },
+  });
 
-    return res.json({
-        people: users ,
-        receivedReq: user.friendshipReqRec,
-        sendedReq: user.friendshipReqSend,
-        friends: user.friends
-    })
+  return res.json({
+    people: users,
+    receivedReq: user.friendshipReqRec,
+    sendedReq: user.friendshipReqSend,
+    friends: user.friends,
+  });
 }

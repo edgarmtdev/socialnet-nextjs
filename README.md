@@ -1,4 +1,3 @@
-
 <h1 align="center">SocialNet</h1>
 
 <h3 align="center">
@@ -8,16 +7,19 @@
 ## Technologies
 
 #### Principals
+
 - [x] NextJS
 - [x] React
 - [x] Redux
 
 #### Database
+
 - [x] MongoDB
 - [x] Prisma
-- [x] Firebase 
+- [x] Firebase
 
 #### Other Libraries
+
 - [x] Axios
 - [x] Formik
 - [x] React Icons
@@ -47,7 +49,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-
 ## Set enviroment variables
 
 #### .env.local
@@ -70,7 +71,7 @@ DATABASE_URL=
 
 ### Test accounts
 
-````
+```
 email: batman@mail.com
 password: 123456
-````
+```

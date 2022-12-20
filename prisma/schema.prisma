@@ -14,8 +14,8 @@ model User {
     id                   String    @id @default(auto()) @map("_id") @db.ObjectId
     idProvider           String    
     provider             String
-    name                 String
-    email                String    
+    name                 String?
+    email                String?    @unique
     profilePic           String
     background           String?
     posts                Post[]    @relation(name: "author")

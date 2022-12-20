@@ -1,9 +1,14 @@
-import Card from './card';
+import Card from "./card";
+import { PostContainer } from "./styles";
 
 export default function Posts({ posts }) {
-    return (
-        <section className='mx-auto w-full my-10'>
-            {posts ? posts.map(post => (<Card post={post} key={post.id} />)) : <p>no hay posts</p>}
-        </section>
-    )
+  return (
+    <PostContainer>
+      {posts ? (
+        posts.map((post) => <Card post={post} key={post.id} />)
+      ) : (
+        <p>No hay posts</p>
+      )}
+    </PostContainer>
+  );
 }

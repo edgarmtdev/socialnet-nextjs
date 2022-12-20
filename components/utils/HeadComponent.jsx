@@ -1,4 +1,8 @@
-import Head from 'next/head'
-import React from 'react'
+import Head from "next/head";
+import React from "react";
 
-export const HeadComponent = ({ title }) => <Head><title>{title}</title></Head>
+export const HeadComponent = ({ title }) => (
+  <Head>
+    <title>{title}</title>
+  </Head>
+);
