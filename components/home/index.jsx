@@ -2,8 +2,11 @@ import Posts from "../../components/posts";
 import FormComponent from "../form/posts/Form";
 import ProfilePic from "../utils/ProfilePic";
 import { Aside, Background, Feed, Name } from "./styles";
+import { useSelector } from "react-redux";
 
-export default function MyFeed({ dataOfFriends, user }) {
+export default function MyFeed() {
+  const { dataOfFriends } = useSelector((state) => state.post);
+  const { user } = useSelector((state) => state.auth);
   return (
     <Feed>
       <Aside>

@@ -91,13 +91,29 @@ export const addComment = createAsyncThunk(
 const initialState = {
   data: [],
   dataOfFriends: [],
-  loading: false,
+  load: false,
 };
 
 const postSlice = createSlice({
   name: "posts",
   initialState,
   extraReducers: (builder) => {
+    builder
+      .addCase(getPosts.rejected, (state, action) => {
+        state.data = undefined;
+        state.dataOfFriends = undefined;
+        state.loading = false;
+      })
+      .addCase(getPosts.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.loading = false;
+      })
+      .addCase(getPosts.pending, (state, action) => {
+        state.data = undefined;
+        state.dataOfFriends = undefined;
+        state.loading = true;
+      });
+
     builder
       .addCase(newPost.pending, (state, action) => {
         state.loading = true;
@@ -109,18 +125,6 @@ const postSlice = createSlice({
       .addCase(newPost.fulfilled, (state, action) => {
         state.loading = false;
         state.data = [...state.data, action.payload];
-      });
-
-    builder
-      .addCase(getPosts.rejected, (state, action) => {
-        state.loading = false;
-      })
-      .addCase(getPosts.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.loading = false;
-      })
-      .addCase(getPosts.pending, (state, action) => {
-        state.loading = true;
       });
 
     builder

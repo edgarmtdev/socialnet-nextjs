@@ -10,7 +10,7 @@ export const Menu = styled.div`
   position: absolute;
   right: 0px;
   top: 52px;
-  background-color: #202020;
+  background-color: #1c1c1c;
   width: 25%;
   font-size: 12px;
   ${({ primary }) =>

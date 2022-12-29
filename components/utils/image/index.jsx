@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
 import Image from "next/image";
 
-const ImageComponent = ({width, height, size}) => {
-  return (
-    <Image />
-  )
-}
+const ImageComponent = ({ width, height, size }) => {
+  return <Image />;
+};
 
-export default ImageComponent
+export default ImageComponent;

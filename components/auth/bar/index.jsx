@@ -4,7 +4,7 @@ import { BarContainer } from "./styled";
 export default function BarSignIn() {
   return (
     <BarContainer>
-      <h1>Sign in with</h1>
+      <h1>Or connect with</h1>
     </BarContainer>
   );
 }

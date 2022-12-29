@@ -11,10 +11,7 @@ export default async function getOfFriends(req, res) {
       },
     });
 
-    const usersPostsIds = [...user.friendsIDs, idUser]
-
-    console.log("This the users posts", usersPostsIds)
-
+    const usersPostsIds = [...user.friendsIDs, idUser];
 
     const posts = await client.post.findMany({
       where: {
@@ -36,8 +33,6 @@ export default async function getOfFriends(req, res) {
         },
       },
     });
-
-    console.log("posts", posts);
 
     return res.json(posts);
   } catch (error) {

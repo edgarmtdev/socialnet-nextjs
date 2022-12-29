@@ -11,10 +11,7 @@ import { PageLayout } from "./styles";
 
 const Page = ({ children }) => {
   const dispatch = useDispatch();
-  const { dataOfFriends, loading } = useSelector((state) => state.post);
-  const {
-    user: { idUser },
-  } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.post);
 
   useEffect(() => {
     onAuthStateChanged(auth, (result) => {
@@ -27,24 +24,25 @@ const Page = ({ children }) => {
             provider: result.providerId,
             idProvider: result.uid,
           })
-        ).then(() => {
-          if (idUser) {
-            dispatch(getPosts());
-            dispatch(getUsers());
-            dispatch(getofFriends());
-          }
+        ).then((data) => {
+          console.log(data);
+          dispatch(getPosts());
+          dispatch(getofFriends());
+          dispatch(getUsers());
         });
       } else {
         dispatch(logOut());
       }
     });
-  }, [dispatch, idUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      <Navbar />
-      {!loading && dataOfFriends ? (
+      {!loading ? (
         <>
+          {" "}
+          <Navbar />
           <PageLayout>{children}</PageLayout>
         </>
       ) : (

@@ -9,6 +9,6 @@ export const BarContainer = styled.section`
     text-align: center;
     font-size: 14px;
     width: 100%;
-    color: wheat;
+    color: #c0c0c0;
   }
 `;

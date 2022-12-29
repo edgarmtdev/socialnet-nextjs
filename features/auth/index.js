@@ -45,15 +45,34 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(login.fulfilled, (state, action) => {
-      state.logged = true;
-      state.loading = false;
-      state.user.name = action.payload.name;
-      state.user.email = action.payload.email;
-      state.user.idUser = action.payload.idUser;
-      state.user.profilePic = action.payload.profilePic;
-      state.user.background = action.payload.background;
-    });
+    builder
+      .addCase(login.pending, (state, action) => {
+        state.logged = false;
+        state.loading = true;
+        state.user.name = "";
+        state.user.email = "";
+        state.user.idUser = "";
+        state.user.profilePic = "";
+        state.user.background = "";
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.logged = true;
+        state.loading = false;
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.idUser = action.payload.idUser;
+        state.user.profilePic = action.payload.profilePic;
+        state.user.background = action.payload.background;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.logged = false;
+        state.loading = false;
+        state.user.name = "";
+        state.user.email = "";
+        state.user.idUser = "";
+        state.user.profilePic = "";
+        state.user.background = "";
+      });
 
     builder.addCase(signUp.fulfilled, (state, action) => {
       console.log(action.payload);

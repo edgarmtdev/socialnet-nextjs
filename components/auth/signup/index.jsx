@@ -1,13 +1,18 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../config/firebase";
-import { FormStyled } from "../form/styles";
+import {
+  AuthButtons,
+  FieldsContainer,
+  FormContainer,
+  FormStyled,
+  ImageContainer,
+} from "../form/styles";
 import { FieldStyled } from "../field/styles";
 import { ButtonAuth, Title } from "../styles";
 import { Formik } from "formik";
-import SectionProvider from "../../form/provider/SectionProvider";
+import SectionProvider from "../../form/provider";
 import BarSignIn from "../bar";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { signUp } from "../../../features/auth";
 import { useState } from "react";
 import { ImSpinner } from "react-icons/im";
@@ -62,39 +67,50 @@ export default function SignupModule() {
         return (
           <>
             <FormStyled>
-              {loading && <ImSpinner className="text-white animate-spin" />}
-              <Title>Register now!</Title>
-              {errors && (
-                <p className="text-red-500 text-center">{errors.credentials}</p>
-              )}
-              <FieldStyled
-                placeholder="Enter your name..."
-                type="text"
-                name="name"
-              />
-              <FieldStyled
-                placeholder="Enter your profile picture..."
-                type="text"
-                name="profilePic"
-              />
-              <FieldStyled
-                placeholder="Enter your background page..."
-                type="text"
-                name="background"
-              />
-              <FieldStyled
-                placeholder="Enter your email"
-                type="email"
-                name="email"
-              />
-              <FieldStyled
-                placeholder="Enter your password"
-                type="password"
-                name="password"
-              />
-              <ButtonAuth type="submit">Sign Up</ButtonAuth>
-              <BarSignIn />
-              <SectionProvider />
+              <ImageContainer>
+                {/* <img src={"/img/login.jpg"} alt="img"></img> */}
+              </ImageContainer>
+              <FormContainer>
+                <FieldsContainer>
+                  {loading && <ImSpinner className="text-white animate-spin" />}
+                  <Title>Register now!</Title>
+                  {errors && (
+                    <p className="text-red-500 text-center">
+                      {errors.credentials}
+                    </p>
+                  )}
+                  <FieldStyled
+                    placeholder="Enter your name..."
+                    type="text"
+                    name="name"
+                  />
+                  <FieldStyled
+                    placeholder="Enter your profile picture..."
+                    type="text"
+                    name="profilePic"
+                  />
+                  <FieldStyled
+                    placeholder="Enter your background page..."
+                    type="text"
+                    name="background"
+                  />
+                  <FieldStyled
+                    placeholder="Enter your email"
+                    type="email"
+                    name="email"
+                  />
+                  <FieldStyled
+                    placeholder="Enter your password"
+                    type="password"
+                    name="password"
+                  />
+                </FieldsContainer>
+                <AuthButtons>
+                  <ButtonAuth type="submit">Sign In</ButtonAuth>
+                  <BarSignIn />
+                  <SectionProvider />
+                </AuthButtons>
+              </FormContainer>
             </FormStyled>
           </>
         );

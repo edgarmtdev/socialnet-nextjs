@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  font-size: 28px;
-  color: lightgray;
+  font-size: 36px;
+  color: #c0c0c0;
   text-align: center;
 `;
 
 export const ButtonAuth = styled.button`
-  background: linear-gradient(90deg, #e866a7, #a783f8, #3b82f6);
-  border-radius: 2px;
-  padding: 6px;
-  color: white;
+  width: 60%;
+  background-color: #3b82f6;
+  border-radius: 5px;
+  padding: 10px;
+  color: #ffffff;
   margin-bottom: 20px;
+  margin-top: 2rem;
+  transition: 500ms;
 
   &:hover {
-    transform: scale(1.01);
-    transition: 0.5s;
+    opacity: 0.9;
+    transition: 500ms;
   }
 `;

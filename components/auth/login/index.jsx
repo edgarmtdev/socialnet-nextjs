@@ -1,10 +1,16 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../config/firebase";
-import { FormStyled } from "../form/styles";
+import {
+  AuthButtons,
+  FieldsContainer,
+  FormContainer,
+  FormStyled,
+  ImageContainer,
+} from "../form/styles";
 import { FieldStyled } from "../field/styles";
 import { ButtonAuth, Title } from "../styles";
 import { Formik } from "formik";
-import SectionProvider from "../../form/provider/SectionProvider";
+import SectionProvider from "../../form/provider";
 import BarSignIn from "../bar";
 import { useRouter } from "next/router";
 
@@ -15,7 +21,6 @@ export default function LoginModule() {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then(() => {
         setSubmitting(false);
-        console.log("hola");
         router.replace("/home");
       })
       .catch(() => {
@@ -32,23 +37,31 @@ export default function LoginModule() {
         return (
           <>
             <FormStyled>
-              <Title>Login</Title>
-              {errors && (
-                <p className="text-red-500 text-center">{errors.credentials}</p>
-              )}
-              <FieldStyled
-                placeholder="Enter your email"
-                type="email"
-                name="email"
-              />
-              <FieldStyled
-                placeholder="Enter your password"
-                type="password"
-                name="password"
-              />
-              <ButtonAuth type="submit">Sign In</ButtonAuth>
-              <BarSignIn />
-              <SectionProvider />
+              <ImageContainer>
+                <img src={"/img/login.jpg"} alt="img"></img>
+              </ImageContainer>
+              <FormContainer>
+                <FieldsContainer>
+                  <Title>Welcome again!</Title>
+                  {errors && (
+                    <span className="text-red-500 text-center">
+                      {errors.credentials}
+                    </span>
+                  )}
+                  <FieldStyled placeholder="Email" type="email" name="email" />
+                  <FieldStyled
+                    placeholder="Password"
+                    type="password"
+                    name="password"
+                  />
+                  <p>Forgot password?</p>
+                </FieldsContainer>
+                <AuthButtons>
+                  <ButtonAuth type="submit">Sign In</ButtonAuth>
+                  <BarSignIn />
+                  <SectionProvider />
+                </AuthButtons>
+              </FormContainer>
             </FormStyled>
           </>
         );
