@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavAside = styled.div`
   position: fixed;
-  background-color: #182635;
+  background-color: #1c1c1c;
   width: 20%;
   height: 130vh;
   z-index: 1;
@@ -22,7 +22,7 @@ export const ContainerNav = styled.ul`
 export const ListItem = styled.li`
   padding: 12px 16px;
   border-radius: 2px;
-  background-color: #182635;
+  background-color: #1c1c1c;
   cursor: pointer;
   &:hover {
     background-color: #2b3b45;

@@ -9,6 +9,7 @@ export default function Comment({ comment }) {
         <img
           src={comment.author.profilePic}
           className="w-6 h-6 rounded-full hover:opacity-30"
+          alt=""
         />
       </Link>
       <Body>

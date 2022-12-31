@@ -39,15 +39,9 @@ const Page = ({ children }) => {
 
   return (
     <>
-      {!loading ? (
-        <>
-          {" "}
-          <Navbar />
-          <PageLayout>{children}</PageLayout>
-        </>
-      ) : (
-        <Spinner />
-      )}
+      {" "}
+      <Navbar />
+      <PageLayout>{children}</PageLayout>
     </>
   );
 };

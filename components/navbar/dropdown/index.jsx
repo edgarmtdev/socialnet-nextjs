@@ -29,7 +29,7 @@ export default function Dropdown({ open, setOpen, user }) {
         </User>
         <Link href={`/profile/${user.idUser}`}>
           <Item onClick={() => setOpen(!open)}>
-            <BiUser className="w-5 h-5" />
+            <BiUser width={5} height={5} />
             Profile
           </Item>
         </Link>

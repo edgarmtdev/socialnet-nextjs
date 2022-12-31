@@ -12,14 +12,23 @@ datasource db {
 
 model User {
     id                   String    @id @default(auto()) @map("_id") @db.ObjectId
-    idProvider           String    
+    idProvider           String
     provider             String
     name                 String?
-    email                String?    @unique
+    email                String?   @unique
     profilePic           String
     background           String?
+    birthday             DateTime
+    gender               GENDER
+    currentCity          String
+    country              String
+    job                  String
+    highSchool           String
+    university           String
+    phoneNumber          String    @default("000-000-0000")
+    age                  Int
     posts                Post[]    @relation(name: "author")
-    comments             Comment[] 
+    comments             Comment[]
     likes                Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])
     likesPostsIDs        String[]  @db.ObjectId
     friends              User[]    @relation(name: "friends", fields: [friendsIDs], references: [id])
@@ -51,4 +60,10 @@ model Comment {
     authorId String @db.ObjectId
     post     Post   @relation(fields: [postId], references: [id])
     postId   String @db.ObjectId
+}
+
+enum GENDER {
+    FEMALE
+    MALE
+    UNSPECIFIED
 }

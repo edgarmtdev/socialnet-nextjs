@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Field, Form, Formik } from "formik";
-import { Button } from "./styles";
-import dynamic from "next/dynamic";
+import { Formik } from "formik";
+import {
+  Button,
+  FieldStyled,
+  FormContainer,
+  ContainerInputFile,
+} from "./styles";
 import { newPost } from "../../../features/posts";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import { storage } from "../../../config/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
-const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 export default function FormComponent({ handlePost }) {
   const [value, setValue] = useState("");
@@ -42,22 +44,14 @@ export default function FormComponent({ handlePost }) {
         image: "",
       }}
     >
-      <Form className="flex flex-col">
-        <MDEditor
-          value={value}
-          onChange={(data, event, editor) => {
-            setValue(data);
-          }}
-        />
-        <input
-          name="image"
-          type="file"
-          placeholder="Image URL"
-          className="p-2 bg-slate-700"
-          onChange={changeImage}
-        />
+      <FormContainer>
+        <FieldStyled name="post" placeholder="Write" as={"textarea"} />
+
+        <ContainerInputFile>
+          <input type="file" name="src-file1" aria-label="Archivo" />
+        </ContainerInputFile>
         <Button type="submit">POST</Button>
-      </Form>
+      </FormContainer>
     </Formik>
   );
 }

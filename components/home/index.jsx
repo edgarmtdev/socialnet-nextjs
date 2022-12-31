@@ -1,5 +1,5 @@
 import Posts from "../../components/posts";
-import FormComponent from "../form/posts/Form";
+import FormComponent from "../form/posts";
 import ProfilePic from "../utils/ProfilePic";
 import { Aside, Background, Feed, Name } from "./styles";
 import { useSelector } from "react-redux";
