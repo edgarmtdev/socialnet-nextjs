@@ -1,19 +1,22 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../../config/firebase";
+import DropdownContext from "../../../context/dropdown";
 import { login, logOut } from "../../../features/auth";
 import { getofFriends, getPosts } from "../../../features/posts";
 import { getUsers } from "../../../features/users";
 import Navbar from "../../navbar/index";
-import Spinner from "../../utils/Spinner";
+// import Spinner from "../../utils/Spinner";
 import { PageLayout } from "./styles";
 
 const Page = ({ children }) => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.post);
+  // const { loading } = useSelector((state) => state.post);
 
-  useEffect(() => {
+  const { state, event } = React.useContext(DropdownContext);
+
+  React.useEffect(() => {
     onAuthStateChanged(auth, (result) => {
       if (result) {
         dispatch(
@@ -40,8 +43,8 @@ const Page = ({ children }) => {
   return (
     <>
       {" "}
-      <Navbar />
-      <PageLayout>{children}</PageLayout>
+      <Navbar onClick={() => state && event(!state)} />
+      <PageLayout onClick={() => state && event(!state)}>{children}</PageLayout>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import FormComponent from "../form/posts/Form";
+import FormComponent from "../form/posts/index";
 import Posts from "../posts";
 import ProfilePic from "../utils/ProfilePic";
 import Friends from "./friends";

@@ -38,7 +38,7 @@ export default function LoginModule() {
           <>
             <FormStyled>
               <ImageContainer>
-                <img src={"/img/login.jpg"} alt="img"></img>
+                {/* <img src={"/img/login.jpg"} alt="img"></img> */}
               </ImageContainer>
               <FormContainer>
                 <FieldsContainer>

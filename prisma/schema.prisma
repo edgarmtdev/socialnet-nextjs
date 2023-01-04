@@ -18,15 +18,15 @@ model User {
     email                String?   @unique
     profilePic           String
     background           String?
-    birthday             DateTime
-    gender               GENDER
-    currentCity          String
-    country              String
-    job                  String
-    highSchool           String
-    university           String
-    phoneNumber          String    @default("000-000-0000")
-    age                  Int
+    birthday             String?
+    gender               GENDER?
+    currentCity          String?
+    country              String?
+    job                  String?
+    highSchool           String?
+    university           String?
+    phoneNumber          String?   @default("000-000-0000")
+    age                  Int?
     posts                Post[]    @relation(name: "author")
     comments             Comment[]
     likes                Post[]    @relation(name: "likes", fields: [likesPostsIDs], references: [id])

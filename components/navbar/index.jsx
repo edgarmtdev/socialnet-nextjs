@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { useState } from "react";
+import React from "react";
 import { CgUserlane } from "react-icons/cg";
 import { useSelector } from "react-redux";
+import DropdownContext from "../../context/dropdown";
 import Button from "./auth";
 import Dropdown from "./dropdown";
 import Routes from "./routes";
 import { Links, Nav, NavContainer, NavTitle } from "./styles";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const { state, event } = React.useContext(DropdownContext);
   const { logged, user } = useSelector((state) => state.auth);
 
   return (
@@ -28,9 +29,9 @@ export default function Navbar() {
         ) : (
           <>
             <Links idLogged={true}>
-              <Routes user={user} setOpen={setOpen} open={open} />
+              <Routes user={user} setOpen={event} open={state} />
             </Links>
-            <Dropdown open={open} setOpen={setOpen} user={user} />
+            <Dropdown open={state} setOpen={event} user={user} />
           </>
         )}
       </NavContainer>

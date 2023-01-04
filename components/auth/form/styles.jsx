@@ -2,7 +2,7 @@ import styled from "styled-components";
 import FormCustom from ".";
 
 export const FormStyled = styled.div`
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background: #1c1c1c;
@@ -19,12 +19,11 @@ export const ImageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
-    width: auto;
-    height: auto;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-  }
+  background-image: url("/img/login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 `;
 
 export const FormContainer = styled(FormCustom)`

@@ -14,10 +14,10 @@ export default function Dropdown({ open, setOpen, user }) {
 
   const router = useRouter();
   const logout = () => {
+    router.replace("/auth/login");
     dispatch(logOut());
     signOut(auth);
     setOpen(false);
-    router.replace("/auth/login");
   };
 
   return (
